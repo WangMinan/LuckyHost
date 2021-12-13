@@ -34,7 +34,7 @@
             </children>
             <children xsi:type="basic:PartSashContainer" xmi:id="_iEt4tFvSEeyD4NRQWHLJBA" containerData="7849" selectedElement="_iEt4tVvSEeyD4NRQWHLJBA">
               <children xsi:type="advanced:Placeholder" xmi:id="_iEt4tVvSEeyD4NRQWHLJBA" elementId="org.eclipse.ui.editorss" containerData="6759" ref="_esLQkFvHEeyqDY0coyw4_Q"/>
-              <children xsi:type="basic:PartStack" xmi:id="_iEt4tlvSEeyD4NRQWHLJBA" elementId="com.trufun.uml2.gef.fold.bottom" containerData="3241" selectedElement="_iEt4t1vSEeyD4NRQWHLJBA">
+              <children xsi:type="basic:PartStack" xmi:id="_iEt4tlvSEeyD4NRQWHLJBA" elementId="com.trufun.uml2.gef.fold.bottom" containerData="3241" selectedElement="_iEt4uFvSEeyD4NRQWHLJBA">
                 <tags>newtablook</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_iEt4t1vSEeyD4NRQWHLJBA" elementId="org.eclipse.ui.views.PropertySheet" ref="_esPiAVvHEeyqDY0coyw4_Q"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_iEt4uFvSEeyD4NRQWHLJBA" elementId="com.trufun.uml2.gef.view.ConsoleView" ref="_esQJEFvHEeyqDY0coyw4_Q"/>
@@ -215,7 +215,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_evj7wVvHEeyqDY0coyw4_Q" elementId="org.eclipse.ui.views.PropertySheet"/>
+      <toolbar xmi:id="_evj7wVvHEeyqDY0coyw4_Q" elementId="org.eclipse.ui.views.PropertySheet" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_esQJEFvHEeyqDY0coyw4_Q" elementId="com.trufun.uml2.gef.view.ConsoleView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Trufun&#x63a7;&#x5236;&#x53f0;" iconURI="platform:/plugin/com.trufun.uml2.kernel/icons/console_view.gif" closeable="true">
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
@@ -225,7 +225,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_e25S0VvHEeyqDY0coyw4_Q" elementId="com.trufun.uml2.gef.view.ConsoleView" visible="false"/>
+      <toolbar xmi:id="_e25S0VvHEeyqDY0coyw4_Q" elementId="com.trufun.uml2.gef.view.ConsoleView"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_esQJEVvHEeyqDY0coyw4_Q" elementId="com.trufun.mda.cartridge.view.PreviewView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="&#x4ee3;&#x7801;&#x751f;&#x6210;&#x5668;" iconURI="platform:/plugin/com.trufun.mda.cartridge/icons/view_overview.gif" closeable="true">
       <tags>View</tags>
@@ -334,7 +334,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_eqt4AlvHEeyqDY0coyw4_Q" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ekodI1vSEeyD4NRQWHLJBA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="&#x6253;&#x5370;" enabled="false" command="_ehEM11vHEeyqDY0coyw4_Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_j77001vZEeyNnLW6p8HhQw" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="&#x6253;&#x5370;" enabled="false" command="_ehEM11vHEeyqDY0coyw4_Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_eqt4A1vHEeyqDY0coyw4_Q" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -358,7 +358,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_equfEFvHEeyqDY0coyw4_Q" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ekq5ZFvSEeyD4NRQWHLJBA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="&#x9501;&#x5b9a;&#x7f16;&#x8f91;&#x5668;" type="Check" command="_ehC-9FvHEeyqDY0coyw4_Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_j7-RE1vZEeyNnLW6p8HhQw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="&#x9501;&#x5b9a;&#x7f16;&#x8f91;&#x5668;" type="Check" command="_ehC-9FvHEeyqDY0coyw4_Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_equfEVvHEeyqDY0coyw4_Q" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
