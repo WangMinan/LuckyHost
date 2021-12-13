@@ -1,5 +1,7 @@
 package com.game;
 
+import com.Item.ItemCatagory;
+
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;

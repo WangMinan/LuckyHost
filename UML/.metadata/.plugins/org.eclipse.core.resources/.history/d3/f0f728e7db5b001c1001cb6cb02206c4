@@ -6,7 +6,7 @@
   </eAnnotations>
   <eAnnotations xmi:id="_7L6noFvHEeyqDY0coyw4_Q" source="Diagrams">
     <contents xmi:type="trufun:TClassDiagram" xmi:id="_7L6noVvHEeyqDY0coyw4_Q" id="_7L3kUFvHEeyqDY0coyw4_Q" owner="_7IKwEFvHEeyqDY0coyw4_Q" name="main" zoom="1.0" gridSpacing="22,22">
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_wVCjsFvSEeyD4NRQWHLJBA" owner="_wU5ZwFvSEeyD4NRQWHLJBA" name="MainEntrance" outgoingConnections="_qgJXcVvTEeyD4NRQWHLJBA" location="72,17" size="231,143" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_wVCjsFvSEeyD4NRQWHLJBA" owner="_wU5ZwFvSEeyD4NRQWHLJBA" name="MainEntrance" outgoingConnections="_qgJXcVvTEeyD4NRQWHLJBA" location="72,17" size="215,127" autoResize="true">
         <fillColor xmi:id="_wVCjsVvSEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_wVCjslvSEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_wVCjs1vSEeyD4NRQWHLJBA"/>
@@ -14,8 +14,7 @@
         <operationCompartmentNode xmi:id="_wVCjtVvSEeyD4NRQWHLJBA">
           <operations xmi:id="__oLWkFvSEeyD4NRQWHLJBA" owner="__oI6UFvSEeyD4NRQWHLJBA" name="playNewGame() : void"/>
           <operations xmi:id="_CWungFvTEeyD4NRQWHLJBA" owner="_CWuAcFvTEeyD4NRQWHLJBA" name="playSavedGame() : void"/>
-          <operations xmi:id="_EKK7EVvTEeyD4NRQWHLJBA" owner="_EKKUAFvTEeyD4NRQWHLJBA" name="exit() : void"/>
-          <operations xmi:id="_4ahG8FvbEeyflPHvzqRlHQ" owner="_4af40FvbEeyflPHvzqRlHQ" name="main() : void"/>
+          <operations xmi:id="_EKK7EVvTEeyD4NRQWHLJBA" owner="_EKKUAFvTEeyD4NRQWHLJBA" name="Exit() : void"/>
         </operationCompartmentNode>
         <attributeCompartmentNode xmi:id="_wVCjtlvSEeyD4NRQWHLJBA">
           <attributes xmi:id="_0vGUMFvSEeyD4NRQWHLJBA" owner="_0vFtIFvSEeyD4NRQWHLJBA" name="mainFrame : JFrame"/>
@@ -23,7 +22,7 @@
         <nestedClassifierCompartmentNode xmi:id="_wVCjt1vSEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_wVCjuFvSEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,303" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="255,287" autoResize="true">
         <fillColor xmi:id="_PlXMAVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_PlXMAlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_PlXMA1vTEeyD4NRQWHLJBA"/>
@@ -32,13 +31,12 @@
           <operations xmi:id="_jKw98FvWEeyD4NRQWHLJBA" owner="_jKvv0FvWEeyD4NRQWHLJBA" name="getter&amp;setter() : void"/>
           <operations xmi:id="_VCgxMFvTEeyD4NRQWHLJBA" owner="_VCgKIFvTEeyD4NRQWHLJBA" name="initNewGame() : void"/>
           <operations xmi:id="_bLVJkVvTEeyD4NRQWHLJBA" owner="_bLUigFvTEeyD4NRQWHLJBA" name="initLoadedGame() : void"/>
-          <operations xmi:id="_aBS4AVvWEeyD4NRQWHLJBA" owner="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeLose() : boolean"/>
+          <operations xmi:id="_aBS4AVvWEeyD4NRQWHLJBA" owner="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeOrExit() : void"/>
           <operations xmi:id="_nPuvkFvTEeyD4NRQWHLJBA" owner="_nPuIgFvTEeyD4NRQWHLJBA" name="saveGame() : void"/>
           <operations xmi:id="_iHi4UFvUEeyD4NRQWHLJBA" owner="_iHhqMFvUEeyD4NRQWHLJBA" name="calculateTotalMoney() : int"/>
           <operations xmi:id="_bEJ4oFvVEeyD4NRQWHLJBA" owner="_bEIqgFvVEeyD4NRQWHLJBA" name="rotate() : void"/>
-          <operations xmi:id="_e2Y0IVvVEeyD4NRQWHLJBA" owner="_e2YNEFvVEeyD4NRQWHLJBA" name="upDateItemFrame() : void"/>
+          <operations xmi:id="_e2Y0IVvVEeyD4NRQWHLJBA" owner="_e2YNEFvVEeyD4NRQWHLJBA" name="showItemFrame() : void"/>
           <operations xmi:id="_-nFloFvVEeyD4NRQWHLJBA" owner="_-nEXgFvVEeyD4NRQWHLJBA" name="updateMaterialList() : void"/>
-          <operations xmi:id="_eh3xIFvfEeyflPHvzqRlHQ" owner="_eh2jAFvfEeyflPHvzqRlHQ" name="showMaterialList() : void"/>
         </operationCompartmentNode>
         <attributeCompartmentNode xmi:id="_PlXMBlvTEeyD4NRQWHLJBA">
           <attributes xmi:id="_lPQsoFvTEeyD4NRQWHLJBA" owner="_lPQFkFvTEeyD4NRQWHLJBA" name="gameFrame : JFrame"/>
@@ -50,10 +48,10 @@
         <nestedClassifierCompartmentNode xmi:id="_PlXMB1vTEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_PlXMCFvTEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0FvTEeyD4NRQWHLJBA" name="*" location="188,226" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0FvTEeyD4NRQWHLJBA" name="*" location="180,226" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_qgWy0VvTEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0lvTEeyD4NRQWHLJBA" name="1" location="188,156" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0lvTEeyD4NRQWHLJBA" name="1" location="180,140" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_qgWy01vTEeyD4NRQWHLJBA"/>
       </nodes>
       <nodes xmi:type="trufun:TClassNode" xmi:id="_th4qIFvTEeyD4NRQWHLJBA" owner="_th4DEFvTEeyD4NRQWHLJBA" name="CommonItem" incomingConnections="_u9iTVVvUEeyD4NRQWHLJBA" outgoingConnections="_MG2oV1vUEeyD4NRQWHLJBA" location="671,190" size="231,111" autoResize="true">
@@ -145,7 +143,7 @@
         <nestedClassifierCompartmentNode xmi:id="_9WNCCFvUEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_9WNCCVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="345,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="329,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_J_xxoVvVEeyD4NRQWHLJBA"/>
       </nodes>
       <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxolvVEeyD4NRQWHLJBA" name="1" location="827,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
@@ -304,11 +302,8 @@
     <ownedOperation xmi:id="_CWuAcFvTEeyD4NRQWHLJBA" name="playSavedGame" visibility="public">
       <ownedParameter xmi:id="_CWuAcVvTEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_EKKUAFvTEeyD4NRQWHLJBA" name="exit" visibility="public">
+    <ownedOperation xmi:id="_EKKUAFvTEeyD4NRQWHLJBA" name="Exit" visibility="public">
       <ownedParameter xmi:id="_EKK7EFvTEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_4af40FvbEeyflPHvzqRlHQ" name="main" visibility="public">
-      <ownedParameter xmi:id="_4agf4FvbEeyflPHvzqRlHQ" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_38DYYFvSEeyD4NRQWHLJBA" name="JFrame"/>
@@ -328,8 +323,8 @@
     <ownedOperation xmi:id="_bLUigFvTEeyD4NRQWHLJBA" name="initLoadedGame" visibility="public">
       <ownedParameter xmi:id="_bLVJkFvTEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeLose" visibility="public">
-      <ownedParameter xmi:id="_aBS4AFvWEeyD4NRQWHLJBA" name="Parameter1" type="_ObicMFveEeyflPHvzqRlHQ" direction="return"/>
+    <ownedOperation xmi:id="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeOrExit" visibility="public">
+      <ownedParameter xmi:id="_aBS4AFvWEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_nPuIgFvTEeyD4NRQWHLJBA" name="saveGame" visibility="public">
       <ownedParameter xmi:id="_nPuIgVvTEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
@@ -340,14 +335,11 @@
     <ownedOperation xmi:id="_bEIqgFvVEeyD4NRQWHLJBA" name="rotate" visibility="public">
       <ownedParameter xmi:id="_bEJRkFvVEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_e2YNEFvVEeyD4NRQWHLJBA" name="upDateItemFrame" visibility="public">
+    <ownedOperation xmi:id="_e2YNEFvVEeyD4NRQWHLJBA" name="showItemFrame" visibility="public">
       <ownedParameter xmi:id="_e2Y0IFvVEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_-nEXgFvVEeyD4NRQWHLJBA" name="updateMaterialList" visibility="public">
       <ownedParameter xmi:id="_-nE-kFvVEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_eh2jAFvfEeyflPHvzqRlHQ" name="showMaterialList" visibility="public">
-      <ownedParameter xmi:id="_eh3KEFvfEeyflPHvzqRlHQ" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_qgG7MFvTEeyD4NRQWHLJBA" memberEnd="_qgIwYFvTEeyD4NRQWHLJBA _qgIwY1vTEeyD4NRQWHLJBA">
@@ -449,7 +441,6 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bhOnc1vbEeyflPHvzqRlHQ" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_ObicMFveEeyflPHvzqRlHQ" name="boolean"/>
   <profileApplication xmi:id="_7JVNsFvHEeyqDY0coyw4_Q">
     <eAnnotations xmi:id="_7JV0wFvHEeyqDY0coyw4_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>

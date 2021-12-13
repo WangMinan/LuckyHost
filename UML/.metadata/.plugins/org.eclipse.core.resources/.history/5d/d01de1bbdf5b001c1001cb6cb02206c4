@@ -23,7 +23,7 @@
         <nestedClassifierCompartmentNode xmi:id="_wVCjt1vSEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_wVCjuFvSEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,303" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="255,287" autoResize="true">
         <fillColor xmi:id="_PlXMAVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_PlXMAlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_PlXMA1vTEeyD4NRQWHLJBA"/>
@@ -32,13 +32,12 @@
           <operations xmi:id="_jKw98FvWEeyD4NRQWHLJBA" owner="_jKvv0FvWEeyD4NRQWHLJBA" name="getter&amp;setter() : void"/>
           <operations xmi:id="_VCgxMFvTEeyD4NRQWHLJBA" owner="_VCgKIFvTEeyD4NRQWHLJBA" name="initNewGame() : void"/>
           <operations xmi:id="_bLVJkVvTEeyD4NRQWHLJBA" owner="_bLUigFvTEeyD4NRQWHLJBA" name="initLoadedGame() : void"/>
-          <operations xmi:id="_aBS4AVvWEeyD4NRQWHLJBA" owner="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeLose() : boolean"/>
+          <operations xmi:id="_aBS4AVvWEeyD4NRQWHLJBA" owner="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeOrExit() : void"/>
           <operations xmi:id="_nPuvkFvTEeyD4NRQWHLJBA" owner="_nPuIgFvTEeyD4NRQWHLJBA" name="saveGame() : void"/>
           <operations xmi:id="_iHi4UFvUEeyD4NRQWHLJBA" owner="_iHhqMFvUEeyD4NRQWHLJBA" name="calculateTotalMoney() : int"/>
           <operations xmi:id="_bEJ4oFvVEeyD4NRQWHLJBA" owner="_bEIqgFvVEeyD4NRQWHLJBA" name="rotate() : void"/>
-          <operations xmi:id="_e2Y0IVvVEeyD4NRQWHLJBA" owner="_e2YNEFvVEeyD4NRQWHLJBA" name="upDateItemFrame() : void"/>
+          <operations xmi:id="_e2Y0IVvVEeyD4NRQWHLJBA" owner="_e2YNEFvVEeyD4NRQWHLJBA" name="showItemFrame() : void"/>
           <operations xmi:id="_-nFloFvVEeyD4NRQWHLJBA" owner="_-nEXgFvVEeyD4NRQWHLJBA" name="updateMaterialList() : void"/>
-          <operations xmi:id="_eh3xIFvfEeyflPHvzqRlHQ" owner="_eh2jAFvfEeyflPHvzqRlHQ" name="showMaterialList() : void"/>
         </operationCompartmentNode>
         <attributeCompartmentNode xmi:id="_PlXMBlvTEeyD4NRQWHLJBA">
           <attributes xmi:id="_lPQsoFvTEeyD4NRQWHLJBA" owner="_lPQFkFvTEeyD4NRQWHLJBA" name="gameFrame : JFrame"/>
@@ -145,7 +144,7 @@
         <nestedClassifierCompartmentNode xmi:id="_9WNCCFvUEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_9WNCCVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="345,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="329,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_J_xxoVvVEeyD4NRQWHLJBA"/>
       </nodes>
       <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxolvVEeyD4NRQWHLJBA" name="1" location="827,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
@@ -328,8 +327,8 @@
     <ownedOperation xmi:id="_bLUigFvTEeyD4NRQWHLJBA" name="initLoadedGame" visibility="public">
       <ownedParameter xmi:id="_bLVJkFvTEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeLose" visibility="public">
-      <ownedParameter xmi:id="_aBS4AFvWEeyD4NRQWHLJBA" name="Parameter1" type="_ObicMFveEeyflPHvzqRlHQ" direction="return"/>
+    <ownedOperation xmi:id="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeOrExit" visibility="public">
+      <ownedParameter xmi:id="_aBS4AFvWEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_nPuIgFvTEeyD4NRQWHLJBA" name="saveGame" visibility="public">
       <ownedParameter xmi:id="_nPuIgVvTEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
@@ -340,14 +339,11 @@
     <ownedOperation xmi:id="_bEIqgFvVEeyD4NRQWHLJBA" name="rotate" visibility="public">
       <ownedParameter xmi:id="_bEJRkFvVEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_e2YNEFvVEeyD4NRQWHLJBA" name="upDateItemFrame" visibility="public">
+    <ownedOperation xmi:id="_e2YNEFvVEeyD4NRQWHLJBA" name="showItemFrame" visibility="public">
       <ownedParameter xmi:id="_e2Y0IFvVEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_-nEXgFvVEeyD4NRQWHLJBA" name="updateMaterialList" visibility="public">
       <ownedParameter xmi:id="_-nE-kFvVEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:id="_eh2jAFvfEeyflPHvzqRlHQ" name="showMaterialList" visibility="public">
-      <ownedParameter xmi:id="_eh3KEFvfEeyflPHvzqRlHQ" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_qgG7MFvTEeyD4NRQWHLJBA" memberEnd="_qgIwYFvTEeyD4NRQWHLJBA _qgIwY1vTEeyD4NRQWHLJBA">
@@ -449,7 +445,6 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bhOnc1vbEeyflPHvzqRlHQ" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_ObicMFveEeyflPHvzqRlHQ" name="boolean"/>
   <profileApplication xmi:id="_7JVNsFvHEeyqDY0coyw4_Q">
     <eAnnotations xmi:id="_7JV0wFvHEeyqDY0coyw4_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
