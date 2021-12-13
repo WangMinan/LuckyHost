@@ -7,6 +7,7 @@ import java.util.Vector;
  * @version 0.0.1
  */
 
+
 public class ItemCatagory {
     /**
      * 用于存储Item的容器
