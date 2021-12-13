@@ -3,7 +3,7 @@ package com.Item;
 import javax.swing.*;
 
 /**
- * This Class
+ * 这个类表示Item中需要在转盘中出现，可以获取金币的对象（水果）
  * @author WangMinan
  * @version 0.0.1
  * @see Item

@@ -3,7 +3,7 @@ package com.Item;
 import javax.swing.*;
 
 /**
- * This Class
+ * 这个类用于描述存储对象(主要是转盘的水果和特殊道具)
  * @author WuSigan
  * @version 0.0.1
  */
