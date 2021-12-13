@@ -33,6 +33,11 @@ public class GameBoard {
     private ItemCatagory commonItems;
 
     /**
+     * 剩余的移除次数
+     */
+    private int chancesToRemove;
+
+    /**
      * 特殊物品所在的列表
      */
     private ItemCatagory specialItems;

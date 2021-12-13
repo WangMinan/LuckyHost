@@ -178,12 +178,12 @@
       <toolbar xmi:id="_exZHwVvHEeyqDY0coyw4_Q" elementId="org.eclipse.ui.internal.introview" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_esLQkFvHEeyqDY0coyw4_Q" elementId="org.eclipse.ui.editorss" selectedElement="_esLQkVvHEeyqDY0coyw4_Q">
-      <children xsi:type="basic:PartStack" xmi:id="_esLQkVvHEeyqDY0coyw4_Q" elementId="PartStack@6ebaef" selectedElement="_7KE0kFvHEeyqDY0coyw4_Q">
+      <children xsi:type="basic:PartStack" xmi:id="_esLQkVvHEeyqDY0coyw4_Q" elementId="PartStack@6ebaef" selectedElement="_4x0k8FvhEeyZOMLtFftEsA">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_7KE0kFvHEeyqDY0coyw4_Q" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="/LuckyHostUML/src/file1.tmx" iconURI="platform:/plugin/com.trufun.uml2.kernel/icons/umlproject.gif" closeable="true">
+        <children xsi:type="basic:Part" xmi:id="_4x0k8FvhEeyZOMLtFftEsA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="/LuckyHostUML/src/file1.tmx" iconURI="platform:/plugin/com.trufun.uml2.kernel/icons/umlproject.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.trufun.uml2.gef.ui.editor.ModelFormEditor&quot; name=&quot;file1.tmx&quot; partName=&quot;/LuckyHostUML/src/file1.tmx&quot; title=&quot;/LuckyHostUML/src/file1.tmx&quot; tooltip=&quot;LuckyHostUML/src/file1.tmx&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LuckyHostUML/src/file1.tmx&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>com.trufun.uml2.gef.ui.editor.ModelFormEditor</tags>
@@ -334,7 +334,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_eqt4AlvHEeyqDY0coyw4_Q" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_aBXXNlvbEeyflPHvzqRlHQ" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="&#x6253;&#x5370;" enabled="false" command="_ehEM11vHEeyqDY0coyw4_Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_32pWIFvhEeyZOMLtFftEsA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="&#x6253;&#x5370;" enabled="false" command="_ehEM11vHEeyqDY0coyw4_Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_eqt4A1vHEeyqDY0coyw4_Q" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -358,7 +358,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_equfEFvHEeyqDY0coyw4_Q" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_aBZzdFvbEeyflPHvzqRlHQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="&#x9501;&#x5b9a;&#x7f16;&#x8f91;&#x5668;" type="Check" command="_ehC-9FvHEeyqDY0coyw4_Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_32ryZFvhEeyZOMLtFftEsA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="&#x9501;&#x5b9a;&#x7f16;&#x8f91;&#x5668;" type="Check" command="_ehC-9FvHEeyqDY0coyw4_Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_equfEVvHEeyqDY0coyw4_Q" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
