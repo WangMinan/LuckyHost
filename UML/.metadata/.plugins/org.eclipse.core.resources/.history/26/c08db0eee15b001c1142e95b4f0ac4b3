@@ -6,7 +6,7 @@
   </eAnnotations>
   <eAnnotations xmi:id="_7L6noFvHEeyqDY0coyw4_Q" source="Diagrams">
     <contents xmi:type="trufun:TClassDiagram" xmi:id="_7L6noVvHEeyqDY0coyw4_Q" id="_7L3kUFvHEeyqDY0coyw4_Q" owner="_7IKwEFvHEeyqDY0coyw4_Q" name="main" zoom="1.0" gridSpacing="22,22">
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_wVCjsFvSEeyD4NRQWHLJBA" owner="_wU5ZwFvSEeyD4NRQWHLJBA" name="MainEntrance" outgoingConnections="_qgJXcVvTEeyD4NRQWHLJBA" location="72,17" size="215,143" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_wVCjsFvSEeyD4NRQWHLJBA" owner="_wU5ZwFvSEeyD4NRQWHLJBA" name="MainEntrance" outgoingConnections="_qgJXcVvTEeyD4NRQWHLJBA" location="72,17" size="231,143" autoResize="true">
         <fillColor xmi:id="_wVCjsVvSEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_wVCjslvSEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_wVCjs1vSEeyD4NRQWHLJBA"/>
@@ -23,7 +23,7 @@
         <nestedClassifierCompartmentNode xmi:id="_wVCjt1vSEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_wVCjuFvSEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,335" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,303" autoResize="true">
         <fillColor xmi:id="_PlXMAVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_PlXMAlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_PlXMA1vTEeyD4NRQWHLJBA"/>
@@ -46,19 +46,17 @@
           <attributes xmi:id="_fB2SsFvUEeyD4NRQWHLJBA" owner="_fB1roFvUEeyD4NRQWHLJBA" name="totalMoney : int"/>
           <attributes xmi:id="_MaGfAFvVEeyD4NRQWHLJBA" owner="_MaF38FvVEeyD4NRQWHLJBA" name="commonItems : ItemCatagory"/>
           <attributes xmi:id="_O7L7sFvVEeyD4NRQWHLJBA" owner="_O7LUoFvVEeyD4NRQWHLJBA" name="specialItems : ItemCatagory"/>
-          <attributes xmi:id="_50KywFvhEeyZOMLtFftEsA" owner="_50HvcFvhEeyZOMLtFftEsA" name="chanceToRemove : int"/>
-          <attributes xmi:id="_ICVaQFvlEeynut3JyQ4oqA" owner="_ICS-AFvlEeynut3JyQ4oqA" name="rotateTime : int"/>
         </attributeCompartmentNode>
         <nestedClassifierCompartmentNode xmi:id="_PlXMB1vTEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_PlXMCFvTEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0FvTEeyD4NRQWHLJBA" name="*" location="180,226" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0FvTEeyD4NRQWHLJBA" name="*" location="188,226" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_qgWy0VvTEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0lvTEeyD4NRQWHLJBA" name="1" location="180,156" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0lvTEeyD4NRQWHLJBA" name="1" location="188,156" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_qgWy01vTEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_th4qIFvTEeyD4NRQWHLJBA" owner="_th4DEFvTEeyD4NRQWHLJBA" name="CommonItem" incomingConnections="_u9iTVVvUEeyD4NRQWHLJBA" outgoingConnections="_MG2oV1vUEeyD4NRQWHLJBA" location="671,190" size="215,111" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_th4qIFvTEeyD4NRQWHLJBA" owner="_th4DEFvTEeyD4NRQWHLJBA" name="CommonItem" incomingConnections="_u9iTVVvUEeyD4NRQWHLJBA" outgoingConnections="_MG2oV1vUEeyD4NRQWHLJBA" location="671,190" size="231,111" autoResize="true">
         <fillColor xmi:id="_th4qIVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_th4qIlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_th4qI1vTEeyD4NRQWHLJBA"/>
@@ -94,7 +92,7 @@
       <nodes xmi:type="trufun:SubLabel" xmi:id="_MG7g0lvUEeyD4NRQWHLJBA" name="1" location="647,212" size="24,31" parent="_MG2oV1vUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_MG7g01vUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TInterfaceNode" xmi:id="_OO9kUlvUEeyD4NRQWHLJBA" owner="_OO89QFvUEeyD4NRQWHLJBA" name="Item" incomingConnections="_bhPOgFvbEeyflPHvzqRlHQ" outgoingConnections="_u9iTVVvUEeyD4NRQWHLJBA _6JGM0FvUEeyD4NRQWHLJBA" location="835,8" size="215,158" autoResize="true" viewAsClass="true">
+      <nodes xmi:type="trufun:TInterfaceNode" xmi:id="_OO9kUlvUEeyD4NRQWHLJBA" owner="_OO89QFvUEeyD4NRQWHLJBA" name="Item" incomingConnections="_bhPOgFvbEeyflPHvzqRlHQ" outgoingConnections="_u9iTVVvUEeyD4NRQWHLJBA _6JGM0FvUEeyD4NRQWHLJBA" location="835,8" size="231,158" autoResize="true" viewAsClass="true">
         <fillColor xmi:id="_OO9kU1vUEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_OO9kVFvUEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_OO9kVVvUEeyD4NRQWHLJBA"/>
@@ -110,10 +108,10 @@
         </attributeCompartmentNode>
         <nestedClassifierCompartmentNode xmi:id="_OO9kWVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_u9poEFvUEeyD4NRQWHLJBA" name="1" location="858,159" size="24,31" parent="_u9iTVVvUEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_u9poEFvUEeyD4NRQWHLJBA" name="1" location="866,159" size="24,31" parent="_u9iTVVvUEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_u9poEVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_u9poElvUEeyD4NRQWHLJBA" name="1" location="858,162" size="24,31" parent="_u9iTVVvUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_u9poElvUEeyD4NRQWHLJBA" name="1" location="866,162" size="24,31" parent="_u9iTVVvUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_u9poE1vUEeyD4NRQWHLJBA"/>
       </nodes>
       <nodes xmi:type="trufun:TClassNode" xmi:id="_vmE6AFvUEeyD4NRQWHLJBA" owner="_vmES8FvUEeyD4NRQWHLJBA" name="SpecialItem" incomingConnections="_6JGM0FvUEeyD4NRQWHLJBA" location="955,191" size="148,29" autoResize="true">
@@ -126,10 +124,10 @@
         <nestedClassifierCompartmentNode xmi:id="_vmE6B1vUEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_vmE6CFvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLFUFvUEeyD4NRQWHLJBA" name="1" location="1000,160" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLFUFvUEeyD4NRQWHLJBA" name="1" location="1008,160" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_6JLFUVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLsYFvUEeyD4NRQWHLJBA" name="1" location="1000,162" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLsYFvUEeyD4NRQWHLJBA" name="1" location="1008,162" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_6JLsYVvUEeyD4NRQWHLJBA"/>
       </nodes>
       <nodes xmi:type="trufun:TClassNode" xmi:id="_9WNCAVvUEeyD4NRQWHLJBA" owner="_9WNCAFvUEeyD4NRQWHLJBA" name="ItemCatagory" outgoingConnections="_J_myh1vVEeyD4NRQWHLJBA _bhPOgFvbEeyflPHvzqRlHQ" location="851,403" size="255,127" autoResize="true">
@@ -154,10 +152,10 @@
       <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxolvVEeyD4NRQWHLJBA" name="1" location="827,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_J_xxo1vVEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_bhXxYFvbEeyflPHvzqRlHQ" name="1" location="948,162" size="24,31" parent="_bhPOgFvbEeyflPHvzqRlHQ" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_bhXxYFvbEeyflPHvzqRlHQ" name="1" location="956,162" size="24,31" parent="_bhPOgFvbEeyflPHvzqRlHQ" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_bhXxYVvbEeyflPHvzqRlHQ"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_bhYYcFvbEeyflPHvzqRlHQ" name="1" location="948,372" size="24,31" parent="_bhPOgFvbEeyflPHvzqRlHQ" alias="Supplier.Multiplicity" direction="11" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_bhYYcFvbEeyflPHvzqRlHQ" name="1" location="956,372" size="24,31" parent="_bhPOgFvbEeyflPHvzqRlHQ" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_bhYYcVvbEeyflPHvzqRlHQ"/>
       </nodes>
       <connections xmi:type="trufun:TNavigableAssociationConnection" xmi:id="_qgJXcVvTEeyD4NRQWHLJBA" owner="_qgG7MFvTEeyD4NRQWHLJBA" name="" subLabels="_qgWy0FvTEeyD4NRQWHLJBA _qgWy0lvTEeyD4NRQWHLJBA" target="_PlXMAFvTEeyD4NRQWHLJBA" source="_wVCjsFvSEeyD4NRQWHLJBA">
@@ -322,8 +320,6 @@
     <ownedAttribute xmi:id="_fB1roFvUEeyD4NRQWHLJBA" name="totalMoney" visibility="private" type="_7KBxQlvHEeyqDY0coyw4_Q"/>
     <ownedAttribute xmi:id="_MaF38FvVEeyD4NRQWHLJBA" name="commonItems" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA"/>
     <ownedAttribute xmi:id="_O7LUoFvVEeyD4NRQWHLJBA" name="specialItems" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA"/>
-    <ownedAttribute xmi:id="_50HvcFvhEeyZOMLtFftEsA" name="chanceToRemove" visibility="private" type="_7KBxQlvHEeyqDY0coyw4_Q"/>
-    <ownedAttribute xmi:id="_ICS-AFvlEeynut3JyQ4oqA" name="rotateTime" visibility="private" type="_7KBxQlvHEeyqDY0coyw4_Q"/>
     <ownedOperation xmi:id="_jKvv0FvWEeyD4NRQWHLJBA" name="getter&amp;setter" visibility="public">
       <ownedParameter xmi:id="_jKwW4FvWEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>

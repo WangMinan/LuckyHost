@@ -23,7 +23,7 @@
         <nestedClassifierCompartmentNode xmi:id="_wVCjt1vSEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_wVCjuFvSEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,335" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,319" autoResize="true">
         <fillColor xmi:id="_PlXMAVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_PlXMAlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_PlXMA1vTEeyD4NRQWHLJBA"/>
@@ -47,7 +47,6 @@
           <attributes xmi:id="_MaGfAFvVEeyD4NRQWHLJBA" owner="_MaF38FvVEeyD4NRQWHLJBA" name="commonItems : ItemCatagory"/>
           <attributes xmi:id="_O7L7sFvVEeyD4NRQWHLJBA" owner="_O7LUoFvVEeyD4NRQWHLJBA" name="specialItems : ItemCatagory"/>
           <attributes xmi:id="_50KywFvhEeyZOMLtFftEsA" owner="_50HvcFvhEeyZOMLtFftEsA" name="chanceToRemove : int"/>
-          <attributes xmi:id="_ICVaQFvlEeynut3JyQ4oqA" owner="_ICS-AFvlEeynut3JyQ4oqA" name="rotateTime : int"/>
         </attributeCompartmentNode>
         <nestedClassifierCompartmentNode xmi:id="_PlXMB1vTEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_PlXMCFvTEeyD4NRQWHLJBA"/>
@@ -323,7 +322,6 @@
     <ownedAttribute xmi:id="_MaF38FvVEeyD4NRQWHLJBA" name="commonItems" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA"/>
     <ownedAttribute xmi:id="_O7LUoFvVEeyD4NRQWHLJBA" name="specialItems" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA"/>
     <ownedAttribute xmi:id="_50HvcFvhEeyZOMLtFftEsA" name="chanceToRemove" visibility="private" type="_7KBxQlvHEeyqDY0coyw4_Q"/>
-    <ownedAttribute xmi:id="_ICS-AFvlEeynut3JyQ4oqA" name="rotateTime" visibility="private" type="_7KBxQlvHEeyqDY0coyw4_Q"/>
     <ownedOperation xmi:id="_jKvv0FvWEeyD4NRQWHLJBA" name="getter&amp;setter" visibility="public">
       <ownedParameter xmi:id="_jKwW4FvWEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
