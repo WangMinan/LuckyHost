@@ -1,6 +1,6 @@
 package com.game;
 
-import com.Item.ItemCatagory;
+import com.Item.ItemCategory;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -30,7 +30,7 @@ public class GameBoard {
     /**
      * 基础物品所在的列表
      */
-    private ItemCatagory commonItems;
+    private ItemCategory commonItems;
 
     /**
      * 剩余的移除次数
@@ -40,7 +40,7 @@ public class GameBoard {
     /**
      * 特殊物品所在的列表
      */
-    private ItemCatagory specialItems;
+    private ItemCategory specialItems;
 
     /**
      * @Constructor
@@ -56,7 +56,7 @@ public class GameBoard {
      * @param commonItems
      * @param specialItems
      */
-    public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney, ItemCatagory commonItems, ItemCatagory specialItems) {
+    public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney, ItemCategory commonItems, ItemCategory specialItems) {
         this.gameFrame = gameFrame;
         this.targetMoney = targetMoney;
         this.totalMoney = totalMoney;

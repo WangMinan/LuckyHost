@@ -8,40 +8,40 @@ import java.util.Vector;
  */
 
 
-public class ItemCatagory {
+public class ItemCategory {
     /**
      * 用于存储Item的容器
      */
-    public Vector<Item> itemCatagory = new Vector<Item>();
+    public Vector<Item> itemCategory = new Vector<Item>();
 
     /**
      * 含参构造函数
-     * @param itemCatagory
+     * @param itemCategory
      */
-    public ItemCatagory(Vector<Item> itemCatagory) {
-        this.itemCatagory = itemCatagory;
+    public ItemCategory(Vector<Item> itemCategory) {
+        this.itemCategory = itemCategory;
     }
 
     /**
      * 无参构造函数
      */
-    public ItemCatagory() {
+    public ItemCategory() {
     }
 
     /**
      * 返回存储了Item的容器
      * @return Vector<Item>
      */
-    public Vector<Item> getItemCatagory() {
-        return itemCatagory;
+    public Vector<Item> getItemCategory() {
+        return itemCategory;
     }
 
     /**
      * 设置或更新存储Item的容器
-     * @param itemCatagory
+     * @param itemCategory
      */
-    public void setItemCatagory(Vector<Item> itemCatagory) {
-        this.itemCatagory = itemCatagory;
+    public void setItemCategory(Vector<Item> itemCategory) {
+        this.itemCategory = itemCategory;
     }
 
     /**
@@ -49,7 +49,7 @@ public class ItemCatagory {
      * @param item
      */
     public void addItem(Item item){
-        itemCatagory.add(item);
+        itemCategory.add(item);
     }
 
     /**
@@ -57,7 +57,7 @@ public class ItemCatagory {
      * @param index
      */
     public void removeItem(int index){
-        itemCatagory.remove(index);
+        itemCategory.remove(index);
     }
 
 }
