@@ -6,7 +6,7 @@
   </eAnnotations>
   <eAnnotations xmi:id="_7L6noFvHEeyqDY0coyw4_Q" source="Diagrams">
     <contents xmi:type="trufun:TClassDiagram" xmi:id="_7L6noVvHEeyqDY0coyw4_Q" id="_7L3kUFvHEeyqDY0coyw4_Q" owner="_7IKwEFvHEeyqDY0coyw4_Q" name="main" zoom="1.0" gridSpacing="22,22">
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_wVCjsFvSEeyD4NRQWHLJBA" owner="_wU5ZwFvSEeyD4NRQWHLJBA" name="MainEntrance" outgoingConnections="_qgJXcVvTEeyD4NRQWHLJBA" location="72,17" size="231,127" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_wVCjsFvSEeyD4NRQWHLJBA" owner="_wU5ZwFvSEeyD4NRQWHLJBA" name="MainEntrance" outgoingConnections="_qgJXcVvTEeyD4NRQWHLJBA" location="72,17" size="231,143" autoResize="true">
         <fillColor xmi:id="_wVCjsVvSEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_wVCjslvSEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_wVCjs1vSEeyD4NRQWHLJBA"/>
@@ -14,7 +14,8 @@
         <operationCompartmentNode xmi:id="_wVCjtVvSEeyD4NRQWHLJBA">
           <operations xmi:id="__oLWkFvSEeyD4NRQWHLJBA" owner="__oI6UFvSEeyD4NRQWHLJBA" name="playNewGame() : void"/>
           <operations xmi:id="_CWungFvTEeyD4NRQWHLJBA" owner="_CWuAcFvTEeyD4NRQWHLJBA" name="playSavedGame() : void"/>
-          <operations xmi:id="_EKK7EVvTEeyD4NRQWHLJBA" owner="_EKKUAFvTEeyD4NRQWHLJBA" name="Exit() : void"/>
+          <operations xmi:id="_EKK7EVvTEeyD4NRQWHLJBA" owner="_EKKUAFvTEeyD4NRQWHLJBA" name="exit() : void"/>
+          <operations xmi:id="_4ahG8FvbEeyflPHvzqRlHQ" owner="_4af40FvbEeyflPHvzqRlHQ" name="main() : void"/>
         </operationCompartmentNode>
         <attributeCompartmentNode xmi:id="_wVCjtlvSEeyD4NRQWHLJBA">
           <attributes xmi:id="_0vGUMFvSEeyD4NRQWHLJBA" owner="_0vFtIFvSEeyD4NRQWHLJBA" name="mainFrame : JFrame"/>
@@ -22,7 +23,7 @@
         <nestedClassifierCompartmentNode xmi:id="_wVCjt1vSEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_wVCjuFvSEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,287" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="255,287" autoResize="true">
         <fillColor xmi:id="_PlXMAVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_PlXMAlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_PlXMA1vTEeyD4NRQWHLJBA"/>
@@ -51,16 +52,17 @@
       <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0FvTEeyD4NRQWHLJBA" name="*" location="188,226" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_qgWy0VvTEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0lvTEeyD4NRQWHLJBA" name="1" location="188,140" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_qgWy0lvTEeyD4NRQWHLJBA" name="1" location="188,156" size="24,31" parent="_qgJXcVvTEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_qgWy01vTEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_th4qIFvTEeyD4NRQWHLJBA" owner="_th4DEFvTEeyD4NRQWHLJBA" name="CommonItem" incomingConnections="_u9iTVVvUEeyD4NRQWHLJBA _IYttMFvVEeyD4NRQWHLJBA" outgoingConnections="_MG2oV1vUEeyD4NRQWHLJBA" location="671,190" size="231,95" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_th4qIFvTEeyD4NRQWHLJBA" owner="_th4DEFvTEeyD4NRQWHLJBA" name="CommonItem" incomingConnections="_u9iTVVvUEeyD4NRQWHLJBA" outgoingConnections="_MG2oV1vUEeyD4NRQWHLJBA" location="671,190" size="231,111" autoResize="true">
         <fillColor xmi:id="_th4qIVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_th4qIlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_th4qI1vTEeyD4NRQWHLJBA"/>
         <stereotypeNodes xmi:id="_th4qJFvTEeyD4NRQWHLJBA" id="_th4DEFvTEeyD4NRQWHLJBA"/>
         <operationCompartmentNode xmi:id="_th4qJVvTEeyD4NRQWHLJBA">
           <operations xmi:id="_VCyBgVvUEeyD4NRQWHLJBA" owner="_VCxacFvUEeyD4NRQWHLJBA" name="getter&amp;setter() : void"/>
+          <operations xmi:id="_jglDoVvbEeyflPHvzqRlHQ" owner="_jgj1gFvbEeyflPHvzqRlHQ" name="randPos() : void"/>
         </operationCompartmentNode>
         <attributeCompartmentNode xmi:id="_th4qJlvTEeyD4NRQWHLJBA">
           <attributes xmi:id="_sr_ugFvUEeyD4NRQWHLJBA" owner="_sr_HcFvUEeyD4NRQWHLJBA" name="priority : int"/>
@@ -68,7 +70,7 @@
         <nestedClassifierCompartmentNode xmi:id="_th4qJ1vTEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_th4qKFvTEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_-xBPoFvTEeyD4NRQWHLJBA" owner="_-xAokFvTEeyD4NRQWHLJBA" name="ItemPosition" incomingConnections="_MG2oV1vUEeyD4NRQWHLJBA" location="387,189" size="231,111" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_-xBPoFvTEeyD4NRQWHLJBA" owner="_-xAokFvTEeyD4NRQWHLJBA" name="ItemPosition" incomingConnections="_MG2oV1vUEeyD4NRQWHLJBA" location="387,189" size="215,111" autoResize="true">
         <fillColor xmi:id="_-xBPoVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_-xBPolvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_-xBPo1vTEeyD4NRQWHLJBA"/>
@@ -83,13 +85,13 @@
         <nestedClassifierCompartmentNode xmi:id="_-xBPp1vTEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_-xBPqFvTEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_MG7g0FvUEeyD4NRQWHLJBA" name="1" location="614,204" size="24,31" parent="_MG2oV1vUEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_MG7g0FvUEeyD4NRQWHLJBA" name="1" location="598,212" size="24,31" parent="_MG2oV1vUEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_MG7g0VvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_MG7g0lvUEeyD4NRQWHLJBA" name="1" location="647,204" size="24,31" parent="_MG2oV1vUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_MG7g0lvUEeyD4NRQWHLJBA" name="1" location="647,212" size="24,31" parent="_MG2oV1vUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_MG7g01vUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TInterfaceNode" xmi:id="_OO9kUlvUEeyD4NRQWHLJBA" owner="_OO89QFvUEeyD4NRQWHLJBA" name="Item" outgoingConnections="_u9iTVVvUEeyD4NRQWHLJBA _6JGM0FvUEeyD4NRQWHLJBA" location="835,8" size="231,142" autoResize="true" viewAsClass="true">
+      <nodes xmi:type="trufun:TInterfaceNode" xmi:id="_OO9kUlvUEeyD4NRQWHLJBA" owner="_OO89QFvUEeyD4NRQWHLJBA" name="Item" incomingConnections="_bhPOgFvbEeyflPHvzqRlHQ" outgoingConnections="_u9iTVVvUEeyD4NRQWHLJBA _6JGM0FvUEeyD4NRQWHLJBA" location="835,8" size="215,142" autoResize="true" viewAsClass="true">
         <fillColor xmi:id="_OO9kU1vUEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_OO9kVFvUEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_OO9kVVvUEeyD4NRQWHLJBA"/>
@@ -110,7 +112,7 @@
       <nodes xmi:type="trufun:SubLabel" xmi:id="_u9poElvUEeyD4NRQWHLJBA" name="1" location="866,146" size="24,31" parent="_u9iTVVvUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_u9poE1vUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_vmE6AFvUEeyD4NRQWHLJBA" owner="_vmES8FvUEeyD4NRQWHLJBA" name="SpecialItem" incomingConnections="_6JGM0FvUEeyD4NRQWHLJBA _ItHP51vVEeyD4NRQWHLJBA" location="955,191" size="148,29" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_vmE6AFvUEeyD4NRQWHLJBA" owner="_vmES8FvUEeyD4NRQWHLJBA" name="SpecialItem" incomingConnections="_6JGM0FvUEeyD4NRQWHLJBA" location="955,191" size="148,29" autoResize="true">
         <fillColor xmi:id="_vmE6AVvUEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_vmE6AlvUEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_vmE6A1vUEeyD4NRQWHLJBA"/>
@@ -120,13 +122,13 @@
         <nestedClassifierCompartmentNode xmi:id="_vmE6B1vUEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_vmE6CFvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLFUFvUEeyD4NRQWHLJBA" name="1" location="1008,160" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLFUFvUEeyD4NRQWHLJBA" name="1" location="1000,160" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_6JLFUVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLsYFvUEeyD4NRQWHLJBA" name="1" location="1008,146" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLsYFvUEeyD4NRQWHLJBA" name="1" location="1000,146" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_6JLsYVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_9WNCAVvUEeyD4NRQWHLJBA" owner="_9WNCAFvUEeyD4NRQWHLJBA" name="ItemCatagory" outgoingConnections="_IYttMFvVEeyD4NRQWHLJBA _ItHP51vVEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="851,403" size="271,127" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_9WNCAVvUEeyD4NRQWHLJBA" owner="_9WNCAFvUEeyD4NRQWHLJBA" name="ItemCatagory" outgoingConnections="_J_myh1vVEeyD4NRQWHLJBA _bhPOgFvbEeyflPHvzqRlHQ" location="851,403" size="255,127" autoResize="true">
         <fillColor xmi:id="_9WNCAlvUEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_9WNCA1vUEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_9WNCBFvUEeyD4NRQWHLJBA"/>
@@ -142,23 +144,17 @@
         <nestedClassifierCompartmentNode xmi:id="_9WNCCFvUEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_9WNCCVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_IY56cFvVEeyD4NRQWHLJBA" name="1" location="874,281" size="24,31" parent="_IYttMFvVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
-        <fontColor xmi:id="_IY56cVvVEeyD4NRQWHLJBA"/>
-      </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_IY6hgFvVEeyD4NRQWHLJBA" name="1" location="874,372" size="24,31" parent="_IYttMFvVEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
-        <fontColor xmi:id="_IY6hgVvVEeyD4NRQWHLJBA"/>
-      </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_ItSPAFvVEeyD4NRQWHLJBA" name="1" location="1027,216" size="24,31" parent="_ItHP51vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
-        <fontColor xmi:id="_ItSPAVvVEeyD4NRQWHLJBA"/>
-      </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_ItSPAlvVEeyD4NRQWHLJBA" name="1" location="1027,372" size="24,31" parent="_ItHP51vVEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
-        <fontColor xmi:id="_ItSPA1vVEeyD4NRQWHLJBA"/>
-      </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="345,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="329,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_J_xxoVvVEeyD4NRQWHLJBA"/>
       </nodes>
       <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxolvVEeyD4NRQWHLJBA" name="1" location="827,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_J_xxo1vVEeyD4NRQWHLJBA"/>
+      </nodes>
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_bhXxYFvbEeyflPHvzqRlHQ" name="1" location="948,146" size="24,31" parent="_bhPOgFvbEeyflPHvzqRlHQ" alias="Client.Multiplicity" direction="12" offset="0,0">
+        <fontColor xmi:id="_bhXxYVvbEeyflPHvzqRlHQ"/>
+      </nodes>
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_bhYYcFvbEeyflPHvzqRlHQ" name="1" location="948,372" size="24,31" parent="_bhPOgFvbEeyflPHvzqRlHQ" alias="Supplier.Multiplicity" direction="11" offset="0,0">
+        <fontColor xmi:id="_bhYYcVvbEeyflPHvzqRlHQ"/>
       </nodes>
       <connections xmi:type="trufun:TNavigableAssociationConnection" xmi:id="_qgJXcVvTEeyD4NRQWHLJBA" owner="_qgG7MFvTEeyD4NRQWHLJBA" name="" subLabels="_qgWy0FvTEeyD4NRQWHLJBA _qgWy0lvTEeyD4NRQWHLJBA" target="_PlXMAFvTEeyD4NRQWHLJBA" source="_wVCjsFvSEeyD4NRQWHLJBA">
         <fillColor xmi:id="_qgJXclvTEeyD4NRQWHLJBA"/>
@@ -172,14 +168,11 @@
       <connections xmi:type="trufun:TNavigableAssociationConnection" xmi:id="_6JGM0FvUEeyD4NRQWHLJBA" owner="_6JFlwFvUEeyD4NRQWHLJBA" name="" subLabels="_6JLFUFvUEeyD4NRQWHLJBA _6JLsYFvUEeyD4NRQWHLJBA" target="_vmE6AFvUEeyD4NRQWHLJBA" source="_OO9kUlvUEeyD4NRQWHLJBA">
         <fillColor xmi:id="_6JGM0VvUEeyD4NRQWHLJBA"/>
       </connections>
-      <connections xmi:type="trufun:TNavigableAssociationConnection" xmi:id="_IYttMFvVEeyD4NRQWHLJBA" owner="_IYtGIFvVEeyD4NRQWHLJBA" name="" subLabels="_IY56cFvVEeyD4NRQWHLJBA _IY6hgFvVEeyD4NRQWHLJBA" target="_th4qIFvTEeyD4NRQWHLJBA" source="_9WNCAVvUEeyD4NRQWHLJBA">
-        <fillColor xmi:id="_IYttMVvVEeyD4NRQWHLJBA"/>
-      </connections>
-      <connections xmi:type="trufun:TNavigableAssociationConnection" xmi:id="_ItHP51vVEeyD4NRQWHLJBA" owner="_ItHP4FvVEeyD4NRQWHLJBA" name="" subLabels="_ItSPAFvVEeyD4NRQWHLJBA _ItSPAlvVEeyD4NRQWHLJBA" target="_vmE6AFvUEeyD4NRQWHLJBA" source="_9WNCAVvUEeyD4NRQWHLJBA">
-        <fillColor xmi:id="_ItHP6FvVEeyD4NRQWHLJBA"/>
-      </connections>
       <connections xmi:type="trufun:TNavigableAssociationConnection" xmi:id="_J_myh1vVEeyD4NRQWHLJBA" owner="_J_mygFvVEeyD4NRQWHLJBA" name="" subLabels="_J_xxoFvVEeyD4NRQWHLJBA _J_xxolvVEeyD4NRQWHLJBA" target="_PlXMAFvTEeyD4NRQWHLJBA" source="_9WNCAVvUEeyD4NRQWHLJBA">
         <fillColor xmi:id="_J_myiFvVEeyD4NRQWHLJBA"/>
+      </connections>
+      <connections xmi:type="trufun:TNavigableAssociationConnection" xmi:id="_bhPOgFvbEeyflPHvzqRlHQ" owner="_bhMyQFvbEeyflPHvzqRlHQ" name="" subLabels="_bhXxYFvbEeyflPHvzqRlHQ _bhYYcFvbEeyflPHvzqRlHQ" target="_OO9kUlvUEeyD4NRQWHLJBA" source="_9WNCAVvUEeyD4NRQWHLJBA">
+        <fillColor xmi:id="_bhPOgVvbEeyflPHvzqRlHQ"/>
       </connections>
       <leftRuler xmi:id="_7MJRIFvHEeyqDY0coyw4_Q" unit="2"/>
       <topRuler xmi:id="_7MJRIVvHEeyqDY0coyw4_Q" horizontal="true" unit="2"/>
@@ -310,8 +303,11 @@
     <ownedOperation xmi:id="_CWuAcFvTEeyD4NRQWHLJBA" name="playSavedGame" visibility="public">
       <ownedParameter xmi:id="_CWuAcVvTEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
-    <ownedOperation xmi:id="_EKKUAFvTEeyD4NRQWHLJBA" name="Exit" visibility="public">
+    <ownedOperation xmi:id="_EKKUAFvTEeyD4NRQWHLJBA" name="exit" visibility="public">
       <ownedParameter xmi:id="_EKK7EFvTEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_4af40FvbEeyflPHvzqRlHQ" name="main" visibility="public">
+      <ownedParameter xmi:id="_4agf4FvbEeyflPHvzqRlHQ" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_38DYYFvSEeyD4NRQWHLJBA" name="JFrame"/>
@@ -365,6 +361,9 @@
     <ownedOperation xmi:id="_VCxacFvUEeyD4NRQWHLJBA" name="getter&amp;setter" visibility="public">
       <ownedParameter xmi:id="_VCyBgFvUEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
+    <ownedOperation xmi:id="_jgj1gFvbEeyflPHvzqRlHQ" name="randPos" visibility="public">
+      <ownedParameter xmi:id="_jglDoFvbEeyflPHvzqRlHQ" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_w8fIwFvTEeyD4NRQWHLJBA" name="JButton"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_-xAokFvTEeyD4NRQWHLJBA" name="ItemPosition">
@@ -415,17 +414,13 @@
         <details xmi:id="_GG6CoVvVEeyD4NRQWHLJBA" key="REF_TEMPLATE_PARAMETER" value="Item"/>
       </eAnnotations>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_IYtGIVvVEeyD4NRQWHLJBA" name="" visibility="private" type="_th4DEFvTEeyD4NRQWHLJBA" isUnique="false" association="_IYtGIFvVEeyD4NRQWHLJBA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IYtGI1vVEeyD4NRQWHLJBA" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IYtGIlvVEeyD4NRQWHLJBA" value="1"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:id="_ItHP4VvVEeyD4NRQWHLJBA" name="" visibility="private" type="_vmES8FvUEeyD4NRQWHLJBA" isUnique="false" association="_ItHP4FvVEeyD4NRQWHLJBA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ItHP41vVEeyD4NRQWHLJBA" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ItHP4lvVEeyD4NRQWHLJBA" value="1"/>
-    </ownedAttribute>
     <ownedAttribute xmi:id="_J_mygVvVEeyD4NRQWHLJBA" name="" visibility="private" type="_PlWk8FvTEeyD4NRQWHLJBA" isUnique="false" association="_J_mygFvVEeyD4NRQWHLJBA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J_myg1vVEeyD4NRQWHLJBA" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J_myglvVEeyD4NRQWHLJBA" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_bhOAYFvbEeyflPHvzqRlHQ" name="" visibility="private" type="_OO89QFvUEeyD4NRQWHLJBA" isUnique="false" association="_bhMyQFvbEeyflPHvzqRlHQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bhOncVvbEeyflPHvzqRlHQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bhOncFvbEeyflPHvzqRlHQ" value="1"/>
     </ownedAttribute>
     <ownedOperation xmi:id="_rDWgQFvVEeyD4NRQWHLJBA" name="getter&amp;setter" visibility="public">
       <ownedParameter xmi:id="_rDXHUFvVEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
@@ -438,22 +433,16 @@
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_GG5bkFvVEeyD4NRQWHLJBA" name="Vector"/>
-  <packagedElement xmi:type="uml:Association" xmi:id="_IYtGIFvVEeyD4NRQWHLJBA" memberEnd="_IYtGIVvVEeyD4NRQWHLJBA _IYtGJFvVEeyD4NRQWHLJBA">
-    <ownedEnd xmi:id="_IYtGJFvVEeyD4NRQWHLJBA" name="" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA" isUnique="false" association="_IYtGIFvVEeyD4NRQWHLJBA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IYtGJlvVEeyD4NRQWHLJBA" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IYtGJVvVEeyD4NRQWHLJBA" value="1"/>
-    </ownedEnd>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_ItHP4FvVEeyD4NRQWHLJBA" memberEnd="_ItHP4VvVEeyD4NRQWHLJBA _ItHP5FvVEeyD4NRQWHLJBA">
-    <ownedEnd xmi:id="_ItHP5FvVEeyD4NRQWHLJBA" name="" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA" isUnique="false" association="_ItHP4FvVEeyD4NRQWHLJBA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ItHP5lvVEeyD4NRQWHLJBA" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ItHP5VvVEeyD4NRQWHLJBA" value="1"/>
-    </ownedEnd>
-  </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_J_mygFvVEeyD4NRQWHLJBA" memberEnd="_J_mygVvVEeyD4NRQWHLJBA _J_myhFvVEeyD4NRQWHLJBA">
     <ownedEnd xmi:id="_J_myhFvVEeyD4NRQWHLJBA" name="" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA" isUnique="false" association="_J_mygFvVEeyD4NRQWHLJBA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J_myhlvVEeyD4NRQWHLJBA" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J_myhVvVEeyD4NRQWHLJBA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_bhMyQFvbEeyflPHvzqRlHQ" memberEnd="_bhOAYFvbEeyflPHvzqRlHQ _bhOnclvbEeyflPHvzqRlHQ">
+    <ownedEnd xmi:id="_bhOnclvbEeyflPHvzqRlHQ" name="" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA" isUnique="false" association="_bhMyQFvbEeyflPHvzqRlHQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bhOndFvbEeyflPHvzqRlHQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bhOnc1vbEeyflPHvzqRlHQ" value="1"/>
     </ownedEnd>
   </packagedElement>
   <profileApplication xmi:id="_7JVNsFvHEeyqDY0coyw4_Q">
