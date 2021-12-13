@@ -1,5 +1,9 @@
 package com.Item;
-
+/**
+ * This Class
+ * @author WuSigan
+ * @version 0.0.1
+ */
 public class ItemPosition {
     private int row;//行
     private int colum;//列
