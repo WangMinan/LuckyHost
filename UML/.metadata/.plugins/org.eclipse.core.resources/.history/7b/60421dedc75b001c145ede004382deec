@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_7IKwEFvHEeyqDY0coyw4_Q" name="UML2 Model">
+  <packageImport xmi:id="_7IKwEVvHEeyqDY0coyw4_Q">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+</uml:Model>
