@@ -5,10 +5,22 @@ import javax.swing.*;
 /**
  * @author WangMinan
  * @description To define the main entrance of the game
- * @see
+ * @see GameBoard
  */
 public class MainEntrance {
-    private static JFrame mainFrame= new JFrame("Lucky Host");
+    /**
+     * 游戏欢迎界面，有新游戏、继续、退出三个按钮
+     */
+    private JFrame mainFrame;
+    private GameBoard gameBoard;
+
+    public MainEntrance() {
+    }
+
+    public MainEntrance(JFrame mainFrame, GameBoard gameBoard) {
+        this.mainFrame = mainFrame;
+        this.gameBoard = gameBoard;
+    }
 
     public void playNewGame(){
 
