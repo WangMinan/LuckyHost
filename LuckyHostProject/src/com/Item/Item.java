@@ -11,15 +11,17 @@ public class Item {
     private String id = "000";
     private String name = "empty";
     private JButton icon = new JButton();
+    private String description = "null";
 
     public Item(){
 
     }
 
-    public Item(String id, String name, JButton icon) {
+    public Item(String id, String name, JButton icon,String description) {
         this.id = id;
         this.name = name;
         this.icon = icon;
+        this.description=description;
     }
 
     public String getId() {
@@ -49,4 +51,8 @@ public class Item {
     public int calculateMoney(){
         return 0;
     }
+
+    public String getDescription() {return description;}
+
+    public void setDescription(String description) {this.description = description;}
 }

@@ -2,7 +2,7 @@ package com.Item;
 
 import java.util.Vector;
 /**
- * This Class
+ * 这个类用于构造一个容器来存储需要使用的Item
  * @author WuSigan
  * @version 0.0.1
  */

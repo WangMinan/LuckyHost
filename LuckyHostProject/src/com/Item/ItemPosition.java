@@ -1,6 +1,6 @@
 package com.Item;
 /**
- * This Class
+ * 这个类用于描述物品在表格中的位置
  * @author WuSigan
  * @version 0.0.1
  */
