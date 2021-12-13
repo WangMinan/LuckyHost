@@ -23,7 +23,7 @@
         <nestedClassifierCompartmentNode xmi:id="_wVCjt1vSEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_wVCjuFvSEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="255,335" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,335" autoResize="true">
         <fillColor xmi:id="_PlXMAVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_PlXMAlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_PlXMA1vTEeyD4NRQWHLJBA"/>
@@ -44,8 +44,8 @@
           <attributes xmi:id="_lPQsoFvTEeyD4NRQWHLJBA" owner="_lPQFkFvTEeyD4NRQWHLJBA" name="gameFrame : JFrame"/>
           <attributes xmi:id="_fBA6UFvWEeyD4NRQWHLJBA" owner="_fBATQFvWEeyD4NRQWHLJBA" name="targetMoney : int"/>
           <attributes xmi:id="_fB2SsFvUEeyD4NRQWHLJBA" owner="_fB1roFvUEeyD4NRQWHLJBA" name="totalMoney : int"/>
-          <attributes xmi:id="_MaGfAFvVEeyD4NRQWHLJBA" owner="_MaF38FvVEeyD4NRQWHLJBA" name="commonItems : ItemCategory"/>
-          <attributes xmi:id="_O7L7sFvVEeyD4NRQWHLJBA" owner="_O7LUoFvVEeyD4NRQWHLJBA" name="specialItems : ItemCategory"/>
+          <attributes xmi:id="_MaGfAFvVEeyD4NRQWHLJBA" owner="_MaF38FvVEeyD4NRQWHLJBA" name="commonItems : ItemCatagory"/>
+          <attributes xmi:id="_O7L7sFvVEeyD4NRQWHLJBA" owner="_O7LUoFvVEeyD4NRQWHLJBA" name="specialItems : ItemCatagory"/>
           <attributes xmi:id="_50KywFvhEeyZOMLtFftEsA" owner="_50HvcFvhEeyZOMLtFftEsA" name="chanceToRemove : int"/>
           <attributes xmi:id="_ICVaQFvlEeynut3JyQ4oqA" owner="_ICS-AFvlEeynut3JyQ4oqA" name="rotateTime : int"/>
         </attributeCompartmentNode>
@@ -132,7 +132,7 @@
       <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLsYFvUEeyD4NRQWHLJBA" name="1" location="1000,162" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_6JLsYVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_9WNCAVvUEeyD4NRQWHLJBA" owner="_9WNCAFvUEeyD4NRQWHLJBA" name="ItemCategory" outgoingConnections="_J_myh1vVEeyD4NRQWHLJBA _bhPOgFvbEeyflPHvzqRlHQ" location="851,403" size="271,127" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_9WNCAVvUEeyD4NRQWHLJBA" owner="_9WNCAFvUEeyD4NRQWHLJBA" name="ItemCatagory" outgoingConnections="_J_myh1vVEeyD4NRQWHLJBA _bhPOgFvbEeyflPHvzqRlHQ" location="851,403" size="255,127" autoResize="true">
         <fillColor xmi:id="_9WNCAlvUEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_9WNCA1vUEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_9WNCBFvUEeyD4NRQWHLJBA"/>
@@ -143,12 +143,12 @@
           <operations xmi:id="_2LJ7IlvVEeyD4NRQWHLJBA" owner="_2LJ7IFvVEeyD4NRQWHLJBA" name="RemoveItem() : void"/>
         </operationCompartmentNode>
         <attributeCompartmentNode xmi:id="_9WNCB1vUEeyD4NRQWHLJBA">
-          <attributes xmi:id="_-lSEQFvUEeyD4NRQWHLJBA" owner="_-lRdMFvUEeyD4NRQWHLJBA" name="itemCategory : Vector&lt;Item>"/>
+          <attributes xmi:id="_-lSEQFvUEeyD4NRQWHLJBA" owner="_-lRdMFvUEeyD4NRQWHLJBA" name="itemCatagory : Vector&lt;Item>"/>
         </attributeCompartmentNode>
         <nestedClassifierCompartmentNode xmi:id="_9WNCCFvUEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_9WNCCVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="329,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="345,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_J_xxoVvVEeyD4NRQWHLJBA"/>
       </nodes>
       <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxolvVEeyD4NRQWHLJBA" name="1" location="827,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
@@ -418,8 +418,8 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6JFlxVvUEeyD4NRQWHLJBA" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_9WNCAFvUEeyD4NRQWHLJBA" name="ItemCategory">
-    <ownedAttribute xmi:id="_-lRdMFvUEeyD4NRQWHLJBA" name="itemCategory" visibility="public" type="_GG5bkFvVEeyD4NRQWHLJBA">
+  <packagedElement xmi:type="uml:Class" xmi:id="_9WNCAFvUEeyD4NRQWHLJBA" name="ItemCatagory">
+    <ownedAttribute xmi:id="_-lRdMFvUEeyD4NRQWHLJBA" name="itemCatagory" visibility="public" type="_GG5bkFvVEeyD4NRQWHLJBA">
       <eAnnotations xmi:id="_GG6CoFvVEeyD4NRQWHLJBA" source="Internel_TaggedValues">
         <details xmi:id="_GG6CoVvVEeyD4NRQWHLJBA" key="REF_TEMPLATE_PARAMETER" value="Item"/>
       </eAnnotations>
