@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+E:\0_大学\2021.9\软件开发基础能力训练\大作业\.metadata\.plugins\org.eclipse.jdt.core
+4110556564.index

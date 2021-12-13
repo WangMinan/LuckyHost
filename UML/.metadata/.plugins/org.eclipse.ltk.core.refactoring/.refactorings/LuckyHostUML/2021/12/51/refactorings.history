@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring accessors="true" comment="Delete element from 项目“LuckyHostUML”&#x0D;&#x0A;－ 原始项目：“LuckyHostUML”&#x0D;&#x0A;－ 原始元素：“LuckyHostUML/Exceptions”" description="删除元素" element1="/Exceptions" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1639367404223" subPackages="false" version="1.0"/>&#x0A;<refactoring accessors="true" comment="Delete element from 项目“LuckyHostUML”&#x0D;&#x0A;－ 原始项目：“LuckyHostUML”&#x0D;&#x0A;－ 原始元素：“LuckyHostUML/Item”" description="删除元素" element1="/Item" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1639367407479" subPackages="false" version="1.0"/>
+</session>
