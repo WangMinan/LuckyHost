@@ -15,4 +15,9 @@ public class SpecialItem extends Item{
     public SpecialItem(String name, JButton icon, String description) {
         super(name, icon, description);
     }
+
+    @Override
+    public int calculateMoney(){
+        return 0;
+    }
 }

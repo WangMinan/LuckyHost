@@ -10,6 +10,7 @@ import javax.swing.*;
  */
 public class CommonItem extends Item{
     private int priority;
+    private ItemPosition position;
 
     public CommonItem() {
     }
@@ -30,5 +31,13 @@ public class CommonItem extends Item{
     @Override
     public int calculateMoney() {
         return 0;
+    }
+
+    public ItemPosition getPosition() {
+        return position;
+    }
+
+    public void setPosition(ItemPosition position) {
+        this.position = position;
     }
 }
