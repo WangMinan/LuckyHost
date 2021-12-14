@@ -84,6 +84,7 @@ public class GameBoard {
      */
     public void initItemCategories(){
 
+        SpecialItem blackPepper = new SpecialItem();
 
 
     }

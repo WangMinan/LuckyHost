@@ -12,7 +12,7 @@ public class SpecialItem extends Item{
     public SpecialItem() {
     }
 
-    public SpecialItem(String id, String name, JButton icon, String description) {
-        super(id, name, icon, description);
+    public SpecialItem(String name, JButton icon, String description) {
+        super(name, icon, description);
     }
 }
