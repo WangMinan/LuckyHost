@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class Fish extends CommonItem {
     public Fish(){
-        this.setPriority(3);
+        this.setPriority(2);
         this.setName("fish");
         this.setIcon(new JButton(new ImageIcon("images/fish.png")));
         this.setDescription("价值1枚金币，消除周围的泡泡，每消除一个泡泡，获得4枚金币");

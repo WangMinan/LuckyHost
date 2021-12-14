@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class Coin extends CommonItem {
     public Coin(){
-        this.setPriority(3);
+        this.setPriority(1);
         this.setName("coin");
         this.setIcon(new JButton(new ImageIcon("images/coin.png")));
         this.setDescription("价值1枚金币");
