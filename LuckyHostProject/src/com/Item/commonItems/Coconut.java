@@ -13,6 +13,7 @@ import javax.swing.*;
 public class Coconut extends CommonItem {
 
     public Coconut(){
+        this.setPriority(1);
         this.setName("coconut");
         this.setIcon(new JButton(new ImageIcon("images/commonItem/coconut")));
         this.setDescription("价值4金币");
