@@ -8,4 +8,5 @@ import com.Item.CommonItem;
  * @see
  */
 public class Bee extends CommonItem {
+
 }

@@ -38,7 +38,7 @@ public class Item {
         this.icon = icon;
     }
 
-    public int calculateMoney(){
+    public int calculateMoney(ItemCategory category){
         return 0;
     }
 

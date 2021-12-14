@@ -17,7 +17,7 @@ public class SpecialItem extends Item{
     }
 
     @Override
-    public int calculateMoney(){
+    public int calculateMoney(ItemCategory category){
         return 0;
     }
 }

@@ -1,5 +1,6 @@
 package com.game;
 
+import com.Item.Item;
 import com.Item.ItemCategory;
 import com.Item.SpecialItem;
 
@@ -34,14 +35,19 @@ public class GameBoard {
     private ItemCategory commonItems;
 
     /**
-     * 剩余的移除次数
-     */
-    private int chancesToRemove;
-
-    /**
      * 特殊物品所在的列表
      */
     private ItemCategory specialItems;
+
+    /**
+     * 面板上的物品
+     */
+    private ItemCategory panelItems;
+
+    /**
+     * 剩余的移除次数
+     */
+    private int chancesToRemove;
 
     /**
      * @Constructor
@@ -57,12 +63,14 @@ public class GameBoard {
      * @param commonItems
      * @param specialItems
      */
-    public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney, ItemCategory commonItems, ItemCategory specialItems) {
+    public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney,
+                     ItemCategory commonItems, ItemCategory specialItems, ItemCategory panelItems) {
         this.gameFrame = gameFrame;
         this.targetMoney = targetMoney;
         this.totalMoney = totalMoney;
         this.commonItems = commonItems;
         this.specialItems = specialItems;
+        this.panelItems = panelItems;
     }
 
     /**
