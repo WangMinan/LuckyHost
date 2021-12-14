@@ -9,7 +9,7 @@ import javax.swing.*;
  * @see Item
  */
 public class CommonItem extends Item{
-    private int priority;
+    private int priority = 0;
 
     public CommonItem() {
     }
