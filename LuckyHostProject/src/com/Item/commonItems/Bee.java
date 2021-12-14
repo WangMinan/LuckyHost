@@ -25,7 +25,7 @@ public class Bee extends CommonItem {
         //基础金币数1
         int price =1;
         for(int i=0;i<20 ;i++){
-            if(category.getItemCategory().elementAt(i).getName().equals("Flower") && this.isNear(i,this.getPosition())){
+            if(category.getItemCategory().elementAt(i).getName().equals("flower") && this.isNear(i,this.getPosition())){
                 price++;
             }
         }
