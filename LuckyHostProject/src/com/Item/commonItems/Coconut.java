@@ -6,15 +6,15 @@ import com.Item.ItemCategory;
 import javax.swing.*;
 
 /**
- * @author
- * @description
- * @see
+ * @author Wangminan
+ * @description 椰子类
+ * @see CommonItem
  */
 public class Coconut extends CommonItem {
 
     public Coconut(){
         this.setName("coconut");
-        this.setIcon(new JButton(new ImageIcon("images/coconut")));
+        this.setIcon(new JButton(new ImageIcon("images/commonItem/coconut")));
         this.setDescription("价值4金币");
     }
 

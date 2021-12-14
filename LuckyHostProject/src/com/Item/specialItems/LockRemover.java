@@ -24,7 +24,7 @@ public class LockRemover extends SpecialItem {
     public int calculateMoney(ItemCategory category){
         for(int i=0; i<20; i++){
             if(category.getItemCategory().elementAt(i).getName().equals("treasureCase")){
-                Random rand =new Random(25);
+                Random rand =new Random();
                 int random = rand.nextInt(100);
                 if(random < 30){
                     Empty empty = new Empty();
