@@ -84,7 +84,9 @@ public class GameBoard {
      */
     public void initItemCategories(){
 
-        SpecialItem blackPepper = new SpecialItem();
+        SpecialItem blackPepper = new SpecialItem("blackPepper",new JButton(new ImageIcon("images/blackPepper.png")),
+                "如果有三个空格每次旋转加三个金币");
+        specialItems.addItem(blackPepper);
 
 
     }
