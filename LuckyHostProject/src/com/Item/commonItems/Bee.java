@@ -22,48 +22,10 @@ public class Bee extends CommonItem {
     }
 
     public int calculateMoney(ItemCategory category){
+        //基础金币数1
         int price =1;
-        Vector<Item> V = new Vector<>();
-        for(int i=0;i<20;i++){
-
-            int row = category.getItemCategory().elementAt(i).getPosition().getRow();
-            int colum = category.getItemCategory().elementAt(i).getPosition().getColum();
-            if(row==this.getPosition().getRow()-1&&colum==this.getPosition().getColum()-1){
-                V.add(category.getItemCategory().elementAt(i));
-                continue;
-            }
-            if(row==this.getPosition().getRow()-1&&colum==this.getPosition().getColum()){
-                V.add(category.getItemCategory().elementAt(i));
-                continue;
-            }
-            if(row==this.getPosition().getRow()-1&&colum==this.getPosition().getColum()+1){
-                V.add(category.getItemCategory().elementAt(i));
-                continue;
-            }
-            if(row==this.getPosition().getRow()&&colum==this.getPosition().getColum()-1){
-                V.add(category.getItemCategory().elementAt(i));
-                continue;
-            }
-            if(row==this.getPosition().getRow()&&colum==this.getPosition().getColum()+1){
-                V.add(category.getItemCategory().elementAt(i));
-                continue;
-            }
-            if(row==this.getPosition().getRow()+1&&colum==this.getPosition().getColum()-1){
-                V.add(category.getItemCategory().elementAt(i));
-                continue;
-            }
-            if(row==this.getPosition().getRow()+1&&colum==this.getPosition().getColum()){
-                V.add(category.getItemCategory().elementAt(i));
-                continue;
-            }
-            if(row==this.getPosition().getRow()+1&&colum==this.getPosition().getColum()+1){
-                V.add(category.getItemCategory().elementAt(i));
-                continue;
-            }
-        }
-
-        for(int i=0;i<8;i++){
-            if(V.get(i).getName().equals("flower")){
+        for(int i=0;i<20 ;i++){
+            if(category.getItemCategory().elementAt(i).getName().equals("flower") && this.isNear(i,this.getPosition())){
                 price++;
             }
         }

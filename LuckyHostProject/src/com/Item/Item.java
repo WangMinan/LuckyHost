@@ -56,4 +56,15 @@ public class Item {
     public void setPosition(ItemPosition position) {
         this.position = position;
     }
+
+    public boolean isNear(int tmpPos, ItemPosition currentItemPosition){
+        boolean flag = false;
+        int currentItemPos = currentItemPosition.getRow()*5+currentItemPosition.getColum();
+        if(currentItemPos- 1 == tmpPos || currentItemPos + 1 == tmpPos || currentItemPos - 6 == tmpPos ||
+            currentItemPos - 5 == tmpPos || currentItemPos - 4 == tmpPos || currentItemPos + 4 == tmpPos ||
+            currentItemPos + 5 == tmpPos || currentItemPos + 6 == tmpPos){
+            flag = true;
+        }
+        return flag;
+    }
 }

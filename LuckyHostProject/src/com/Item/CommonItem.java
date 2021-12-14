@@ -31,4 +31,5 @@ public class CommonItem extends Item{
     public int calculateMoney(ItemCategory category) {
         return 0;
     }
+
 }
