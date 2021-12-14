@@ -57,9 +57,15 @@ public class Item {
         this.position = position;
     }
 
+    /**
+     * 判断是否在周边
+     * @param tmpPos 被判断者的当前下标
+     * @param currentItemPosition 加成给予者的当前下标
+     * @return 一个布尔型变量包含是否相邻的信息
+     */
     public boolean isNear(int tmpPos, ItemPosition currentItemPosition){
         boolean flag = false;
-        int currentItemPos = currentItemPosition.getRow()*5+currentItemPosition.getColum();
+        int currentItemPos = currentItemPosition.getRow() * 5 + currentItemPosition.getColum();
         if(currentItemPos- 1 == tmpPos || currentItemPos + 1 == tmpPos || currentItemPos - 6 == tmpPos ||
             currentItemPos - 5 == tmpPos || currentItemPos - 4 == tmpPos || currentItemPos + 4 == tmpPos ||
             currentItemPos + 5 == tmpPos || currentItemPos + 6 == tmpPos){
