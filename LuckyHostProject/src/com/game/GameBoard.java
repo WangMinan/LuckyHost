@@ -45,6 +45,11 @@ public class GameBoard {
     private ItemCategory panelItems;
 
     /**
+     * 物品栏里的所有物品
+     */
+    private ItemCategory inventory;
+
+    /**
      * 剩余的移除次数
      */
     private int chancesToRemove;
@@ -63,14 +68,15 @@ public class GameBoard {
      * @param commonItems
      * @param specialItems
      */
-    public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney,
-                     ItemCategory commonItems, ItemCategory specialItems, ItemCategory panelItems) {
+    public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney, ItemCategory commonItems,
+                     ItemCategory specialItems, ItemCategory panelItems, ItemCategory inventory) {
         this.gameFrame = gameFrame;
         this.targetMoney = targetMoney;
         this.totalMoney = totalMoney;
         this.commonItems = commonItems;
         this.specialItems = specialItems;
         this.panelItems = panelItems;
+        this.inventory = inventory;
     }
 
     /**

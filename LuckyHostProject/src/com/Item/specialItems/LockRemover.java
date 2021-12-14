@@ -2,34 +2,35 @@ package com.Item.specialItems;
 
 import com.Item.ItemCategory;
 import com.Item.SpecialItem;
-
 import javax.swing.*;
+import java.util.Random;
 
 /**
  * @author Wangminan
- * @description 黑胡椒类
+ * @description 开锁器类
  * @see SpecialItem
  */
 public class LockRemover extends SpecialItem {
 
     public LockRemover() {
-        this.setName("blackPepper");
+        this.setName("lockRemover");
         this.setIcon(new JButton(new ImageIcon("images/specialItems/lockRemover.png")));
-        this.setDescription("面板上的藏宝箱有30%的几率消除");
+        this.setDescription("面板中的宝箱有30%的几率被消除");
     }
 
     @Override
     public int calculateMoney(ItemCategory category){
-        int cnt = 0;
         for(int i=0; i<20; i++){
-            if(category.getItemCategory().elementAt(i).getName().equals("empty")){
-                cnt++;
+            if(category.getItemCategory().elementAt(i).getName().equals("treasureCase")){
+                Random rand =new Random(25);
+                int random = rand.nextInt(100);
+                if(random < 30){
+                    Empty empty = new Empty();
+                    category.getItemCategory().setElementAt(empty,i);
+                    return 50;
+                }
             }
         }
-        if(cnt>=3){
-            return 3;
-        } else {
-            return 0;
-        }
+        return 0;
     }
 }
