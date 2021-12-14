@@ -3,11 +3,10 @@ package com.Item.specialItems;
 import com.Item.ItemCategory;
 import com.Item.SpecialItem;
 import javax.swing.*;
-import java.util.Random;
 
 /**
  * @author Wangminan
- * @description 开锁器类
+ * @description 猴子奥利凡德类
  * @see SpecialItem
  */
 public class MonkeyOlivander extends SpecialItem {
@@ -26,6 +25,6 @@ public class MonkeyOlivander extends SpecialItem {
                 cnt++;
             }
         }
-        return cnt*3;
+        return cnt*2;
     }
 }
