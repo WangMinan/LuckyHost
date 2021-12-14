@@ -8,9 +8,12 @@ import javax.swing.*;
  * @version 0.0.1
  */
 public class Item {
+    protected final int PANEL_SIZE = 20;
+
     private String name = "empty";
     private JButton icon = new JButton();
     private String description = "null";
+    private ItemPosition position = null;
 
     public Item(){
 
@@ -45,4 +48,12 @@ public class Item {
     public String getDescription() {return description;}
 
     public void setDescription(String description) {this.description = description;}
+
+    public ItemPosition getPosition() {
+        return position;
+    }
+
+    public void setPosition(ItemPosition position) {
+        this.position = position;
+    }
 }

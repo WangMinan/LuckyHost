@@ -10,12 +10,12 @@ import javax.swing.*;
  * @description 黑胡椒类
  * @see SpecialItem
  */
-public class BlackPepper extends SpecialItem {
+public class LockRemover extends SpecialItem {
 
-    public BlackPepper() {
+    public LockRemover() {
         this.setName("blackPepper");
-        this.setIcon(new JButton(new ImageIcon("images/specialItems/blackPepper.png")));
-        this.setDescription("如果面板上有三个以上的空格，给与每次旋转三个金币");
+        this.setIcon(new JButton(new ImageIcon("images/specialItems/lockRemover.png")));
+        this.setDescription("面板上的藏宝箱有30%的几率消除");
     }
 
     @Override
