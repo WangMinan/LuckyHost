@@ -2,6 +2,8 @@ package com.Item.specialItems;
 
 import com.Item.ItemCategory;
 import com.Item.SpecialItem;
+import com.Item.commonItems.Empty;
+
 import javax.swing.*;
 import java.util.Random;
 
