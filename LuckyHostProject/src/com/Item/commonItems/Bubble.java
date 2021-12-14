@@ -17,7 +17,7 @@ public class Bubble extends CommonItem {
 
     public Bubble(){
         this.setPriority(1);
-        this.setName("bulle");
+        this.setName("bubble");
         this.setIcon(new JButton(new ImageIcon("images/bulle.png")));
         this.setDescription("价值2枚金币");
     }
