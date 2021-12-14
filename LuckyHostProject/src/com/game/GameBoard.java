@@ -1,6 +1,7 @@
 package com.game;
 
 import com.Item.ItemCategory;
+import com.Item.SpecialItem;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -82,6 +83,8 @@ public class GameBoard {
      * 基础化所有物品
      */
     public void initItemCategories(){
+
+
 
     }
 
