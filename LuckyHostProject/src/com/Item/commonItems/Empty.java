@@ -8,7 +8,7 @@ import javax.swing.*;
 public class Empty extends CommonItem {
     public Empty(){
         this.setPriority(3);
-        this.setName("Empty");
+        this.setName("empty");
         this.setIcon(new JButton(new ImageIcon("images/empty.png")));
         this.setDescription("");
     }
