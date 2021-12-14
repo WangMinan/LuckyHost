@@ -23,7 +23,7 @@
         <nestedClassifierCompartmentNode xmi:id="_wVCjt1vSEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_wVCjuFvSEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="255,335" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,351" autoResize="true">
         <fillColor xmi:id="_PlXMAVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_PlXMAlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_PlXMA1vTEeyD4NRQWHLJBA"/>
@@ -32,6 +32,7 @@
           <operations xmi:id="_jKw98FvWEeyD4NRQWHLJBA" owner="_jKvv0FvWEeyD4NRQWHLJBA" name="getter&amp;setter() : void"/>
           <operations xmi:id="_VCgxMFvTEeyD4NRQWHLJBA" owner="_VCgKIFvTEeyD4NRQWHLJBA" name="initNewGame() : void"/>
           <operations xmi:id="_bLVJkVvTEeyD4NRQWHLJBA" owner="_bLUigFvTEeyD4NRQWHLJBA" name="initLoadedGame() : void"/>
+          <operations xmi:id="_8Ti4AVzNEeyvtquyFGB55g" owner="_8Tf0sFzNEeyvtquyFGB55g" name="initItemCategories() : void"/>
           <operations xmi:id="_aBS4AVvWEeyD4NRQWHLJBA" owner="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeLose() : boolean"/>
           <operations xmi:id="_nPuvkFvTEeyD4NRQWHLJBA" owner="_nPuIgFvTEeyD4NRQWHLJBA" name="saveGame() : void"/>
           <operations xmi:id="_iHi4UFvUEeyD4NRQWHLJBA" owner="_iHhqMFvUEeyD4NRQWHLJBA" name="calculateTotalMoney() : int"/>
@@ -132,7 +133,7 @@
       <nodes xmi:type="trufun:SubLabel" xmi:id="_6JLsYFvUEeyD4NRQWHLJBA" name="1" location="1000,162" size="24,31" parent="_6JGM0FvUEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
         <fontColor xmi:id="_6JLsYVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_9WNCAVvUEeyD4NRQWHLJBA" owner="_9WNCAFvUEeyD4NRQWHLJBA" name="ItemCategory" outgoingConnections="_J_myh1vVEeyD4NRQWHLJBA _bhPOgFvbEeyflPHvzqRlHQ" location="851,403" size="271,127" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_9WNCAVvUEeyD4NRQWHLJBA" owner="_9WNCAFvUEeyD4NRQWHLJBA" name="ItemCategory" outgoingConnections="_J_myh1vVEeyD4NRQWHLJBA _bhPOgFvbEeyflPHvzqRlHQ" location="851,403" size="255,127" autoResize="true">
         <fillColor xmi:id="_9WNCAlvUEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_9WNCA1vUEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_9WNCBFvUEeyD4NRQWHLJBA"/>
@@ -148,7 +149,7 @@
         <nestedClassifierCompartmentNode xmi:id="_9WNCCFvUEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_9WNCCVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="329,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="345,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_J_xxoVvVEeyD4NRQWHLJBA"/>
       </nodes>
       <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxolvVEeyD4NRQWHLJBA" name="1" location="827,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
@@ -332,6 +333,9 @@
     </ownedOperation>
     <ownedOperation xmi:id="_bLUigFvTEeyD4NRQWHLJBA" name="initLoadedGame" visibility="public">
       <ownedParameter xmi:id="_bLVJkFvTEeyD4NRQWHLJBA" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_8Tf0sFzNEeyvtquyFGB55g" name="initItemCategories" visibility="public">
+      <ownedParameter xmi:id="_8Ti4AFzNEeyvtquyFGB55g" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:id="_aBSQ8FvWEeyD4NRQWHLJBA" name="judgeLose" visibility="public">
       <ownedParameter xmi:id="_aBS4AFvWEeyD4NRQWHLJBA" name="Parameter1" type="_ObicMFveEeyflPHvzqRlHQ" direction="return"/>

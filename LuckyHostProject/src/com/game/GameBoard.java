@@ -79,6 +79,13 @@ public class GameBoard {
     }
 
     /**
+     * 基础化所有物品
+     */
+    public void initItemCategories(){
+
+    }
+
+    /**
      * 判断是否输掉游戏
      * @return 判断的结果
      */
