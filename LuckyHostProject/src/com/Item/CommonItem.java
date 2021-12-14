@@ -14,8 +14,8 @@ public class CommonItem extends Item{
     public CommonItem() {
     }
 
-    public CommonItem(String id, String name, JButton icon,String decription, int priority){
-        super(id,name,icon,decription);
+    public CommonItem(String name, JButton icon,String decription, int priority){
+        super(name,icon,decription);
         this.priority = priority;
     }
 
