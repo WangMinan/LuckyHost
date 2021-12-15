@@ -129,16 +129,12 @@ public class GameBoard {
 
         this.panelCommonItems = new ItemCategory();
         this.gameCommonItems = new ItemCategory();
+        this.panelSpecialItems = new ItemCategory();
+        this.gameSpecialItems = new ItemCategory();
 
         for(int i = 0; i < 20; i++){
             this.panelCommonItems.addItem(new Empty());
         }
-
-        gameCommonItems.addItem(cat);
-        gameCommonItems.addItem(flower);
-        gameCommonItems.addItem(coin);
-        gameCommonItems.addItem(halfCoconut);
-        gameCommonItems.addItem(pearl);
 
         givePosition(cat);
         givePosition(flower);
@@ -146,8 +142,6 @@ public class GameBoard {
         givePosition(halfCoconut);
         givePosition(pearl);
 
-        this.panelSpecialItems = new ItemCategory();
-        this.gameSpecialItems = new ItemCategory();
         play();
     }
 
@@ -340,11 +334,31 @@ public class GameBoard {
         goldArea.setText("金币数：" + totalMoney);
         //如果一周结束，扣除房租，下周房租加50
         if(countDays == 6 && !judgeLose()){
-            System.out.println("hi");
             this.totalMoney = this.totalMoney - targetMoney;
             this.targetMoney = this.targetMoney + 50;
             chooseSpecialItem();
         }
+
+        //测试
+        for(int i =0 ;i<panelCommonItems.getItemCategory().size();i++){
+            System.out.println(panelCommonItems.getItemCategory().elementAt(i).getName());
+        }
+        System.out.println();
+
+        //算完钱之后把panelCommonItems里的东西加入到gameCommonItems里面
+        for(int i = 0; i < 20; i++){
+            if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
+                gameCommonItems.getItemCategory().addElement(panelCommonItems.getItemCategory().elementAt(i));
+            }
+        }
+
+        //测试
+        System.out.println(gameCommonItems.getItemCategory().size());
+        for(int i=0;i<gameCommonItems.getItemCategory().size();i++){
+            System.out.println(gameCommonItems.getItemCategory().elementAt(i).getName());
+        }
+        System.out.println();
+
         //显示选取界面（普通物品）
 
         commonSelectFrame = new JFrame();
@@ -359,6 +373,7 @@ public class GameBoard {
         skipButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                updateSlotMachine();
                 commonSelectFrame.setVisible(false);
                 gameFrame.setVisible(true);
             }
@@ -402,10 +417,7 @@ public class GameBoard {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     //更新panelCommonItems
-                    updateGameCommonItem(tmpItem);
-                    for(int j = 0;j<gameCommonItems.getItemCategory().size();j++){
-                        System.out.println(gameCommonItems.getItemCategory().elementAt(j).getName());
-                    }
+                    gameCommonItems.getItemCategory().addElement(tmpItem);
                     updateSlotMachine();
 
                     commonSelectFrame.setVisible(false);
@@ -448,32 +460,22 @@ public class GameBoard {
     }
 
     /**
-     * 更新物品栏
-     */
-    public void updateGameCommonItem(CommonItem item){
-        gameCommonItems.addItem(item);
-    }
-
-    /**
      * 更新老虎机界面
      */
     public void updateSlotMachine(){
-        panelCommonItems =new ItemCategory();
-        Random random = new Random();
 
         //将panelCommonItems中的物品全部变成空
         for(int i = 0;i<20;i++){
-            panelCommonItems.addItem(new Empty());
+            panelCommonItems.getItemCategory().setElementAt(new Empty(),i);
         }
 
         if(gameCommonItems.getItemCategory().size()<=20){
             //全部取
             for(int i = 0; i <gameCommonItems.getItemCategory().size(); i++){
                 givePosition((CommonItem) gameCommonItems.getItemCategory().elementAt(i));
-                panelCommonItems.getItemCategory().setElementAt(gameCommonItems.getItemCategory().elementAt(i),
-                        gameCommonItems.getItemCategory().elementAt(i).getPosition().getRow()*5+
-                                gameCommonItems.getItemCategory().elementAt(i).getPosition().getColum());
             }
+            //从gameItem里面删去加入老虎机的部分
+            gameCommonItems.getItemCategory().clear();
         } else {
             //取20个
             int[] a = new int[gameCommonItems.getItemCategory().size()];
@@ -487,12 +489,16 @@ public class GameBoard {
                 int pos = rnd.nextInt(gameCommonItems.getItemCategory().size());
                 if(a[pos] == 0){
                     a[pos] = 1;
-                    cnt++;
                     panelCommonItems.getItemCategory().setElementAt(
                             gameCommonItems.getItemCategory().elementAt(pos), cnt);
+                    gameCommonItems.getItemCategory().removeElementAt(pos);
+                    cnt++;
                 }
             }
 
+            /**
+             * 加入老虎机之后设定位置
+             */
             for(int i=0; i<20; i++){
                 ItemPosition tmpPosition = new ItemPosition();
                 tmpPosition.setRow(i/5);
@@ -501,7 +507,9 @@ public class GameBoard {
             }
         }
 
-
+        /**
+         * 重新绘图
+         */
         slotMachine.removeAll();
         JButton[] commonItemsButtons = new JButton[20];
         for(int i=0; i<20; i++){

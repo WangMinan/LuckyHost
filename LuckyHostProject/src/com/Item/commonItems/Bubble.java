@@ -14,8 +14,6 @@ import java.util.Vector;
  */
 public class Bubble extends CommonItem {
 
-    int age=4;
-
     public Bubble(){
         this.setPriority(1);
         this.setName("bubble");
@@ -26,7 +24,6 @@ public class Bubble extends CommonItem {
 
     public int calculateMoney(ItemCategory category){
         int price =2;
-        age--;
         return price;
     }
 }

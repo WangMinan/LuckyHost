@@ -59,5 +59,4 @@ public class ItemCategory {
     public void removeItem(int index){
         itemCategory.remove(index);
     }
-
 }

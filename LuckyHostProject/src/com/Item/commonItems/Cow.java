@@ -38,7 +38,7 @@ public class Cow extends CommonItem {
             int random = rand.nextInt(100);
             if(random < 15){
                 if(cntEmpty == 0){
-                    category.getItemCategory().setElementAt(new GoldEgg(),pos[0]);
+                    category.getItemCategory().setElementAt(new Milk(),pos[0]);
                 } else {
                     int rnd = rand.nextInt(cntEmpty+1);
                     category.getItemCategory().setElementAt(new Milk(),pos[rnd]);
