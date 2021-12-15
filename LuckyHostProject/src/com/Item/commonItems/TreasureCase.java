@@ -15,6 +15,7 @@ public class TreasureCase extends CommonItem {
         this.setPriority(1);
         this.setName("treasureCase");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/treasureCase.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值1枚金币,可以被钥匙消除");
     }
 

@@ -15,6 +15,7 @@ public class GreyPepper extends SpecialItem {
     public GreyPepper() {
         this.setName("greyPepper");
         this.setIcon(new JButton(new ImageIcon("images/specialItems/greyPepper.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("如果面板上有三个以上的相同，给与每次旋转三个金币");
     }
 

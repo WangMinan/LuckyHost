@@ -14,6 +14,7 @@ public class MonkeyOlivander extends SpecialItem {
     public MonkeyOlivander() {
         this.setName("monkeyOlivander");
         this.setIcon(new JButton(new ImageIcon("images/specialItems/monkeyOlivander.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("猴子每次旋转+2金币");
     }
 

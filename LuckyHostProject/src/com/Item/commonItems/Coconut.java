@@ -16,6 +16,7 @@ public class Coconut extends CommonItem {
         this.setPriority(1);
         this.setName("coconut");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/coconut.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值2金币,被消除后给予10金币");
     }
 

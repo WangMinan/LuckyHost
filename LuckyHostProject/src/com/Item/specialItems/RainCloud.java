@@ -14,6 +14,7 @@ public class RainCloud extends SpecialItem {
     public RainCloud() {
         this.setName("rainCloud");
         this.setIcon(new JButton(new ImageIcon("images/specialItems/rainCloud.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("雨每次+1金币");
     }
 

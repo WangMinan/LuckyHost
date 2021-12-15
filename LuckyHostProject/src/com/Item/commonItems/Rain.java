@@ -16,6 +16,7 @@ public class Rain extends CommonItem{
         this.setPriority(2);
         this.setName("rain");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/rain.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值1枚金币，如果周围有花，每朵花增加2枚金币");
     }
 

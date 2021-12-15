@@ -15,6 +15,7 @@ public class GoldEgg extends CommonItem {
         this.setPriority(1);
         this.setName("goldEgg");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/goldEgg.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值4枚金币");
     }
 
