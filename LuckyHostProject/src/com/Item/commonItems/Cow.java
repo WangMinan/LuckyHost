@@ -22,6 +22,7 @@ public class Cow extends CommonItem {
 
     @Override
     public int calculateMoney(ItemCategory category) {
+        //计算空格
         int cntEmpty = -1;
         int[] pos = new int[20];
         for(int i = 0; i<20; i++){

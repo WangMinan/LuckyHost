@@ -16,11 +16,11 @@ public class Coconut extends CommonItem {
         this.setPriority(1);
         this.setName("coconut");
         this.setIcon(new JButton(new ImageIcon("images/commonItem/coconut")));
-        this.setDescription("价值4金币");
+        this.setDescription("价值2金币,被消除后给予10金币");
     }
 
     @Override
     public int calculateMoney(ItemCategory category) {
-        return 4;
+        return 2;
     }
 }
