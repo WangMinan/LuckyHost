@@ -12,7 +12,7 @@ public class ItemCategory {
     /**
      * 用于存储Item的容器
      */
-    public Vector<Item> itemCategory = new Vector<Item>();
+    protected Vector<Item> itemCategory = new Vector<Item>();
 
     /**
      * 含参构造函数

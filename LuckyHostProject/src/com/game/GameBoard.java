@@ -1,12 +1,19 @@
 package com.game;
 
+import com.Item.CommonItem;
 import com.Item.Item;
 import com.Item.ItemCategory;
 import com.Item.SpecialItem;
+import com.Item.commonItems.*;
+import com.Item.specialItems.*;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  * @author WangMinan
@@ -42,7 +49,12 @@ public class GameBoard {
     /**
      * 面板上的物品
      */
-    private ItemCategory panelItems;
+    private ItemCategory panelCommonItems;
+
+    /**
+     * 游戏中的加成物品
+     */
+    private ItemCategory panelSpecialItems;
 
     /**
      * 物品栏里的所有物品
@@ -69,13 +81,15 @@ public class GameBoard {
      * @param specialItems
      */
     public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney, ItemCategory commonItems,
-                     ItemCategory specialItems, ItemCategory panelItems, ItemCategory inventory) {
+                     ItemCategory specialItems, ItemCategory panelCommonItems,
+                     ItemCategory panelSpecialItems, ItemCategory inventory) {
         this.gameFrame = gameFrame;
         this.targetMoney = targetMoney;
         this.totalMoney = totalMoney;
         this.commonItems = commonItems;
         this.specialItems = specialItems;
-        this.panelItems = panelItems;
+        this.panelCommonItems = panelCommonItems;
+        this.panelSpecialItems = panelSpecialItems;
         this.inventory = inventory;
     }
 
@@ -83,7 +97,11 @@ public class GameBoard {
      * 开始新游戏
      */
     public void initNewGame(){
-
+        initItemCategories();
+        this.targetMoney = 25;
+        this.gameFrame = new JFrame();
+        showMessageDialog(gameFrame,"欢迎来到幸运房东，你有一周的时间来通过房间里的老虎机获取房租，房租每周上涨，祝你好运");
+        play();
     }
 
     /**
@@ -94,12 +112,73 @@ public class GameBoard {
     }
 
     /**
+     * 玩
+     */
+    public void play(){
+
+        /**
+         * 老虎机panel
+         */
+        JPanel slotMachine = new JPanel();
+        slotMachine.setLayout(new GridLayout(4,5));
+        slotMachine.setBorder(new LineBorder(Color.BLACK));
+        slotMachine.setBounds(210,0,610,460);
+        slotMachine.setBackground(Color.white);
+
+        /**
+         * 特殊物品panel
+         */
+        JPanel specialItemPanel = new JPanel();
+        specialItemPanel.setLayout(new GridLayout(3,2));
+        specialItemPanel.setBounds(0,0,200,345);
+        specialItemPanel.setBackground(Color.ORANGE);
+
+        Container container = gameFrame.getContentPane();
+        container.setBackground(Color.orange);
+
+        this.gameFrame.add(slotMachine);
+        this.gameFrame.add(specialItemPanel);
+        this.gameFrame.setLayout(null);
+        this.gameFrame.setSize(1024,576);
+        this.gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.gameFrame.setVisible(true);
+    }
+
+    /**
      * 基础化所有物品
      */
     public void initItemCategories(){
 
-        commonItems.addItem(null);
-        specialItems.addItem(null);
+        this.commonItems = new ItemCategory();
+        this.specialItems = new ItemCategory();
+
+        commonItems.addItem(new Bee());
+        commonItems.addItem(new Bubble());
+        commonItems.addItem(new Cat());
+        commonItems.addItem(new Coconut());
+        commonItems.addItem(new Coin());
+        commonItems.addItem(new Cow());
+        commonItems.addItem(new Empty());
+        commonItems.addItem(new Fish());
+        commonItems.addItem(new Flower());
+        commonItems.addItem(new GoldEgg());
+        commonItems.addItem(new Goose());
+        commonItems.addItem(new HalfCoconut());
+        commonItems.addItem(new HollowFruit());
+        commonItems.addItem(new Key());
+        commonItems.addItem(new Milk());
+        commonItems.addItem(new Monkey());
+        commonItems.addItem(new Pearl());
+        commonItems.addItem(new Rain());
+        commonItems.addItem(new Strawberry());
+        commonItems.addItem(new Sun());
+        commonItems.addItem(new TreasureCase());
+
+        specialItems.addItem(new BlackPepper());
+        specialItems.addItem(new GreyPepper());
+        specialItems.addItem(new LockRemover());
+        specialItems.addItem(new MonkeyOlivander());
+        specialItems.addItem(new RainCloud());
 
     }
 
@@ -155,5 +234,14 @@ public class GameBoard {
         public void windowClosed(WindowEvent e){
             super.windowClosed(e);
         }
+    }
+
+    /**
+     * 临时测试用主函数，不代表最后函数
+     */
+    public static void main(String args[]){
+        GameBoard gameBoard = new GameBoard();
+        gameBoard.initNewGame();
+
     }
 }
