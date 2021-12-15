@@ -22,9 +22,12 @@ import static javax.swing.JOptionPane.showMessageDialog;
  */
 public class GameBoard {
     /**
-     * 游戏窗口，实现游戏的基本功能
+     * gameFrame 游戏窗口，实现游戏的基本功能
      */
     private JFrame gameFrame;
+    private JPanel slotMachine;
+    private JPanel specialItemPanel;
+    private JTextArea goldArea;
 
     /**
      * 每周老虎机希望达到的目标金币
@@ -65,6 +68,11 @@ public class GameBoard {
      * 剩余的移除次数
      */
     private int chancesToRemove;
+
+    /**
+     * 旋转计数器
+     */
+    private int countDays = 0;
 
     /**
      * @Constructor
@@ -119,6 +127,8 @@ public class GameBoard {
         givePosition(halfCoconut);
         givePosition(pearl);
 
+        panelSpecialItems = new ItemCategory();
+
         play();
     }
 
@@ -138,7 +148,7 @@ public class GameBoard {
         /**
          * 老虎机panel
          */
-        JPanel slotMachine = new JPanel();
+        slotMachine = new JPanel();
         slotMachine.setLayout(new GridLayout(4,5));
         slotMachine.setBorder(new LineBorder(Color.BLACK));
         slotMachine.setBounds(210,0,610,460);
@@ -147,7 +157,7 @@ public class GameBoard {
         /**
          * 特殊物品panel
          */
-        JPanel specialItemPanel = new JPanel();
+        specialItemPanel = new JPanel();
         specialItemPanel.setLayout(new GridLayout(3,2));
         specialItemPanel.setBounds(0,0,200,345);
         specialItemPanel.setBackground(Color.ORANGE);
@@ -169,11 +179,12 @@ public class GameBoard {
         /**
          * 金币数
          */
-        JTextArea goldArea = new JTextArea();
+        goldArea = new JTextArea();
         goldArea.setBounds(0,480,170,60);
         goldArea.setFont(new Font("Syria",Font.BOLD,20));
         goldArea.setBackground(Color.orange);
         goldArea.setText("金币数：" + totalMoney);
+        goldArea.setForeground(Color.YELLOW);
         goldArea.setEditable(false);
 
         /**
@@ -264,9 +275,16 @@ public class GameBoard {
     /**
      * 判断是否输掉游戏
      * @return 判断的结果
+     * 存在一个退出的出口
      */
     public boolean judgeLose(){
-        return false;
+        if(this.totalMoney >= this.targetMoney){
+            return false;
+        } else {
+            this.gameFrame.setVisible(false);
+            showMessageDialog(MainEntrance.mainFrame,"你没能按时支付房租，游戏结束");
+            return true;
+        }
     }
 
     /**
@@ -274,30 +292,57 @@ public class GameBoard {
      * @return 0;
      */
     public int calculateTotalMoney(){
-        return 0;
+
+        int total = 0;
+
+        for(int i = 0; i<20; i++){
+            total = total + panelCommonItems.getItemCategory().elementAt(i).calculateMoney(panelCommonItems);
+        }
+
+        for(int i = 0; i<panelSpecialItems.getItemCategory().size();i++){
+            total = total + panelSpecialItems.getItemCategory().elementAt(i).calculateMoney(panelCommonItems);
+        }
+
+        return total;
     }
 
     /**
      * 旋转
      */
     public void rotate(){
-        //显示选取界面
+        //算钱
+        totalMoney = totalMoney + calculateTotalMoney();
+        //如果一周结束，扣除房租，下周房租加50
+        if(countDays == 6 && !judgeLose()){
+            this.totalMoney = this.totalMoney - targetMoney;
+            this.targetMoney += 50;
+        }
+        //显示选取界面（普通物品）
+
         //用户3选1或跳过
-        //更新panelCommonItems和commonItems
-        //
+
+        //显示选取界面（特殊物品（如果一周结束了））
+
+        //用户3选1或跳过
+
+        countDays ++;
+        //更新panelCommonItems
+        //updateMaterialList();
+        //显示新界面
+        //updateItemFrame();
     }
 
     /**
      * 更新老虎机界面
      */
-    public void updateItemFrame(){
+    public void updateItemFrame(CommonItem item){
 
     }
 
     /**
      * 更新物品栏
      */
-    public void updateMaterialList(){
+    public void updateMaterialList(Item item){
 
     }
 
