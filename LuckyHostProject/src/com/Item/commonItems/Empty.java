@@ -4,7 +4,12 @@ import com.Item.CommonItem;
 import com.Item.ItemCategory;
 
 import javax.swing.*;
-
+/**
+ * 空类，价值0枚金币
+ * @author  WuSigan
+ * @see CommonItem
+ *
+ */
 public class Empty extends CommonItem {
     public Empty(){
         this.setPriority(1);

@@ -8,9 +8,10 @@ import javax.swing.*;
 import java.util.Vector;
 
 /**
+ * 蜜蜂类，价值1枚金币，如果周围有花，每朵花增加2枚金币
  * @author  WuSigan
- * @description 对于bee物品的详细设计
  * @see CommonItem
+ *
  */
 public class Bee extends CommonItem {
 

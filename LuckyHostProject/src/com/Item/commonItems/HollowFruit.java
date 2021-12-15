@@ -4,7 +4,12 @@ import com.Item.CommonItem;
 import com.Item.ItemCategory;
 
 import javax.swing.*;
-
+/**
+ * 虚空水果类，价值1枚金币，如果周围有空，每个空增加1枚金币
+ * @author  WuSigan
+ * @see CommonItem
+ *
+ */
 public class HollowFruit extends CommonItem {
 
     public HollowFruit(){

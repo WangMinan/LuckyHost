@@ -4,7 +4,11 @@ import com.Item.CommonItem;
 import com.Item.ItemCategory;
 
 import javax.swing.*;
-
+/**
+ * @author  WuSigan
+ * @version 0.0.1
+ * @see CommonItem
+ */
 public class Cat extends CommonItem {
     public Cat(){
         this.setPriority(2);

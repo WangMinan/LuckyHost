@@ -5,16 +5,16 @@ import com.Item.ItemCategory;
 
 import javax.swing.*;
 /**
- * 花类，价值1枚金币
+ * 牛奶类，价值1枚金币
  * @author  WuSigan
  * @see CommonItem
  *
  */
-public class Flower extends CommonItem {
-    public Flower(){
+public class Milk extends CommonItem {
+    public Milk(){
         this.setPriority(1);
-        this.setName("flower");
-        this.setIcon(new JButton(new ImageIcon("images/commonItems/flower.png")));
+        this.setName("milk");
+        this.setIcon(new JButton(new ImageIcon("images/commonItems/milk.png")));
         this.setDescription("价值1枚金币");
     }
 

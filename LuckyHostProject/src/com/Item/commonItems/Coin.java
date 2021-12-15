@@ -4,7 +4,12 @@ import com.Item.CommonItem;
 import com.Item.ItemCategory;
 
 import javax.swing.*;
-
+/**
+ * 硬币类，价值1枚金币
+ * @author  WuSigan
+ * @see CommonItem
+ *
+ */
 public class Coin extends CommonItem {
     public Coin(){
         this.setPriority(1);

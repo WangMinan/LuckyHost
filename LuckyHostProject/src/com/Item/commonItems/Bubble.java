@@ -7,9 +7,10 @@ import com.Item.ItemCategory;
 import javax.swing.*;
 import java.util.Vector;
 /**
+ * 泡泡类，价值2
  * @author  WuSigan
- * @description 对于bubble物品的详细设计
  * @see CommonItem
+ *
  */
 public class Bubble extends CommonItem {
 
