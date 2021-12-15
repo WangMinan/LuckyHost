@@ -15,7 +15,7 @@ public class Goose extends CommonItem {
 
     public Goose(){
         this.setName("goose");
-        this.setIcon(new JButton(new ImageIcon("images/commonItem/goose.png")));
+        this.setIcon(new JButton(new ImageIcon("images/commonItems/goose.png")));
         this.setDescription("价值3金币,如果老虎机面板上有空格,有1%概率增加金蛋");
         this.setPriority(4);
     }

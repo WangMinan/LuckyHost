@@ -130,9 +130,14 @@ public class GameBoard {
         this.gameCommonItems = new ItemCategory();
 
         for(int i = 0; i < 20; i++){
-            this.gameCommonItems.addItem(new Empty());
             this.panelCommonItems.addItem(new Empty());
         }
+
+        gameCommonItems.addItem(cat);
+        gameCommonItems.addItem(flower);
+        gameCommonItems.addItem(coin);
+        gameCommonItems.addItem(halfCoconut);
+        gameCommonItems.addItem(pearl);
 
         givePosition(cat);
         givePosition(flower);
@@ -323,14 +328,90 @@ public class GameBoard {
      * 旋转
      */
     public void rotate(){
+
         //算钱
         totalMoney = totalMoney + calculateTotalMoney();
         //如果一周结束，扣除房租，下周房租加50
         if(countDays == 6 && !judgeLose()){
             this.totalMoney = this.totalMoney - targetMoney;
             this.targetMoney += 50;
+            countDays = 0;
         }
         //显示选取界面（普通物品）
+
+        JFrame selectFrame = new JFrame();
+
+        showMessageDialog(selectFrame,"离下次支付还有" + (7-countDays) + "天，下次需支付"
+                            + targetMoney + "枚金币");
+
+        //跳过按钮
+        JButton skipButton = new JButton("跳过");
+        skipButton.setBounds(430,0,100,40);
+        skipButton.setFont(new Font("Syria",Font.BOLD,20));
+        skipButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectFrame.setVisible(false);
+                gameFrame.setVisible(true);
+            }
+        });
+
+        //左中右三个panel
+        JPanel[] selectPanels = new JPanel[3];
+        int posX = 38;
+        int posY = 76;
+
+        for(int i = 0; i < 3; i++){
+            selectPanels[i] = new JPanel();
+            selectPanels[i].setBorder(new LineBorder(Color.BLACK));
+            selectPanels[i].setBackground(Color.WHITE);
+            selectPanels[i].setBounds(posX,posY,250,450);
+            posX+=300;
+        }
+
+        int[] itemPos = {-1,-1,-1};
+        int cnt = 0;
+        //随即从commonItems中找出三种物品
+        while(cnt<3){
+            Random random = new Random();
+            int pos = random.nextInt(commonItems.getItemCategory().size());
+            //empty存在6的位置上
+            if(pos != itemPos[0] && pos != itemPos[1] && pos != itemPos[2] && pos != 6){
+                itemPos[cnt] = pos;
+                cnt++;
+            }
+        }
+
+        JButton[] options = new JButton[3];
+        JTextArea[] descriptions = new JTextArea[3];
+
+        for(int i = 0; i < 3; i++){
+            options[i] = commonItems.getItemCategory().elementAt(itemPos[i]).getIcon();
+            options[i].setBounds(100,0,50,50);
+            descriptions[i] = new JTextArea();
+            descriptions[i].setFont(new Font("Syria",Font.BOLD,20));
+            descriptions[i].setBounds(10,60,230,350);
+            descriptions[i].setLineWrap(true);        //激活自动换行功能
+            //descriptions[i].setWrapStyleWord(true);            // 激活断行不断字功能
+            descriptions[i].setText(commonItems.getItemCategory().elementAt(itemPos[i]).getName() +
+                    ": \n" + commonItems.getItemCategory().elementAt(itemPos[i]).getDescription());
+            descriptions[i].setEditable(false);
+            selectPanels[i].add(options[i]);
+            selectPanels[i].add(descriptions[i]);
+        }
+
+        //添加部分
+        selectFrame.add(skipButton);
+        for(int i = 0; i < 3; i++){
+            selectFrame.add(selectPanels[i]);
+        }
+
+        Container container = selectFrame.getContentPane();
+        container.setBackground(Color.orange);
+        selectFrame.setLayout(null);
+        selectFrame.setSize(976,576);
+        selectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        selectFrame.setVisible(true);
 
         //用户3选1或跳过
 
