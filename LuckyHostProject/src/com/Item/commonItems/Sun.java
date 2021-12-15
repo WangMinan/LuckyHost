@@ -20,6 +20,7 @@ public class Sun extends CommonItem {
     }
 
     public int calculateMoney(ItemCategory category){
+
         //基础金币数1
         int price =1;
         for(int i=0;i<20 ;i++){
