@@ -1,9 +1,6 @@
 package com.game;
 
-import com.Item.CommonItem;
-import com.Item.Item;
-import com.Item.ItemCategory;
-import com.Item.SpecialItem;
+import com.Item.*;
 import com.Item.commonItems.*;
 import com.Item.specialItems.*;
 
@@ -14,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Random;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -103,6 +101,24 @@ public class GameBoard {
         this.targetMoney = 25;
         this.gameFrame = new JFrame();
         showMessageDialog(gameFrame,"欢迎来到幸运房东，你有一周的时间来通过房间里的老虎机获取房租，房租每周上涨，祝你好运");
+
+        Cat cat = new Cat();
+        Flower flower = new Flower();
+        Coin coin = new Coin();
+        HalfCoconut halfCoconut = new HalfCoconut();
+        Pearl pearl = new Pearl();
+
+        this.panelCommonItems = new ItemCategory();
+        for(int i = 0; i < 20; i++){
+            this.panelCommonItems.addItem(new Empty());
+        }
+
+        givePosition(cat);
+        givePosition(flower);
+        givePosition(coin);
+        givePosition(halfCoconut);
+        givePosition(pearl);
+
         play();
     }
 
@@ -111,6 +127,7 @@ public class GameBoard {
      */
     public void initLoadedGame(){
         //读取模块
+        play();
     }
 
     /**
@@ -142,6 +159,12 @@ public class GameBoard {
         rotateButton.setBounds(428,472,170,60);
         rotateButton.setFont(new Font("Syria",Font.BOLD,50));
         rotateButton.setBackground(new Color(17,201,99));
+        rotateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rotate();
+            }
+        });
 
         /**
          * 金币数
@@ -180,6 +203,13 @@ public class GameBoard {
          */
         Container container = gameFrame.getContentPane();
         container.setBackground(Color.orange);
+
+        JButton[] commonItemsButtons = new JButton[20];
+        for(int i=0; i<20; i++){
+            commonItemsButtons[i] = new JButton();
+            commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
+            slotMachine.add(commonItemsButtons[i]);
+        }
 
         this.gameFrame.add(slotMachine);
         this.gameFrame.add(specialItemPanel);
@@ -272,6 +302,26 @@ public class GameBoard {
      * 展示物品栏
      */
     public void showMaterialFrame(){
+
+    }
+
+    /**
+     * 随机位置
+     */
+    public void givePosition(CommonItem item){
+        while(true){
+            Random random = new Random();
+            int randRow = random.nextInt(4);//[0,3)
+            int randCol = random.nextInt(5);//[0,4)
+            if(panelCommonItems.getItemCategory().elementAt(randRow*5+randCol).getName().equals("empty")){
+                ItemPosition position = new ItemPosition();
+                position.setRow(randRow);
+                position.setColum(randCol);
+                item.setPosition(position);
+                panelCommonItems.getItemCategory().setElementAt(item,randRow*5+randCol);
+                break;
+            }
+        }
 
     }
 
