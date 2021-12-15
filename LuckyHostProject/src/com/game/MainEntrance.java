@@ -14,26 +14,14 @@ public class MainEntrance extends JFrame{
     /**
      * 游戏欢迎界面，有新游戏、继续、退出三个按钮
      */
-    static private JFrame mainFrame;
-    static private GameBoard gameBoard;
+    static public JFrame mainFrame;
+
 
     public MainEntrance() {
     }
 
-    public MainEntrance(JFrame mainFrame, GameBoard gameBoard) {
+    public MainEntrance(JFrame mainFrame) {
         this.mainFrame = mainFrame;
-        this.gameBoard = gameBoard;
-    }
-
-    public void playNewGame(){
-
-    }
-
-    public void playSavedGame(){
-
-    }
-
-    public void exit(){
 
     }
 
@@ -88,7 +76,8 @@ public class MainEntrance extends JFrame{
  class StartActionListener implements ActionListener {
      @Override
      public void actionPerformed(ActionEvent e) {
-
+         GameBoard gameBoard = new GameBoard();
+         gameBoard.initNewGame();
      }
  }
 
