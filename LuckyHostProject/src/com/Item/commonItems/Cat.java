@@ -20,7 +20,7 @@ public class Cat extends CommonItem {
 
     public int calculateMoney(ItemCategory category){
         int price=1;
-        for(int i = 0;i<20;i++){
+        for(int i = 0;i < 20; i++){
             if(category.getItemCategory().elementAt(i).getName().equals("milk") && this.isNear(i,this.getPosition())){
                 price+=9;
                 category.getItemCategory().set(i,new Empty());

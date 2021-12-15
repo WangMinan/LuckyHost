@@ -315,8 +315,12 @@ public class GameBoard {
 
         int total = 0;
 
-        for(int i = 0; i<20; i++){
-            total = total + panelCommonItems.getItemCategory().elementAt(i).calculateMoney(panelCommonItems);
+        for(int i=4;i>=0;i--){
+            for(int j = 0; j < panelCommonItems.getItemCategory().size();j++){
+                if(((CommonItem)(panelCommonItems.getItemCategory().elementAt(j))).getPriority() == i){
+                    total = total + panelCommonItems.getItemCategory().elementAt(j).calculateMoney(panelCommonItems);
+                }
+            }
         }
 
         for(int i = 0; i<panelSpecialItems.getItemCategory().size();i++){
@@ -336,15 +340,16 @@ public class GameBoard {
         goldArea.setText("金币数：" + totalMoney);
         //如果一周结束，扣除房租，下周房租加50
         if(countDays == 6 && !judgeLose()){
+            System.out.println("hi");
             this.totalMoney = this.totalMoney - targetMoney;
-            this.targetMoney += 50;
+            this.targetMoney = this.targetMoney + 50;
             chooseSpecialItem();
         }
         //显示选取界面（普通物品）
 
         commonSelectFrame = new JFrame();
 
-        showMessageDialog(commonSelectFrame,"离下次支付还有" + (7-countDays) + "天，下次需支付"
+        showMessageDialog(null,"离下次支付还有" + (7-countDays) + "天，下次需支付"
                             + targetMoney + "枚金币");
 
         //跳过按钮
@@ -398,8 +403,11 @@ public class GameBoard {
                 public void actionPerformed(ActionEvent e) {
                     //更新panelCommonItems
                     updateGameCommonItem(tmpItem);
-
+                    for(int j = 0;j<gameCommonItems.getItemCategory().size();j++){
+                        System.out.println(gameCommonItems.getItemCategory().elementAt(j).getName());
+                    }
                     updateSlotMachine();
+
                     commonSelectFrame.setVisible(false);
                     gameFrame.setVisible(true);
                 }
@@ -458,26 +466,41 @@ public class GameBoard {
             panelCommonItems.addItem(new Empty());
         }
 
-        for(int i = 0;i<gameCommonItems.getItemCategory().size();i++){
+        if(gameCommonItems.getItemCategory().size()<=20){
+            //全部取
+            for(int i = 0; i <gameCommonItems.getItemCategory().size(); i++){
+                givePosition((CommonItem) gameCommonItems.getItemCategory().elementAt(i));
+                panelCommonItems.getItemCategory().setElementAt(gameCommonItems.getItemCategory().elementAt(i),
+                        gameCommonItems.getItemCategory().elementAt(i).getPosition().getRow()*5+
+                                gameCommonItems.getItemCategory().elementAt(i).getPosition().getColum());
+            }
+        } else {
+            //取20个
+            int[] a = new int[gameCommonItems.getItemCategory().size()];
+            for(int i=0;i<a.length;i++){
+                a[i] = 0;
+            }
 
-            //index1用于描述随机选取gameCommonItems中的物品的位置，这些物品被选取出来之后会从gameCommonItems中清除
-            int index1 = random.nextInt(gameCommonItems.getItemCategory().size());
-
-            while(true){
-
-                //index2用于描述随机存入panelCommonItems的位置，若该位置原本是空则会被替代，如不是空则不会
-                int index2 = random.nextInt(20);
-
-                if(panelCommonItems.getItemCategory().elementAt(index2).getName().equals("empty")){
+            int cnt = 0;
+            while(cnt < 20){
+                Random rnd = new Random();
+                int pos = rnd.nextInt(gameCommonItems.getItemCategory().size());
+                if(a[pos] == 0){
+                    a[pos] = 1;
+                    cnt++;
                     panelCommonItems.getItemCategory().setElementAt(
-                            gameCommonItems.getItemCategory().elementAt(index1),index2);
-                    gameCommonItems.removeItem(index1);
-                    panelCommonItems.getItemCategory().elementAt(index2).setPosition(
-                            new ItemPosition((int)(index2/5),(int)(index2%5)));
-                    break;
+                            gameCommonItems.getItemCategory().elementAt(pos), cnt);
                 }
             }
+
+            for(int i=0; i<20; i++){
+                ItemPosition tmpPosition = new ItemPosition();
+                tmpPosition.setRow(i/5);
+                tmpPosition.setColum(i%5);
+                panelCommonItems.getItemCategory().elementAt(i).setPosition(tmpPosition);
+            }
         }
+
 
         slotMachine.removeAll();
         JButton[] commonItemsButtons = new JButton[20];
