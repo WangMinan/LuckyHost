@@ -16,12 +16,22 @@ public class MainEntrance extends JFrame{
      */
     static public JFrame mainFrame;
 
-
     public MainEntrance() {
     }
 
     public MainEntrance(JFrame mainFrame) {
         this.mainFrame = mainFrame;
+    }
+
+    public void playNewGame(){
+
+    }
+
+    public void playSavedGame(){
+
+    }
+
+    public void exit(){
 
     }
 
@@ -76,8 +86,7 @@ public class MainEntrance extends JFrame{
  class StartActionListener implements ActionListener {
      @Override
      public void actionPerformed(ActionEvent e) {
-         GameBoard gameBoard = new GameBoard();
-         gameBoard.initNewGame();
+
      }
  }
 
