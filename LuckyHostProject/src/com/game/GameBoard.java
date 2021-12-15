@@ -151,6 +151,7 @@ public class GameBoard {
         goldArea.setText("金币数：" + totalMoney);
         goldArea.setEditable(false);
 
+
         /**
          * 返回按钮
          */
