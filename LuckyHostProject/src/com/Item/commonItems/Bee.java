@@ -16,10 +16,10 @@ import java.util.Vector;
 public class Bee extends CommonItem {
 
     public Bee(){
-        this.setPriority(1);
+        this.setPriority(2);
         this.setName("bee");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/bee.png")));
-        this.setDescription("价值1枚金币，如果周围有花，每朵花增加2枚金币");
+        this.setDescription("价值1枚金币，如果周围有花，每朵花增加1枚金币");
     }
 
     public int calculateMoney(ItemCategory category){
