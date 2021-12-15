@@ -17,7 +17,7 @@ public class Bee extends CommonItem {
     public Bee(){
         this.setPriority(1);
         this.setName("bee");
-        this.setIcon(new JButton(new ImageIcon("images/bee.png")));
+        this.setIcon(new JButton(new ImageIcon("images/commonItems/bee.png")));
         this.setDescription("价值1枚金币，如果周围有花，则价值2枚金币");
     }
 

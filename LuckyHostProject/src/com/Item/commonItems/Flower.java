@@ -9,7 +9,7 @@ public class Flower extends CommonItem {
     public Flower(){
         this.setPriority(1);
         this.setName("flower");
-        this.setIcon(new JButton(new ImageIcon("images/flower.png")));
+        this.setIcon(new JButton(new ImageIcon("images/commonItems/flower.png")));
         this.setDescription("价值1枚金币");
     }
 

@@ -8,15 +8,15 @@ import java.util.Random;
 
 /**
  * @author Wangminan
- * @description 奶牛类
+ * @description 鹅类
  * @see CommonItem
  */
-public class Cow extends CommonItem {
+public class Goose extends CommonItem {
 
-    public Cow(){
-        this.setName("cow");
-        this.setIcon(new JButton(new ImageIcon("images/commonItem/cow.png")));
-        this.setDescription("价值3金币,如果老虎机面板上有空格,有15%概率增加牛奶");
+    public Goose(){
+        this.setName("goose");
+        this.setIcon(new JButton(new ImageIcon("images/commonItem/goose.png")));
+        this.setDescription("价值3金币,如果老虎机面板上有空格,有1%概率增加金蛋");
         this.setPriority(4);
     }
 
@@ -34,12 +34,12 @@ public class Cow extends CommonItem {
             //概率判定
             Random rand =new Random();
             int random = rand.nextInt(100);
-            if(random < 15){
+            if(random == 2){
                 if(cntEmpty == 0){
                     category.getItemCategory().setElementAt(new GoldEgg(),pos[0]);
                 } else {
                     int rnd = rand.nextInt(cntEmpty+1);
-                    category.getItemCategory().setElementAt(new Milk(),pos[rnd]);
+                    category.getItemCategory().setElementAt(new GoldEgg(),pos[rnd]);
                 }
             }
 

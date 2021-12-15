@@ -9,7 +9,7 @@ public class GoldEgg extends CommonItem {
     public GoldEgg(){
         this.setPriority(1);
         this.setName("goldEgg");
-        this.setIcon(new JButton(new ImageIcon("images/goldEgg.png")));
+        this.setIcon(new JButton(new ImageIcon("images/commonItems/goldEgg.png")));
         this.setDescription("价值4枚金币");
     }
 
