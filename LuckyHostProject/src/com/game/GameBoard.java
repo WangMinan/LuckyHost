@@ -10,6 +10,8 @@ import com.Item.specialItems.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -151,6 +153,12 @@ public class GameBoard {
         goldArea.setText("金币数：" + totalMoney);
         goldArea.setEditable(false);
 
+        /**
+         * 物品栏按钮
+         */
+        JButton materialButton = new JButton("物品栏");
+        materialButton.setBounds(850,410,170,60);
+        materialButton.setFont(new Font("Syria",Font.BOLD,40));
 
         /**
          * 返回按钮
@@ -158,6 +166,14 @@ public class GameBoard {
         JButton returnButton = new JButton("返回");
         returnButton.setBounds(850,472,170,60);
         returnButton.setFont(new Font("Syria",Font.BOLD,40));
+        returnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                revise();
+                gameFrame.setVisible(false);
+                MainEntrance.mainFrame.setVisible(true);
+            }
+        });
 
         /**
          * 更改JFrame颜色
@@ -169,6 +185,7 @@ public class GameBoard {
         this.gameFrame.add(specialItemPanel);
         this.gameFrame.add(rotateButton);
         this.gameFrame.add(goldArea);
+        this.gameFrame.add(materialButton);
         this.gameFrame.add(returnButton);
         this.gameFrame.setLayout(null);
         this.gameFrame.setSize(1024,576);
@@ -265,7 +282,15 @@ public class GameBoard {
         @Override
         public void windowClosed(WindowEvent e){
             super.windowClosed(e);
+            revise();
         }
+    }
+
+    /**
+     * 保存函数
+     */
+    public void revise(){
+
     }
 
     /**
