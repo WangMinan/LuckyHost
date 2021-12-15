@@ -23,18 +23,6 @@ public class MainEntrance extends JFrame{
         this.mainFrame = mainFrame;
     }
 
-    public void playNewGame(){
-
-    }
-
-    public void playSavedGame(){
-
-    }
-
-    public void exit(){
-
-    }
-
     public static void main(String args[]){
         //默认的字体样式
 
