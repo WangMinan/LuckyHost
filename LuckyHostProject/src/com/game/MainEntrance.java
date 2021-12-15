@@ -16,11 +16,13 @@ public class MainEntrance extends JFrame{
      */
     static public JFrame mainFrame;
 
+
     public MainEntrance() {
     }
 
     public MainEntrance(JFrame mainFrame) {
         this.mainFrame = mainFrame;
+
     }
 
     public static void main(String args[]){
@@ -74,7 +76,9 @@ public class MainEntrance extends JFrame{
  class StartActionListener implements ActionListener {
      @Override
      public void actionPerformed(ActionEvent e) {
-
+         MainEntrance.mainFrame.setVisible(false);
+         GameBoard gameBoard = new GameBoard();
+         gameBoard.initNewGame();
      }
  }
 
