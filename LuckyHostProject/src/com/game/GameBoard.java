@@ -349,13 +349,45 @@ public class GameBoard {
      * 更新物品栏
      */
     public void updateGameCommonItem(CommonItem item){
-
+        gameCommonItems.addItem(item);
     }
 
     /**
      * 更新老虎机界面
      */
     public void updateSlotMachine(){
+        panelCommonItems =new ItemCategory();
+        Random random = new Random();
+
+        //将panelCommonItems中的物品全部变成空
+        for(int i = 0;i<20;i++){
+            panelCommonItems.addItem(new Empty());
+        }
+        for(int i = 0;i<gameCommonItems.getItemCategory().size();i++){
+
+            //index1用于描述随机选取gameCommonItems中的物品的位置，这些物品被选取出来之后会从gameCommonItems中清除
+            int index1 = random.nextInt(0,gameCommonItems.getItemCategory().size()-1);
+
+            while(true){
+
+                //index2用于描述随机存入panelCommonItems的位置，若该位置原本是空则会被替代，如不是空则不会
+                int index2 = random.nextInt(0,19);
+
+                if(panelCommonItems.getItemCategory().elementAt(index2).getName().equals("empty")){
+                    panelCommonItems.getItemCategory().setElementAt(
+                            gameCommonItems.getItemCategory().elementAt(index1),index2);
+                    gameCommonItems.removeItem(index1);
+                    panelCommonItems.getItemCategory().elementAt(index2).setPosition(
+                            new ItemPosition((int)(index2/5),(int)(index2%5)));
+                    break;
+                }
+            }
+        }
+        JButton[] commonItemsButtons = new JButton[20];
+        for(int i=0; i<20; i++){
+            commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
+            slotMachine.add(commonItemsButtons[i]);
+        }
 
     }
 
