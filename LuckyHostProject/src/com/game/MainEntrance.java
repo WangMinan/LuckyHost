@@ -36,6 +36,7 @@ public class MainEntrance extends JFrame{
         mainFrame.setVisible(true);
         mainFrame.setLayout(null);
         mainFrame.setFont(new Font("Syria",Font.BOLD,20));
+        mainFrame.setLocationRelativeTo(null);
 
         Container container = mainFrame.getContentPane();
         container.setBackground(Color.orange);
@@ -51,6 +52,7 @@ public class MainEntrance extends JFrame{
         startButton.setBounds(430,300,150,40);
         startButton.setFont(new Font("Syria",Font.BOLD,20));
         startButton.addActionListener(new StartActionListener());
+        startButton.setFocusPainted(false);
 
         //主界面的继续游戏按钮
         JButton continueButton = new JButton("继续游戏");
