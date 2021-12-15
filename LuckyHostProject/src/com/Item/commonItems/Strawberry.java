@@ -14,6 +14,7 @@ public class Strawberry extends CommonItem {
         this.setPriority(2);
         this.setName("rain");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/strawberry.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值3枚金币，如果周围有其他草莓，每多1个草莓增加3枚金币");
     }
 

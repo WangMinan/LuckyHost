@@ -16,6 +16,7 @@ public class HollowFruit extends CommonItem {
         this.setPriority(1);
         this.setName("hollowFruit");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/hollowFruit.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值1枚金币，如果周围有空，每个空增加1枚金币");
     }
 

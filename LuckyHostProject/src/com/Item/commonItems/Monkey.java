@@ -15,6 +15,7 @@ public class Monkey extends CommonItem {
         this.setPriority(3);
         this.setName("monkey");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/monkey.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值2枚金币,如果老虎机面板上有空格,可以消除相邻的椰子（生成半个椰子）和半个椰子");
     }
 

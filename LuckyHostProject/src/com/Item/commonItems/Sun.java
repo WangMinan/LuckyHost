@@ -16,6 +16,7 @@ public class Sun extends CommonItem {
         this.setPriority(1);
         this.setName("sun");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/sun.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值4枚金币，如果周围有花，每朵花增加4枚金币");
     }
 

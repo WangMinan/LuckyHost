@@ -14,6 +14,7 @@ public class Cat extends CommonItem {
         this.setPriority(3);
         this.setName("cat");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/cat.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值1枚金币，消除周围的牛奶，每消除一个牛奶，获得9枚金币");
     }
 

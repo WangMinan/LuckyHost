@@ -16,6 +16,7 @@ public class Cow extends CommonItem {
     public Cow(){
         this.setName("cow");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/cow.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("价值3金币,如果老虎机面板上有空格,有15%概率增加牛奶");
         this.setPriority(4);
     }

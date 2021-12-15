@@ -15,6 +15,7 @@ public class Empty extends CommonItem {
         this.setPriority(1);
         this.setName("empty");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/empty.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("");
     }
 
