@@ -4,7 +4,12 @@ import com.Item.CommonItem;
 import com.Item.ItemCategory;
 
 import javax.swing.*;
-
+/**
+ * 金蛋类，价值4枚金币
+ * @author  WuSigan
+ * @see CommonItem
+ *
+ */
 public class GoldEgg extends CommonItem {
     public GoldEgg(){
         this.setPriority(1);

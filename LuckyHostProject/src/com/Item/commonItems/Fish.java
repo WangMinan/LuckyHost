@@ -4,7 +4,12 @@ import com.Item.CommonItem;
 import com.Item.ItemCategory;
 
 import javax.swing.*;
-
+/**
+ * 鱼类，价值1枚金币，消除周围的泡泡，每消除一个泡泡，获得4枚金币
+ * @author  WuSigan
+ * @see CommonItem
+ *
+ */
 public class Fish extends CommonItem {
     public Fish(){
         this.setPriority(2);
