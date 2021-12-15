@@ -17,6 +17,7 @@ public class LockRemover extends SpecialItem {
     public LockRemover() {
         this.setName("lockRemover");
         this.setIcon(new JButton(new ImageIcon("images/specialItems/lockRemover.png")));
+        this.getIcon().setFocusPainted(false);
         this.setDescription("面板中的宝箱有30%的几率被消除");
     }
 
