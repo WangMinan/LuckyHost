@@ -281,7 +281,10 @@ public class GameBoard {
      * 旋转
      */
     public void rotate(){
-
+        //显示选取界面
+        //用户3选1或跳过
+        //更新panelCommonItems和commonItems
+        //
     }
 
     /**
