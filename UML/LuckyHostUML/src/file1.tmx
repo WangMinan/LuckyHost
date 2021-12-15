@@ -23,7 +23,7 @@
         <nestedClassifierCompartmentNode xmi:id="_wVCjt1vSEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_wVCjuFvSEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="271,383" autoResize="true">
+      <nodes xmi:type="trufun:TClassNode" xmi:id="_PlXMAFvTEeyD4NRQWHLJBA" owner="_PlWk8FvTEeyD4NRQWHLJBA" name="GameBoard" incomingConnections="_qgJXcVvTEeyD4NRQWHLJBA _J_myh1vVEeyD4NRQWHLJBA" location="78,257" size="311,415" autoResize="true">
         <fillColor xmi:id="_PlXMAVvTEeyD4NRQWHLJBA" r="255" g="255" b="255"/>
         <lineColor xmi:id="_PlXMAlvTEeyD4NRQWHLJBA"/>
         <fontColor xmi:id="_PlXMA1vTEeyD4NRQWHLJBA"/>
@@ -40,6 +40,7 @@
           <operations xmi:id="_e2Y0IVvVEeyD4NRQWHLJBA" owner="_e2YNEFvVEeyD4NRQWHLJBA" name="upDateItemFrame() : void"/>
           <operations xmi:id="_-nFloFvVEeyD4NRQWHLJBA" owner="_-nEXgFvVEeyD4NRQWHLJBA" name="updateMaterialList() : void"/>
           <operations xmi:id="_eh3xIFvfEeyflPHvzqRlHQ" owner="_eh2jAFvfEeyflPHvzqRlHQ" name="showMaterialList() : void"/>
+          <operations xmi:id="_Y-wIsF1REeymiNtQ20FcuQ" owner="_Y-u6kF1REeymiNtQ20FcuQ" name="play() : void"/>
         </operationCompartmentNode>
         <attributeCompartmentNode xmi:id="_PlXMBlvTEeyD4NRQWHLJBA">
           <attributes xmi:id="_lPQsoFvTEeyD4NRQWHLJBA" owner="_lPQFkFvTEeyD4NRQWHLJBA" name="gameFrame : JFrame"/>
@@ -49,6 +50,7 @@
           <attributes xmi:id="_O7L7sFvVEeyD4NRQWHLJBA" owner="_O7LUoFvVEeyD4NRQWHLJBA" name="specialItems : ItemCategory"/>
           <attributes xmi:id="_F_xTcFzTEeyvtquyFGB55g" owner="_F_wFUFzTEeyvtquyFGB55g" name="panelItems : ItemCategory"/>
           <attributes xmi:id="_uKKhgFzYEeyvtquyFGB55g" owner="_uKJTYFzYEeyvtquyFGB55g" name="inventory : ItemCategroy"/>
+          <attributes xmi:id="_EEejoF1QEeymiNtQ20FcuQ" owner="_EEbgUF1QEeymiNtQ20FcuQ" name="panelSpecialItems : ItemCategory"/>
           <attributes xmi:id="_50KywFvhEeyZOMLtFftEsA" owner="_50HvcFvhEeyZOMLtFftEsA" name="chanceToRemove : int"/>
           <attributes xmi:id="_ICVaQFvlEeynut3JyQ4oqA" owner="_ICS-AFvlEeynut3JyQ4oqA" name="rotateTime : int"/>
         </attributeCompartmentNode>
@@ -151,7 +153,7 @@
         <nestedClassifierCompartmentNode xmi:id="_9WNCCFvUEeyD4NRQWHLJBA"/>
         <templateParameterCompartmentNode xmi:id="_9WNCCVvUEeyD4NRQWHLJBA"/>
       </nodes>
-      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="345,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
+      <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxoFvVEeyD4NRQWHLJBA" name="1" location="385,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Client.Multiplicity" direction="12" offset="0,0">
         <fontColor xmi:id="_J_xxoVvVEeyD4NRQWHLJBA"/>
       </nodes>
       <nodes xmi:type="trufun:SubLabel" xmi:id="_J_xxolvVEeyD4NRQWHLJBA" name="1" location="827,433" size="24,31" parent="_J_myh1vVEeyD4NRQWHLJBA" alias="Supplier.Multiplicity" direction="11" offset="0,0">
@@ -327,6 +329,7 @@
     <ownedAttribute xmi:id="_O7LUoFvVEeyD4NRQWHLJBA" name="specialItems" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA"/>
     <ownedAttribute xmi:id="_F_wFUFzTEeyvtquyFGB55g" name="panelItems" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA"/>
     <ownedAttribute xmi:id="_uKJTYFzYEeyvtquyFGB55g" name="inventory" visibility="private" type="_0zaGYFzYEeyvtquyFGB55g"/>
+    <ownedAttribute xmi:id="_EEbgUF1QEeymiNtQ20FcuQ" name="panelSpecialItems" visibility="private" type="_9WNCAFvUEeyD4NRQWHLJBA"/>
     <ownedAttribute xmi:id="_50HvcFvhEeyZOMLtFftEsA" name="chanceToRemove" visibility="private" type="_7KBxQlvHEeyqDY0coyw4_Q"/>
     <ownedAttribute xmi:id="_ICS-AFvlEeynut3JyQ4oqA" name="rotateTime" visibility="private" type="_7KBxQlvHEeyqDY0coyw4_Q"/>
     <ownedOperation xmi:id="_jKvv0FvWEeyD4NRQWHLJBA" name="getter&amp;setter" visibility="public">
@@ -361,6 +364,9 @@
     </ownedOperation>
     <ownedOperation xmi:id="_eh2jAFvfEeyflPHvzqRlHQ" name="showMaterialList" visibility="public">
       <ownedParameter xmi:id="_eh3KEFvfEeyflPHvzqRlHQ" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Y-u6kF1REeymiNtQ20FcuQ" name="play" visibility="public">
+      <ownedParameter xmi:id="_Y-vhoF1REeymiNtQ20FcuQ" name="Parameter1" type="__oKIcFvSEeyD4NRQWHLJBA" direction="return"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_qgG7MFvTEeyD4NRQWHLJBA" memberEnd="_qgIwYFvTEeyD4NRQWHLJBA _qgIwY1vTEeyD4NRQWHLJBA">
