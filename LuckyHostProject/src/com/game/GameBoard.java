@@ -34,7 +34,7 @@ public class GameBoard {
     /**
      * 玩家当前拥有的金币
      */
-    private int totalMoney;
+    private int totalMoney = 0;
 
     /**
      * 基础物品所在的列表
@@ -133,11 +133,42 @@ public class GameBoard {
         specialItemPanel.setBounds(0,0,200,345);
         specialItemPanel.setBackground(Color.ORANGE);
 
+        /**
+         * 旋转按钮
+         */
+        JButton rotateButton = new JButton("旋转");
+        rotateButton.setBounds(428,472,170,60);
+        rotateButton.setFont(new Font("Syria",Font.BOLD,50));
+        rotateButton.setBackground(new Color(17,201,99));
+
+        /**
+         * 金币数
+         */
+        JTextArea goldArea = new JTextArea();
+        goldArea.setBounds(0,480,170,60);
+        goldArea.setFont(new Font("Syria",Font.BOLD,20));
+        goldArea.setBackground(Color.orange);
+        goldArea.setText("金币数：" + totalMoney);
+        goldArea.setEditable(false);
+
+        /**
+         * 返回按钮
+         */
+        JButton returnButton = new JButton("返回");
+        returnButton.setBounds(850,472,170,60);
+        returnButton.setFont(new Font("Syria",Font.BOLD,40));
+
+        /**
+         * 更改JFrame颜色
+         */
         Container container = gameFrame.getContentPane();
         container.setBackground(Color.orange);
 
         this.gameFrame.add(slotMachine);
         this.gameFrame.add(specialItemPanel);
+        this.gameFrame.add(rotateButton);
+        this.gameFrame.add(goldArea);
+        this.gameFrame.add(returnButton);
         this.gameFrame.setLayout(null);
         this.gameFrame.setSize(1024,576);
         this.gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
