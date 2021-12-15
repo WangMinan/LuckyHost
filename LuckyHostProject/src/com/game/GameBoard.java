@@ -28,6 +28,7 @@ public class GameBoard {
     private JPanel slotMachine;
     private JPanel specialItemPanel;
     private JTextArea goldArea;
+    private JFrame commonSelectFrame;
 
     /**
      * 每周老虎机希望达到的目标金币
@@ -301,6 +302,7 @@ public class GameBoard {
         } else {
             this.gameFrame.setVisible(false);
             showMessageDialog(MainEntrance.mainFrame,"你没能按时支付房租，游戏结束");
+            MainEntrance.mainFrame.setVisible(true);
             return true;
         }
     }
@@ -331,17 +333,18 @@ public class GameBoard {
 
         //算钱
         totalMoney = totalMoney + calculateTotalMoney();
+        goldArea.setText("金币数：" + totalMoney);
         //如果一周结束，扣除房租，下周房租加50
         if(countDays == 6 && !judgeLose()){
             this.totalMoney = this.totalMoney - targetMoney;
             this.targetMoney += 50;
-            countDays = 0;
+            chooseSpecialItem();
         }
         //显示选取界面（普通物品）
 
-        JFrame selectFrame = new JFrame();
+        commonSelectFrame = new JFrame();
 
-        showMessageDialog(selectFrame,"离下次支付还有" + (7-countDays) + "天，下次需支付"
+        showMessageDialog(commonSelectFrame,"离下次支付还有" + (7-countDays) + "天，下次需支付"
                             + targetMoney + "枚金币");
 
         //跳过按钮
@@ -351,7 +354,7 @@ public class GameBoard {
         skipButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectFrame.setVisible(false);
+                commonSelectFrame.setVisible(false);
                 gameFrame.setVisible(true);
             }
         });
@@ -386,8 +389,23 @@ public class GameBoard {
         JTextArea[] descriptions = new JTextArea[3];
 
         for(int i = 0; i < 3; i++){
+            //选择按钮
             options[i] = commonItems.getItemCategory().elementAt(itemPos[i]).getIcon();
             options[i].setBounds(100,0,50,50);
+            CommonItem tmpItem = (CommonItem) commonItems.getItemCategory().elementAt(itemPos[i]);
+            options[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //更新panelCommonItems
+                    updateGameCommonItem(tmpItem);
+
+                    updateSlotMachine();
+                    commonSelectFrame.setVisible(false);
+                    gameFrame.setVisible(true);
+                }
+            });
+
+            //描述界面
             descriptions[i] = new JTextArea();
             descriptions[i].setFont(new Font("Syria",Font.BOLD,20));
             descriptions[i].setBounds(10,60,230,350);
@@ -396,34 +414,29 @@ public class GameBoard {
             descriptions[i].setText(commonItems.getItemCategory().elementAt(itemPos[i]).getName() +
                     ": \n" + commonItems.getItemCategory().elementAt(itemPos[i]).getDescription());
             descriptions[i].setEditable(false);
+
+            //添加
             selectPanels[i].add(options[i]);
             selectPanels[i].add(descriptions[i]);
         }
 
+        if(countDays == 6){
+            countDays = -1;
+        }
+        countDays ++;
+
         //添加部分
-        selectFrame.add(skipButton);
+        commonSelectFrame.add(skipButton);
         for(int i = 0; i < 3; i++){
-            selectFrame.add(selectPanels[i]);
+            commonSelectFrame.add(selectPanels[i]);
         }
 
-        Container container = selectFrame.getContentPane();
+        Container container = commonSelectFrame.getContentPane();
         container.setBackground(Color.orange);
-        selectFrame.setLayout(null);
-        selectFrame.setSize(976,576);
-        selectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        selectFrame.setVisible(true);
-
-        //用户3选1或跳过
-
-        //显示选取界面（特殊物品（如果一周结束了））
-
-        //用户3选1或跳过
-
-        countDays ++;
-        //更新panelCommonItems
-        //updateMaterialList();
-        //显示新界面
-        //updateItemFrame();
+        commonSelectFrame.setLayout(null);
+        commonSelectFrame.setSize(976,576);
+        commonSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        commonSelectFrame.setVisible(true);
     }
 
     /**
@@ -444,6 +457,7 @@ public class GameBoard {
         for(int i = 0;i<20;i++){
             panelCommonItems.addItem(new Empty());
         }
+
         for(int i = 0;i<gameCommonItems.getItemCategory().size();i++){
 
             //index1用于描述随机选取gameCommonItems中的物品的位置，这些物品被选取出来之后会从gameCommonItems中清除
@@ -464,12 +478,106 @@ public class GameBoard {
                 }
             }
         }
+
+        slotMachine.removeAll();
         JButton[] commonItemsButtons = new JButton[20];
         for(int i=0; i<20; i++){
             commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
             slotMachine.add(commonItemsButtons[i]);
         }
 
+    }
+
+    /**
+     * 增加特殊物品
+     */
+    public void chooseSpecialItem(){
+        JFrame selectFrame = new JFrame();
+
+        //跳过按钮
+        JButton skipButton = new JButton("跳过");
+        skipButton.setBounds(430,0,100,40);
+        skipButton.setFont(new Font("Syria",Font.BOLD,20));
+        skipButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectFrame.setVisible(false);
+                gameFrame.setVisible(true);
+            }
+        });
+
+        //左中右三个panel
+        JPanel[] selectPanels = new JPanel[3];
+        int posX = 38;
+        int posY = 76;
+
+        for(int i = 0; i < 3; i++){
+            selectPanels[i] = new JPanel();
+            selectPanels[i].setBorder(new LineBorder(Color.BLACK));
+            selectPanels[i].setBackground(Color.WHITE);
+            selectPanels[i].setBounds(posX,posY,250,450);
+            posX+=300;
+        }
+
+        int[] itemPos = {-1,-1,-1};
+        int cnt = 0;
+        //随即从commonItems中找出三种物品
+        while(cnt<3){
+            Random random = new Random();
+            int pos = random.nextInt(specialItems.getItemCategory().size());
+            //empty存在6的位置上
+            if(pos != itemPos[0] && pos != itemPos[1] && pos != itemPos[2]){
+                itemPos[cnt] = pos;
+                cnt++;
+            }
+        }
+
+        JButton[] options = new JButton[3];
+        JTextArea[] descriptions = new JTextArea[3];
+
+        for(int i = 0; i < 3; i++){
+            //选择按钮
+            options[i] = commonItems.getItemCategory().elementAt(itemPos[i]).getIcon();
+            options[i].setBounds(100,0,50,50);
+            CommonItem tmpItem = (CommonItem) commonItems.getItemCategory().elementAt(itemPos[i]);
+            options[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    gameSpecialItems.addItem(tmpItem);
+                    JButton tmpButton = tmpItem.getIcon();
+                    tmpButton.setEnabled(false);
+                    specialItemPanel.add(tmpButton);
+                    commonSelectFrame.setVisible(true);
+                }
+            });
+
+            //描述界面
+            descriptions[i] = new JTextArea();
+            descriptions[i].setFont(new Font("Syria",Font.BOLD,20));
+            descriptions[i].setBounds(10,60,230,350);
+            descriptions[i].setLineWrap(true);        //激活自动换行功能
+            //descriptions[i].setWrapStyleWord(true);            // 激活断行不断字功能
+            descriptions[i].setText(commonItems.getItemCategory().elementAt(itemPos[i]).getName() +
+                    ": \n" + commonItems.getItemCategory().elementAt(itemPos[i]).getDescription());
+            descriptions[i].setEditable(false);
+
+            //添加
+            selectPanels[i].add(options[i]);
+            selectPanels[i].add(descriptions[i]);
+        }
+
+        //添加部分
+        selectFrame.add(skipButton);
+        for(int i = 0; i < 3; i++){
+            selectFrame.add(selectPanels[i]);
+        }
+
+        Container container = selectFrame.getContentPane();
+        container.setBackground(Color.orange);
+        selectFrame.setLayout(null);
+        selectFrame.setSize(976,576);
+        selectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        selectFrame.setVisible(true);
     }
 
 //    /**
