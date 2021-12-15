@@ -60,6 +60,16 @@ public class GameBoard {
     private ItemCategory panelSpecialItems;
 
     /**
+     * 游戏中通过选取得到的普通物品
+     */
+    private ItemCategory gameCommonItems;
+
+    /**
+     * 游戏中通过选取得到的特殊物品
+     */
+    private ItemCategory gameSpecialItems;
+
+    /**
      * 物品栏里的所有物品
      */
     private ItemCategory inventory;
@@ -117,7 +127,10 @@ public class GameBoard {
         Pearl pearl = new Pearl();
 
         this.panelCommonItems = new ItemCategory();
+        this.gameCommonItems = new ItemCategory();
+
         for(int i = 0; i < 20; i++){
+            this.gameCommonItems.addItem(new Empty());
             this.panelCommonItems.addItem(new Empty());
         }
 
@@ -127,8 +140,8 @@ public class GameBoard {
         givePosition(halfCoconut);
         givePosition(pearl);
 
-        panelSpecialItems = new ItemCategory();
-
+        this.panelSpecialItems = new ItemCategory();
+        this.gameSpecialItems = new ItemCategory();
         play();
     }
 
@@ -333,25 +346,25 @@ public class GameBoard {
     }
 
     /**
-     * 更新老虎机界面
-     */
-    public void updateItemFrame(CommonItem item){
-
-    }
-
-    /**
      * 更新物品栏
      */
-    public void updateMaterialList(Item item){
+    public void updateGameCommonItem(CommonItem item){
 
     }
 
     /**
-     * 展示物品栏
+     * 更新老虎机界面
      */
-    public void showMaterialFrame(){
+    public void updateSlotMachine(){
 
     }
+
+//    /**
+//     * 展示物品栏
+//     */
+//    public void showMaterialFrame(){
+//
+//    }
 
     /**
      * 随机位置
