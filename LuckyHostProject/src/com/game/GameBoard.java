@@ -217,7 +217,8 @@ public class GameBoard {
             @Override
             public void actionPerformed(ActionEvent e) {
                 revise();
-                gameFrame.setVisible(false);
+                //gameFrame.setVisible(false);
+                gameFrame.dispose();
                 MainEntrance.mainFrame.setVisible(true);
             }
         });
@@ -374,7 +375,8 @@ public class GameBoard {
             @Override
             public void actionPerformed(ActionEvent e) {
                 updateSlotMachine();
-                commonSelectFrame.setVisible(false);
+                //commonSelectFrame.setVisible(false);
+                commonSelectFrame.dispose();
                 gameFrame.setVisible(true);
             }
         });
@@ -420,7 +422,8 @@ public class GameBoard {
                     gameCommonItems.getItemCategory().addElement(tmpItem);
                     updateSlotMachine();
 
-                    commonSelectFrame.setVisible(false);
+                    //commonSelectFrame.setVisible(false);
+                    commonSelectFrame.dispose();
                     gameFrame.setVisible(true);
                 }
             });
@@ -532,7 +535,8 @@ public class GameBoard {
         skipButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectFrame.setVisible(false);
+                //selectFrame.setVisible(false);
+                selectFrame.dispose();
                 gameFrame.setVisible(true);
             }
         });
