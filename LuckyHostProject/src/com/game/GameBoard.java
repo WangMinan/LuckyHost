@@ -461,12 +461,12 @@ public class GameBoard {
         for(int i = 0;i<gameCommonItems.getItemCategory().size();i++){
 
             //index1用于描述随机选取gameCommonItems中的物品的位置，这些物品被选取出来之后会从gameCommonItems中清除
-            int index1 = random.nextInt(0,gameCommonItems.getItemCategory().size()-1);
+            int index1 = random.nextInt(gameCommonItems.getItemCategory().size());
 
             while(true){
 
                 //index2用于描述随机存入panelCommonItems的位置，若该位置原本是空则会被替代，如不是空则不会
-                int index2 = random.nextInt(0,19);
+                int index2 = random.nextInt(20);
 
                 if(panelCommonItems.getItemCategory().elementAt(index2).getName().equals("empty")){
                     panelCommonItems.getItemCategory().setElementAt(
