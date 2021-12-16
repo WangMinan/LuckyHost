@@ -119,6 +119,7 @@ public class GameBoard {
         initItemCategories();
         this.targetMoney = 25;
         this.gameFrame = new JFrame();
+
         showMessageDialog(gameFrame,"欢迎来到幸运房东，你有一周的时间来通过房间里的老虎机获取房租，房租每周上涨，祝你好运");
 
         Cat cat = new Cat();
@@ -182,6 +183,7 @@ public class GameBoard {
         rotateButton.setBounds(428,472,170,60);
         rotateButton.setFont(new Font("Syria",Font.BOLD,50));
         rotateButton.setBackground(new Color(17,201,99));
+        rotateButton.setFocusPainted(false);
         rotateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -204,6 +206,7 @@ public class GameBoard {
          * 物品栏按钮
          */
         JButton materialButton = new JButton("物品栏");
+        materialButton.setFocusPainted(false);
         materialButton.setBounds(850,410,170,60);
         materialButton.setFont(new Font("Syria",Font.BOLD,40));
 
@@ -211,6 +214,7 @@ public class GameBoard {
          * 返回按钮
          */
         JButton returnButton = new JButton("返回");
+        returnButton.setFocusPainted(false);
         returnButton.setBounds(850,472,170,60);
         returnButton.setFont(new Font("Syria",Font.BOLD,40));
         returnButton.addActionListener(new ActionListener() {
@@ -247,6 +251,7 @@ public class GameBoard {
         this.gameFrame.add(returnButton);
         this.gameFrame.setLayout(null);
         this.gameFrame.setSize(1024,576);
+        this.gameFrame.setLocationRelativeTo(null);
         this.gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.gameFrame.setVisible(true);
     }
@@ -361,6 +366,7 @@ public class GameBoard {
 
         //跳过按钮
         JButton skipButton = new JButton("跳过");
+        skipButton.setFocusPainted(false);
         skipButton.setBounds(430,0,100,40);
         skipButton.setFont(new Font("Syria",Font.BOLD,20));
         skipButton.addActionListener(new ActionListener() {
@@ -450,6 +456,7 @@ public class GameBoard {
         container.setBackground(Color.orange);
         commonSelectFrame.setLayout(null);
         commonSelectFrame.setSize(976,576);
+        commonSelectFrame.setLocationRelativeTo(null);
         commonSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         commonSelectFrame.setVisible(true);
     }
@@ -531,6 +538,7 @@ public class GameBoard {
         JButton skipButton = new JButton("跳过");
         skipButton.setBounds(430,0,100,40);
         skipButton.setFont(new Font("Syria",Font.BOLD,20));
+        skipButton.setFocusPainted(false);
         skipButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
