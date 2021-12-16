@@ -59,12 +59,14 @@ public class MainEntrance extends JFrame{
         continueButton.setBounds(430,350,150,40);
         continueButton.setFont(new Font("Syria",Font.BOLD,20));
         continueButton.addActionListener(new ContinueActionListener());
+        continueButton.setFocusPainted(false);
 
         //主界面的退出游戏按钮
         JButton exitButton = new JButton("退出游戏");
         exitButton.setBounds(430,400,150,40);
         exitButton.setFont(new Font("Syria",Font.BOLD,20));
         exitButton.addActionListener(new ExitListener());
+        exitButton.setFocusPainted(false);
 
         mainFrame.add(startText);
         mainFrame.add(startButton);
