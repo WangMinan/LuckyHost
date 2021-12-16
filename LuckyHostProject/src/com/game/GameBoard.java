@@ -303,7 +303,8 @@ public class GameBoard {
         if(this.totalMoney >= this.targetMoney){
             return false;
         } else {
-            this.gameFrame.setVisible(false);
+            //this.gameFrame.setVisible(false);
+            this.gameFrame.dispose();
             showMessageDialog(MainEntrance.mainFrame,"你没能按时支付房租，游戏结束");
             MainEntrance.mainFrame.setVisible(true);
             return true;
@@ -342,11 +343,14 @@ public class GameBoard {
         totalMoney = totalMoney + calculateTotalMoney();
         goldArea.setText("金币数：" + totalMoney);
         //如果一周结束，扣除房租，下周房租加50
-        if(countDays == 6 && !judgeLose()){
+        if(countDays == 6 && judgeLose()){
+            return;
+        } else if(countDays == 6 && !judgeLose()){
             this.totalMoney = this.totalMoney - targetMoney;
             this.targetMoney = this.targetMoney + 50;
             //chooseSpecialItem();
         }
+
 
         //算完钱之后把panelCommonItems里的东西加入到gameCommonItems里面
         for(int i = 0; i < 20; i++){
