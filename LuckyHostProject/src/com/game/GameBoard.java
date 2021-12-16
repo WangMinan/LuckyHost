@@ -234,7 +234,8 @@ public class GameBoard {
         int tmpY = 20;
         for(int i=0; i<20; i++){
             commonItemsButtons[i] = new JButton();
-            commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
+            commonItemsButtons[i] =
+                ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewCommonItem().getIcon();
             slotMachine.add(commonItemsButtons[i]);
         }
 
@@ -402,9 +403,10 @@ public class GameBoard {
 
         for(int i = 0; i < 3; i++){
             //选择按钮
-            options[i] = commonItems.getItemCategory().elementAt(itemPos[i]).getIcon();
+            options[i] = ((CommonItem)commonItems.getItemCategory().elementAt(itemPos[i])).createNewCommonItem().getIcon();
             options[i].setBounds(100,0,50,50);
-            CommonItem tmpItem = (CommonItem) commonItems.getItemCategory().elementAt(itemPos[i]);
+            CommonItem tmpItem =
+                ((CommonItem) commonItems.getItemCategory().elementAt(itemPos[i])).createNewCommonItem();
             options[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -464,7 +466,7 @@ public class GameBoard {
         if(gameCommonItems.getItemCategory().size()<=20){
             //全部取
             for(int i = 0; i <gameCommonItems.getItemCategory().size(); i++){
-                givePosition((CommonItem) gameCommonItems.getItemCategory().elementAt(i));
+                givePosition(((CommonItem) gameCommonItems.getItemCategory().elementAt(i)).createNewCommonItem());
             }
             //从gameItem里面删去加入老虎机的部分
             gameCommonItems.getItemCategory().clear();
@@ -507,7 +509,8 @@ public class GameBoard {
         for(int i=0; i<20; i++){
             commonItemsButtons[i] = new Empty().getIcon();
             if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
-                commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
+                commonItemsButtons[i] =
+                    ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewCommonItem().getIcon();
             }
             slotMachine.add(commonItemsButtons[i]);
         }
