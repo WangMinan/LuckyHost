@@ -30,4 +30,9 @@ public class HollowFruit extends CommonItem {
         }
         return price;
     }
+
+    @Override
+    public HollowFruit createNewCommonItem(){
+        return new HollowFruit();
+    }
 }

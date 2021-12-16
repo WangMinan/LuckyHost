@@ -31,4 +31,9 @@ public class Key extends CommonItem {
         }
         return price;
     }
+
+    @Override
+    public Key createNewCommonItem(){
+        return new Key();
+    }
 }

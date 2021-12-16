@@ -22,4 +22,9 @@ public class Milk extends CommonItem {
     public int calculateMoney(ItemCategory category){
         return 1;
     }
+
+    @Override
+    public Milk createNewCommonItem(){
+        return new Milk();
+    }
 }

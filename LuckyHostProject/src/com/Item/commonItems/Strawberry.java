@@ -30,4 +30,9 @@ public class Strawberry extends CommonItem {
         }
         return price;
     }
+
+    @Override
+    public Strawberry createNewCommonItem(){
+        return new Strawberry();
+    }
 }

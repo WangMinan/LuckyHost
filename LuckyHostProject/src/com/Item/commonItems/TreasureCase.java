@@ -22,4 +22,9 @@ public class TreasureCase extends CommonItem {
     public int calculateMoney(ItemCategory category){
         return 1;
     }
+
+    @Override
+    public TreasureCase createNewCommonItem(){
+        return new TreasureCase();
+    }
 }

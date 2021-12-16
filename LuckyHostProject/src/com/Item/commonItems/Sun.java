@@ -31,4 +31,9 @@ public class Sun extends CommonItem {
         }
         return price;
     }
+
+    @Override
+    public Sun createNewCommonItem(){
+        return new Sun();
+    }
 }

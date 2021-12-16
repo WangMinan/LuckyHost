@@ -36,4 +36,9 @@ public class Monkey extends CommonItem {
 
         return price;
     }
+
+    @Override
+    public Monkey createNewCommonItem(){
+        return new Monkey();
+    }
 }

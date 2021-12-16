@@ -30,4 +30,9 @@ public class Rain extends CommonItem{
         }
         return price;
     }
+
+    @Override
+    public Rain createNewCommonItem(){
+        return new Rain();
+    }
 }
