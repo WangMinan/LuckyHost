@@ -4,6 +4,8 @@ import com.Item.CommonItem;
 import com.Item.ItemCategory;
 
 import javax.swing.*;
+import java.awt.*;
+
 /**
  * @author  WuSigan
  * @version 0.0.1
@@ -13,6 +15,17 @@ public class Cat extends CommonItem {
     public Cat(){
         this.setPriority(3);
         this.setName("cat");
+//        JButton button = new JButton(new ImageIcon("images/commonItems/cat.png")){
+//            public JToolTip createToolTip() {
+//                JToolTip tip = super.createToolTip();
+//                tip.setTipText();
+//                // MultiLineToolTip tip=new MultiLineToolTip();
+//                tip.setBackground(new Color(0xfffacd));
+//                tip.setForeground(Color.red);
+//                return tip;
+//            }
+//        };
+
         this.setIcon(new JButton(new ImageIcon("images/commonItems/cat.png")));
         this.getIcon().setFocusPainted(false);
         this.setDescription("价值1枚金币，消除周围的牛奶，每消除一个牛奶，获得9枚金币");
@@ -34,4 +47,6 @@ public class Cat extends CommonItem {
     public Cat createNewCommonItem(){
         return new Cat();
     }
+
+
 }

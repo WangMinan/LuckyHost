@@ -479,9 +479,10 @@ public class GameBoard {
             }
 
             int cnt = 0;
+            int totalNum = gameCommonItems.getItemCategory().size();
             while(cnt < 20){
                 Random rnd = new Random();
-                int pos = rnd.nextInt(gameCommonItems.getItemCategory().size());
+                int pos = rnd.nextInt(totalNum);
                 if(a[pos] == 0){
                     a[pos] = 1;
                     panelCommonItems.getItemCategory().setElementAt(
