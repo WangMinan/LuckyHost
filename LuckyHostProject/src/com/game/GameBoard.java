@@ -43,37 +43,37 @@ public class GameBoard {
     /**
      * 基础物品所在的列表
      */
-    private ItemCategory commonItems;
+    public ItemCategory commonItems;
 
     /**
      * 特殊物品所在的列表
      */
-    private ItemCategory specialItems;
+    public ItemCategory specialItems;
 
     /**
      * 面板上的物品
      */
-    private ItemCategory panelCommonItems;
+    public ItemCategory panelCommonItems;
 
     /**
      * 游戏中的加成物品
      */
-    private ItemCategory panelSpecialItems;
+    public ItemCategory panelSpecialItems;
 
     /**
      * 游戏中通过选取得到的普通物品
      */
-    private ItemCategory gameCommonItems;
+    public ItemCategory gameCommonItems;
 
     /**
      * 游戏中通过选取得到的特殊物品
      */
-    private ItemCategory gameSpecialItems;
+    public ItemCategory gameSpecialItems;
 
     /**
      * 物品栏里的所有物品
      */
-    private ItemCategory inventory;
+    public ItemCategory inventory;
 
     /**
      * 剩余的移除次数
@@ -573,9 +573,9 @@ public class GameBoard {
 
         for(int i = 0; i < 3; i++){
             //选择按钮
-            options[i] = commonItems.getItemCategory().elementAt(itemPos[i]).getIcon();
+            options[i] = specialItems.getItemCategory().elementAt(itemPos[i]).getIcon();
             options[i].setBounds(100,0,50,50);
-            CommonItem tmpItem = (CommonItem) commonItems.getItemCategory().elementAt(itemPos[i]);
+            SpecialItem tmpItem = (SpecialItem) specialItems.getItemCategory().elementAt(itemPos[i]);
             options[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -667,6 +667,5 @@ public class GameBoard {
     public static void main(String args[]){
         GameBoard gameBoard = new GameBoard();
         gameBoard.initNewGame();
-
     }
 }
