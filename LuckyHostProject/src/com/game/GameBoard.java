@@ -346,7 +346,8 @@ public class GameBoard {
         //算完钱之后把panelCommonItems里的东西加入到gameCommonItems里面
         for(int i = 0; i < 20; i++){
             if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
-                gameCommonItems.getItemCategory().addElement(panelCommonItems.getItemCategory().elementAt(i));
+                gameCommonItems.getItemCategory().addElement(
+                        ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewCommonItem());
             }
         }
         panelCommonItems.getItemCategory().clear();
@@ -484,7 +485,8 @@ public class GameBoard {
                 if(a[pos] == 0){
                     a[pos] = 1;
                     panelCommonItems.getItemCategory().setElementAt(
-                            gameCommonItems.getItemCategory().elementAt(pos), cnt);
+                            ((CommonItem)gameCommonItems.getItemCategory().elementAt(pos)).createNewCommonItem(),
+                            cnt);
                     gameCommonItems.getItemCategory().removeElementAt(pos);
                     cnt++;
                 }

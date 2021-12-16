@@ -17,7 +17,7 @@ public class HollowFruit extends CommonItem {
         this.setName("hollowFruit");
         this.setIcon(new JButton(new ImageIcon("images/commonItems/hollowFruit.png")));
         this.getIcon().setFocusPainted(false);
-        this.setDescription("价值1枚金币，如果周围有空，每个空增加1枚金币");
+        this.setDescription("价值1枚金币，如果周围有空，每个空增加1枚金币,否则消除自身，给予8金币");
     }
 
     public int calculateMoney(ItemCategory category){
@@ -28,7 +28,13 @@ public class HollowFruit extends CommonItem {
                 price++;
             }
         }
-        return price;
+        if(price == 1){
+            category.getItemCategory().setElementAt(new Empty(),
+                    this.getPosition().getRow()*5+this.getPosition().getColum());
+            return 8;
+        } else {
+            return price;
+        }
     }
 
     @Override
