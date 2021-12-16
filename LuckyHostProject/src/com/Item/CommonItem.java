@@ -39,4 +39,8 @@ public class CommonItem extends Item{
         return 0;
     }
 
+    //产生一个新的实例
+    public CommonItem createNewCommonItem(){
+        return new CommonItem();
+    }
 }

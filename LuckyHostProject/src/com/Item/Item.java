@@ -14,6 +14,7 @@ public class Item {
     private JButton icon = new JButton();
     private String description = "null";
     private ItemPosition position = null;
+    private ImageIcon imageIcon;
 
     public Item(){
 
@@ -73,4 +74,13 @@ public class Item {
         }
         return flag;
     }
+
+    public ImageIcon getImageIcon() {
+        return imageIcon;
+    }
+
+    public void setImageIcon(ImageIcon imageIcon) {
+        this.imageIcon = imageIcon;
+    }
+
 }

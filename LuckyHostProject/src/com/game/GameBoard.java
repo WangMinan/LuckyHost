@@ -234,17 +234,8 @@ public class GameBoard {
         int tmpY = 20;
         for(int i=0; i<20; i++){
             commonItemsButtons[i] = new JButton();
-            //commonItemsButtons[i].setEnabled(false);
             commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
-//            commonItemsButtons[i].setPreferredSize(new Dimension(100,100));
-//            commonItemsButtons[i].setBounds(tmpX,tmpY,100,100);
             slotMachine.add(commonItemsButtons[i]);
-//            if(i%5 == 4){
-//                tmpX = tmpX-400;
-//                tmpY = tmpY+100;
-//            } else {
-//                tmpX = tmpX+100;
-//            }
         }
 
         this.gameFrame.add(slotMachine);
@@ -515,9 +506,9 @@ public class GameBoard {
         JButton[] commonItemsButtons = new JButton[20];
         for(int i=0; i<20; i++){
             commonItemsButtons[i] = new Empty().getIcon();
-//            if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
-//                commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
-//            }
+            if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
+                commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
+            }
             slotMachine.add(commonItemsButtons[i]);
         }
 

@@ -33,4 +33,9 @@ public class Bee extends CommonItem {
         }
         return price;
     }
+
+    @Override
+    public Bee createNewCommonItem(){
+        return new Bee();
+    }
 }
