@@ -24,4 +24,9 @@ public class Coconut extends CommonItem {
     public int calculateMoney(ItemCategory category) {
         return 2;
     }
+
+    @Override
+    public Coconut createNewCommonItem(){
+        return new Coconut();
+    }
 }

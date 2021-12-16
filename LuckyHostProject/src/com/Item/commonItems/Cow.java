@@ -48,4 +48,9 @@ public class Cow extends CommonItem {
         }
         return 3;
     }
+
+    @Override
+    public Cow createNewCommonItem(){
+        return new Cow();
+    }
 }

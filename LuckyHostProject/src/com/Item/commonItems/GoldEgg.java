@@ -22,4 +22,9 @@ public class GoldEgg extends CommonItem {
     public int calculateMoney(ItemCategory category){
         return 4;
     }
+
+    @Override
+    public GoldEgg createNewCommonItem(){
+        return new GoldEgg();
+    }
 }

@@ -22,4 +22,9 @@ public class Empty extends CommonItem {
     public int calculateMoney(ItemCategory category){
         return 0;
     }
+
+    @Override
+    public Empty createNewCommonItem(){
+        return new Empty();
+    }
 }

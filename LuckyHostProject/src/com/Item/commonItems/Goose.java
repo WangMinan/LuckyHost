@@ -47,4 +47,9 @@ public class Goose extends CommonItem {
         }
         return 3;
     }
+
+    @Override
+    public Goose createNewCommonItem(){
+        return new Goose();
+    }
 }

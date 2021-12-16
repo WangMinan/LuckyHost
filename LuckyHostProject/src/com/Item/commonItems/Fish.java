@@ -30,4 +30,9 @@ public class Fish extends CommonItem {
 
         return price;
     }
+
+    @Override
+    public Fish createNewCommonItem(){
+        return new Fish();
+    }
 }

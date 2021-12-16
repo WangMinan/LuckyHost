@@ -22,4 +22,9 @@ public class HalfCoconut extends CommonItem {
     public int calculateMoney(ItemCategory category){
         return 1;
     }
+
+    @Override
+    public HalfCoconut createNewCommonItem(){
+        return new HalfCoconut();
+    }
 }

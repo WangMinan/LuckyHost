@@ -22,4 +22,9 @@ public class Flower extends CommonItem {
     public int calculateMoney(ItemCategory category){
         return 1;
     }
+
+    @Override
+    public Flower createNewCommonItem(){
+        return new Flower();
+    }
 }

@@ -26,4 +26,9 @@ public class Bubble extends CommonItem {
         int price =2;
         return price;
     }
+
+    @Override
+    public Bubble createNewCommonItem(){
+        return new Bubble();
+    }
 }

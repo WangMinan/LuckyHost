@@ -29,4 +29,9 @@ public class Cat extends CommonItem {
 
         return price;
     }
+
+    @Override
+    public Cat createNewCommonItem(){
+        return new Cat();
+    }
 }

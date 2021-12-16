@@ -22,4 +22,9 @@ public class Coin extends CommonItem {
     public int calculateMoney(ItemCategory category){
         return 1;
     }
+
+    @Override
+    public Coin createNewCommonItem(){
+        return new Coin();
+    }
 }
