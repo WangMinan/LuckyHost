@@ -479,15 +479,16 @@ public class GameBoard {
             }
 
             int cnt = 0;
-            int totalNum = gameCommonItems.getItemCategory().size();
             while(cnt < 20){
+                int totalNum = gameCommonItems.getItemCategory().size();
                 Random rnd = new Random();
                 int pos = rnd.nextInt(totalNum);
-                if(a[pos] == 0){
-                    a[pos] = 1;
+                int pos1 = rnd.nextInt(20);
+                if(a[pos1] == 0){
+                    a[pos1] = 1;
                     panelCommonItems.getItemCategory().setElementAt(
                             ((CommonItem)gameCommonItems.getItemCategory().elementAt(pos)).createNewCommonItem(),
-                            cnt);
+                            pos1);
                     gameCommonItems.getItemCategory().removeElementAt(pos);
                     cnt++;
                 }
