@@ -202,13 +202,6 @@ public class GameBoard {
         goldArea.setForeground(Color.YELLOW);
         goldArea.setEditable(false);
 
-        /**
-         * 物品栏按钮
-         */
-        JButton materialButton = new JButton("物品栏");
-        materialButton.setFocusPainted(false);
-        materialButton.setBounds(850,410,170,60);
-        materialButton.setFont(new Font("Syria",Font.BOLD,40));
 
         /**
          * 返回按钮
@@ -247,7 +240,6 @@ public class GameBoard {
         this.gameFrame.add(specialItemPanel);
         this.gameFrame.add(rotateButton);
         this.gameFrame.add(goldArea);
-        this.gameFrame.add(materialButton);
         this.gameFrame.add(returnButton);
         this.gameFrame.setLayout(null);
         this.gameFrame.setSize(1024,576);
@@ -383,6 +375,20 @@ public class GameBoard {
             }
         });
 
+        /**
+         * 物品栏按钮
+         */
+        JButton materialButton = new JButton("物品栏");
+        materialButton.setFocusPainted(false);
+        materialButton.setBounds(850,0,100,40);
+        materialButton.setFont(new Font("Syria",Font.BOLD,20));
+        materialButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showMaterialFrame();
+            }
+        });
+
         //左中右三个panel
         JPanel[] selectPanels = new JPanel[3];
         int posX = 38;
@@ -456,6 +462,8 @@ public class GameBoard {
             commonSelectFrame.add(selectPanels[i]);
         }
 
+        commonSelectFrame.add(materialButton);
+
         Container container = commonSelectFrame.getContentPane();
         container.setBackground(Color.orange);
         commonSelectFrame.setLayout(null);
@@ -500,7 +508,7 @@ public class GameBoard {
                     panelCommonItems.getItemCategory().setElementAt(
                             ((CommonItem)gameCommonItems.getItemCategory().elementAt(pos)).createNewCommonItem(),
                             pos1);
-                    gameCommonItems.getItemCategory().removeElementAt(pos);
+                    //gameCommonItems.getItemCategory().removeElementAt(pos);
                     cnt++;
                 }
             }
@@ -627,12 +635,67 @@ public class GameBoard {
         selectFrame.setVisible(true);
     }
 
-//    /**
-//     * 展示物品栏
-//     */
-//    public void showMaterialFrame(){
-//
-//    }
+    /**
+     * 展示物品栏
+     */
+    public void showMaterialFrame(){
+        JFrame materialFrame = new JFrame();
+        JLabel label = new JLabel("   物品栏");
+        label.setFont(new Font("Syria",Font.BOLD,20));
+        label.setOpaque(true);
+        label.setBackground(Color.WHITE);
+        label.setBounds(450,0,100,40);
+
+        JButton returnButton = new JButton("返回");
+        returnButton.setFont(new Font("Syria",Font.BOLD,20));
+        returnButton.setBounds(850,0,100,40);
+        returnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                materialFrame.dispose();
+                commonSelectFrame.setVisible(true);
+            }
+        });
+
+        JTextArea area = new JTextArea();
+        area.setEditable(false);
+        area.setBackground(Color.WHITE);
+        area.setBounds(0,0,800,400);
+        area.setFont(new Font("Syria",Font.BOLD,20));
+
+        StringBuffer sb = new StringBuffer();
+        for(int i=0;i<gameCommonItems.getItemCategory().size();i++){
+            sb.append(""+i);
+            sb.append(gameCommonItems.getItemCategory().elementAt(i).getName());
+            sb.append(": ");
+            sb.append(gameCommonItems.getItemCategory().elementAt(i).getDescription());
+            sb.append("\n");
+        }
+
+        area.setText(sb.toString());
+
+        JScrollPane scrollPane = new JScrollPane(area);
+
+        /**
+         * JFrame为null时需要使用panel装JScrollPane
+         */
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.WHITE);
+        panel.setBounds(100,60,800,400);
+        panel.add(scrollPane);
+
+        materialFrame.add(label);
+        materialFrame.add(returnButton);
+        materialFrame.add(panel);
+
+
+        Container container = materialFrame.getContentPane();
+        container.setBackground(Color.GRAY);
+        materialFrame.setLayout(null);
+        materialFrame.setSize(1000,500);
+        materialFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        materialFrame.setVisible(true);
+    }
 
     /**
      * 随机位置

@@ -15,18 +15,17 @@ public class Cat extends CommonItem {
     public Cat(){
         this.setPriority(3);
         this.setName("cat");
-//        JButton button = new JButton(new ImageIcon("images/commonItems/cat.png")){
-//            public JToolTip createToolTip() {
-//                JToolTip tip = super.createToolTip();
-//                tip.setTipText();
-//                // MultiLineToolTip tip=new MultiLineToolTip();
-//                tip.setBackground(new Color(0xfffacd));
-//                tip.setForeground(Color.red);
-//                return tip;
-//            }
-//        };
-
-        this.setIcon(new JButton(new ImageIcon("images/commonItems/cat.png")));
+        JButton button = new JButton(new ImageIcon("images/commonItems/cat.png")){
+            public JToolTip createToolTip() {
+                JToolTip tip = super.createToolTip();
+                tip.setTipText("价值1枚金币，消除周围的牛奶，每消除一个牛奶，获得9枚金币");
+                // MultiLineToolTip tip=new MultiLineToolTip();
+                tip.setBackground(new Color(0xfffacd));
+                tip.setForeground(Color.red);
+                return tip;
+            }
+        };
+        this.setIcon(button);
         this.getIcon().setFocusPainted(false);
         this.setDescription("价值1枚金币，消除周围的牛奶，每消除一个牛奶，获得9枚金币");
     }
