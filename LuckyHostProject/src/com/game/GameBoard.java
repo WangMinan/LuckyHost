@@ -230,10 +230,21 @@ public class GameBoard {
         container.setBackground(Color.orange);
 
         JButton[] commonItemsButtons = new JButton[20];
+        int tmpX = 10;
+        int tmpY = 20;
         for(int i=0; i<20; i++){
             commonItemsButtons[i] = new JButton();
+            //commonItemsButtons[i].setEnabled(false);
             commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
+//            commonItemsButtons[i].setPreferredSize(new Dimension(100,100));
+//            commonItemsButtons[i].setBounds(tmpX,tmpY,100,100);
             slotMachine.add(commonItemsButtons[i]);
+//            if(i%5 == 4){
+//                tmpX = tmpX-400;
+//                tmpY = tmpY+100;
+//            } else {
+//                tmpX = tmpX+100;
+//            }
         }
 
         this.gameFrame.add(slotMachine);
@@ -318,9 +329,9 @@ public class GameBoard {
             }
         }
 
-        for(int i = 0; i<panelSpecialItems.getItemCategory().size();i++){
-            total = total + panelSpecialItems.getItemCategory().elementAt(i).calculateMoney(panelCommonItems);
-        }
+//        for(int i = 0; i<panelSpecialItems.getItemCategory().size();i++){
+//            total = total + panelSpecialItems.getItemCategory().elementAt(i).calculateMoney(panelCommonItems);
+//        }
 
         return total;
     }
@@ -337,14 +348,8 @@ public class GameBoard {
         if(countDays == 6 && !judgeLose()){
             this.totalMoney = this.totalMoney - targetMoney;
             this.targetMoney = this.targetMoney + 50;
-            chooseSpecialItem();
+            //chooseSpecialItem();
         }
-
-        //测试
-        for(int i =0 ;i<panelCommonItems.getItemCategory().size();i++){
-            System.out.println(panelCommonItems.getItemCategory().elementAt(i).getName());
-        }
-        System.out.println();
 
         //算完钱之后把panelCommonItems里的东西加入到gameCommonItems里面
         for(int i = 0; i < 20; i++){
@@ -352,13 +357,7 @@ public class GameBoard {
                 gameCommonItems.getItemCategory().addElement(panelCommonItems.getItemCategory().elementAt(i));
             }
         }
-
-        //测试
-        System.out.println(gameCommonItems.getItemCategory().size());
-        for(int i=0;i<gameCommonItems.getItemCategory().size();i++){
-            System.out.println(gameCommonItems.getItemCategory().elementAt(i).getName());
-        }
-        System.out.println();
+        panelCommonItems.getItemCategory().clear();
 
         //显示选取界面（普通物品）
 
@@ -422,7 +421,6 @@ public class GameBoard {
                     gameCommonItems.getItemCategory().addElement(tmpItem);
                     updateSlotMachine();
 
-                    //commonSelectFrame.setVisible(false);
                     commonSelectFrame.dispose();
                     gameFrame.setVisible(true);
                 }
@@ -469,7 +467,7 @@ public class GameBoard {
 
         //将panelCommonItems中的物品全部变成空
         for(int i = 0;i<20;i++){
-            panelCommonItems.getItemCategory().setElementAt(new Empty(),i);
+            panelCommonItems.getItemCategory().addElement(new Empty());
         }
 
         if(gameCommonItems.getItemCategory().size()<=20){
@@ -516,7 +514,10 @@ public class GameBoard {
         slotMachine.removeAll();
         JButton[] commonItemsButtons = new JButton[20];
         for(int i=0; i<20; i++){
-            commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
+            commonItemsButtons[i] = new Empty().getIcon();
+//            if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
+//                commonItemsButtons[i] = panelCommonItems.getItemCategory().elementAt(i).getIcon();
+//            }
             slotMachine.add(commonItemsButtons[i]);
         }
 
