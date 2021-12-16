@@ -622,6 +622,7 @@ public class GameBoard {
         container.setBackground(Color.orange);
         selectFrame.setLayout(null);
         selectFrame.setSize(976,576);
+        selectFrame.setLocationRelativeTo(null);
         selectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         selectFrame.setVisible(true);
     }
