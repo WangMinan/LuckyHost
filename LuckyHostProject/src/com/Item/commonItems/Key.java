@@ -26,6 +26,9 @@ public class Key extends CommonItem {
                 this.isNear(i,this.getPosition())){
                 price = price + 20;
                 category.getItemCategory().set(i,new Empty());
+                //OwnPosition 即这个元素自己的位置
+                int OP = (this.getPosition().getRow()*5)+this.getPosition().getColum();
+                category.getItemCategory().set(OP,new Empty());
                 break;
             }
         }
