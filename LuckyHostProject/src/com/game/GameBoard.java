@@ -331,6 +331,10 @@ public class GameBoard {
      */
     public void rotate(){
 
+        //提示框
+        showMessageDialog(null,"离下次支付还有" + (7-countDays) + "天，下次需支付"
+                + targetMoney + "枚金币");
+
         //算钱
         totalMoney = totalMoney + calculateTotalMoney();
         goldArea.setText("金币数：" + totalMoney);
@@ -356,9 +360,6 @@ public class GameBoard {
         //显示选取界面（普通物品）
 
         commonSelectFrame = new JFrame();
-
-        showMessageDialog(null,"离下次支付还有" + (7-countDays) + "天，下次需支付"
-                            + targetMoney + "枚金币");
 
         //跳过按钮
         JButton skipButton = new JButton("跳过");
@@ -643,7 +644,7 @@ public class GameBoard {
         JLabel label = new JLabel("   物品栏");
         label.setFont(new Font("Syria",Font.BOLD,20));
         label.setOpaque(true);
-        label.setBackground(Color.WHITE);
+        label.setBackground(Color.YELLOW);
         label.setBounds(450,0,100,40);
 
         JButton returnButton = new JButton("返回");
@@ -660,12 +661,14 @@ public class GameBoard {
         JTextArea area = new JTextArea();
         area.setEditable(false);
         area.setBackground(Color.WHITE);
-        area.setBounds(0,0,800,400);
+        area.setBounds(0,0,780,380);
         area.setFont(new Font("Syria",Font.BOLD,20));
+        area.setLineWrap(true);        //激活自动换行功能
+        area.setWrapStyleWord(true);            // 激活断行不断字功能
 
         StringBuffer sb = new StringBuffer();
         for(int i=0;i<gameCommonItems.getItemCategory().size();i++){
-            sb.append(""+i);
+            sb.append(""+i +" ");
             sb.append(gameCommonItems.getItemCategory().elementAt(i).getName());
             sb.append(": ");
             sb.append(gameCommonItems.getItemCategory().elementAt(i).getDescription());
@@ -675,6 +678,8 @@ public class GameBoard {
         area.setText(sb.toString());
 
         JScrollPane scrollPane = new JScrollPane(area);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
         /**
          * JFrame为null时需要使用panel装JScrollPane
@@ -683,17 +688,18 @@ public class GameBoard {
         panel.setBackground(Color.WHITE);
         panel.setBounds(100,60,800,400);
         panel.add(scrollPane);
+        panel.setBackground(Color.ORANGE);
 
         materialFrame.add(label);
         materialFrame.add(returnButton);
         materialFrame.add(panel);
 
-
         Container container = materialFrame.getContentPane();
-        container.setBackground(Color.GRAY);
+        container.setBackground(Color.ORANGE);
         materialFrame.setLayout(null);
         materialFrame.setSize(1000,500);
         materialFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        materialFrame.setLocationRelativeTo(null);
         materialFrame.setVisible(true);
     }
 
