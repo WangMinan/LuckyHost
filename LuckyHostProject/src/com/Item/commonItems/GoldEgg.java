@@ -24,7 +24,7 @@ public class GoldEgg extends CommonItem {
     }
 
     @Override
-    public GoldEgg createNewCommonItem(){
+    public GoldEgg createNewItem(){
         return new GoldEgg();
     }
 }

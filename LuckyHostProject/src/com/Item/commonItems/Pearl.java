@@ -24,7 +24,7 @@ public class Pearl extends CommonItem {
     }
 
     @Override
-    public Pearl createNewCommonItem(){
+    public Pearl createNewItem(){
         return new Pearl();
     }
 }

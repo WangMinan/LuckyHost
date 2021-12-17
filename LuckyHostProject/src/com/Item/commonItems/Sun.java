@@ -33,7 +33,7 @@ public class Sun extends CommonItem {
     }
 
     @Override
-    public Sun createNewCommonItem(){
+    public Sun createNewItem(){
         return new Sun();
     }
 }

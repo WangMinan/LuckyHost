@@ -32,7 +32,7 @@ public class Strawberry extends CommonItem {
     }
 
     @Override
-    public Strawberry createNewCommonItem(){
+    public Strawberry createNewItem(){
         return new Strawberry();
     }
 }

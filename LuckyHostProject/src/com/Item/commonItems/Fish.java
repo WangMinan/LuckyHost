@@ -32,7 +32,7 @@ public class Fish extends CommonItem {
     }
 
     @Override
-    public Fish createNewCommonItem(){
+    public Fish createNewItem(){
         return new Fish();
     }
 }

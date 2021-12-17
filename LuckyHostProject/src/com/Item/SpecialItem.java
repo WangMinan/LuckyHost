@@ -20,4 +20,9 @@ public class SpecialItem extends Item{
     public int calculateMoney(ItemCategory category){
         return 0;
     }
+
+    @Override
+    public SpecialItem createNewItem(){
+        return new SpecialItem();
+    }
 }

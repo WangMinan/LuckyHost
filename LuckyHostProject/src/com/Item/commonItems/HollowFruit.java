@@ -38,7 +38,7 @@ public class HollowFruit extends CommonItem {
     }
 
     @Override
-    public HollowFruit createNewCommonItem(){
+    public HollowFruit createNewItem(){
         return new HollowFruit();
     }
 }

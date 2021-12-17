@@ -28,7 +28,7 @@ public class Bubble extends CommonItem {
     }
 
     @Override
-    public Bubble createNewCommonItem(){
+    public Bubble createNewItem(){
         return new Bubble();
     }
 }

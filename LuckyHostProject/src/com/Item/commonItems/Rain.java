@@ -32,7 +32,7 @@ public class Rain extends CommonItem{
     }
 
     @Override
-    public Rain createNewCommonItem(){
+    public Rain createNewItem(){
         return new Rain();
     }
 }

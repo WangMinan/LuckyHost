@@ -24,7 +24,7 @@ public class Coin extends CommonItem {
     }
 
     @Override
-    public Coin createNewCommonItem(){
+    public Coin createNewItem(){
         return new Coin();
     }
 }

@@ -24,7 +24,7 @@ public class HalfCoconut extends CommonItem {
     }
 
     @Override
-    public HalfCoconut createNewCommonItem(){
+    public HalfCoconut createNewItem(){
         return new HalfCoconut();
     }
 }

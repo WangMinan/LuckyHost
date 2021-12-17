@@ -38,7 +38,7 @@ public class Monkey extends CommonItem {
     }
 
     @Override
-    public Monkey createNewCommonItem(){
+    public Monkey createNewItem(){
         return new Monkey();
     }
 }

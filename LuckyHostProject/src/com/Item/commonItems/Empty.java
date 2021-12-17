@@ -24,7 +24,7 @@ public class Empty extends CommonItem {
     }
 
     @Override
-    public Empty createNewCommonItem(){
+    public Empty createNewItem(){
         return new Empty();
     }
 }

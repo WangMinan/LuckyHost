@@ -50,7 +50,7 @@ public class Cow extends CommonItem {
     }
 
     @Override
-    public Cow createNewCommonItem(){
+    public Cow createNewItem(){
         return new Cow();
     }
 }

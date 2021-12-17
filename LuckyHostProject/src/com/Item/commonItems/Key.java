@@ -36,7 +36,7 @@ public class Key extends CommonItem {
     }
 
     @Override
-    public Key createNewCommonItem(){
+    public Key createNewItem(){
         return new Key();
     }
 }

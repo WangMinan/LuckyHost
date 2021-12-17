@@ -43,7 +43,7 @@ public class Cat extends CommonItem {
     }
 
     @Override
-    public Cat createNewCommonItem(){
+    public Cat createNewItem(){
         return new Cat();
     }
 

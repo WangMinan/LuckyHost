@@ -24,7 +24,7 @@ public class TreasureCase extends CommonItem {
     }
 
     @Override
-    public TreasureCase createNewCommonItem(){
+    public TreasureCase createNewItem(){
         return new TreasureCase();
     }
 }

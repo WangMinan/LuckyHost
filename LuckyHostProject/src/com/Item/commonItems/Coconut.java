@@ -26,7 +26,7 @@ public class Coconut extends CommonItem {
     }
 
     @Override
-    public Coconut createNewCommonItem(){
+    public Coconut createNewItem(){
         return new Coconut();
     }
 }

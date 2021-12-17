@@ -24,7 +24,7 @@ public class Milk extends CommonItem {
     }
 
     @Override
-    public Milk createNewCommonItem(){
+    public Milk createNewItem(){
         return new Milk();
     }
 }

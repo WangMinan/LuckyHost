@@ -24,7 +24,7 @@ public class Flower extends CommonItem {
     }
 
     @Override
-    public Flower createNewCommonItem(){
+    public Flower createNewItem(){
         return new Flower();
     }
 }

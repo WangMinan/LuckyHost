@@ -49,7 +49,7 @@ public class Goose extends CommonItem {
     }
 
     @Override
-    public Goose createNewCommonItem(){
+    public Goose createNewItem(){
         return new Goose();
     }
 }

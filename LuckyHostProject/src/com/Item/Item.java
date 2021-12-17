@@ -83,4 +83,7 @@ public class Item {
         this.imageIcon = imageIcon;
     }
 
+    public Item createNewItem(){
+        return new Item();
+    }
 }
