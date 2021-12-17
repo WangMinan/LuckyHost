@@ -172,7 +172,7 @@ public class GameBoard {
          * 特殊物品panel
          */
         specialItemPanel = new JPanel();
-        specialItemPanel.setLayout(null);
+        //specialItemPanel.setLayout(null);
         specialItemPanel.setBounds(10,10,200,300);
         specialItemPanel.setBackground(Color.ORANGE);
 
