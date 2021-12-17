@@ -36,4 +36,9 @@ public class LockRemover extends SpecialItem {
         }
         return 0;
     }
+
+    @Override
+    public LockRemover createNewItem(){
+        return new LockRemover();
+    }
 }

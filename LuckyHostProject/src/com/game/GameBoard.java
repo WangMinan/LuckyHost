@@ -172,8 +172,8 @@ public class GameBoard {
          * 特殊物品panel
          */
         specialItemPanel = new JPanel();
-        specialItemPanel.setLayout(new GridLayout(3,2));
-        specialItemPanel.setBounds(0,0,200,345);
+        specialItemPanel.setLayout(null);
+        specialItemPanel.setBounds(10,10,200,300);
         specialItemPanel.setBackground(Color.ORANGE);
 
         /**
@@ -601,15 +601,28 @@ public class GameBoard {
 
         for(int i = 0; i < 3; i++){
             //选择按钮
-            options[i] = ((SpecialItem)specialItems.getItemCategory().elementAt(itemPos[i]).createNewItem()).getIcon();
+            options[i] = ((SpecialItem)specialItems.getItemCategory().elementAt(itemPos[i])).createNewItem().getIcon();
             options[i].setBounds(100,0,50,50);
             SpecialItem tmpItem = (SpecialItem) specialItems.getItemCategory().elementAt(itemPos[i]);
             options[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     gameSpecialItems.addItem(tmpItem);
-                    JButton tmpButton = tmpItem.createNewItem().getIcon();
-                    specialItemPanel.add(tmpButton);
+
+                    specialItemPanel.removeAll();
+                    int tmpX = 0;
+                    int tmpY = 0;
+                    for(int j = 0;j<gameSpecialItems.getItemCategory().size();j++){
+                        JButton button = ((SpecialItem)gameSpecialItems.getItemCategory().elementAt(j)).createNewItem().getIcon();
+                        button.setBounds(tmpX,tmpY,50,50);
+                        if(j%2 == 1){
+                            tmpX = 0;
+                            tmpY += 50;
+                        }
+                        tmpX+=100;
+                        specialItemPanel.add(button);
+                    }
+
                     selectFrame.dispose();
                 }
             });

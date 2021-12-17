@@ -28,4 +28,9 @@ public class RainCloud extends SpecialItem {
         }
         return cnt;
     }
+
+    @Override
+    public RainCloud createNewItem(){
+        return new RainCloud();
+    }
 }

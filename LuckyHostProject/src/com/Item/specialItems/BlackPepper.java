@@ -2,6 +2,7 @@ package com.Item.specialItems;
 
 import com.Item.ItemCategory;
 import com.Item.SpecialItem;
+import com.Item.commonItems.Sun;
 
 import javax.swing.*;
 
@@ -14,7 +15,7 @@ public class BlackPepper extends SpecialItem {
 
     public BlackPepper() {
         this.setName("blackPepper");
-        this.setIcon(new JButton(new ImageIcon("images/specialItems/blackPepper.png")));
+        this.setIcon(new JButton(new ImageIcon("images/specialItems/BlackPepper.png")));
         this.getIcon().setFocusPainted(false);
         this.setDescription("如果面板上有三个以上的空格，给与每次旋转三个金币");
     }
@@ -32,5 +33,10 @@ public class BlackPepper extends SpecialItem {
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public BlackPepper createNewItem(){
+        return new BlackPepper();
     }
 }

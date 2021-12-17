@@ -38,4 +38,9 @@ public class GreyPepper extends SpecialItem {
 
         return 0;
     }
+
+    @Override
+    public GreyPepper createNewItem(){
+        return new GreyPepper();
+    }
 }

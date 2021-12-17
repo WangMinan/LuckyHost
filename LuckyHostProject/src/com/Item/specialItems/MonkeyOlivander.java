@@ -28,4 +28,9 @@ public class MonkeyOlivander extends SpecialItem {
         }
         return cnt*2;
     }
+
+    @Override
+    public MonkeyOlivander createNewItem(){
+        return new MonkeyOlivander();
+    }
 }
