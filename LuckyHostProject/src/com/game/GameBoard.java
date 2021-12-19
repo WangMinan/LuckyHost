@@ -172,8 +172,8 @@ public class GameBoard {
          * 特殊物品panel
          */
         specialItemPanel = new JPanel();
-        specialItemPanel.setLayout(null);
-        specialItemPanel.setBounds(10,10,200,300);
+        //specialItemPanel.setLayout(null);
+        specialItemPanel.setBounds(10,10,200,350);
         specialItemPanel.setBackground(Color.ORANGE);
 
         /**
@@ -227,8 +227,6 @@ public class GameBoard {
         container.setBackground(Color.orange);
 
         JButton[] commonItemsButtons = new JButton[20];
-        int tmpX = 10;
-        int tmpY = 20;
         for(int i=0; i<20; i++){
             commonItemsButtons[i] = new JButton();
             commonItemsButtons[i] =
@@ -555,6 +553,14 @@ public class GameBoard {
      * 增加特殊物品
      */
     public void chooseSpecialItem(){
+
+        /**
+         * 规定上限
+         */
+        if(gameSpecialItems.getItemCategory().size() > 2){
+            return;
+        }
+
         JFrame selectFrame = new JFrame("chooseSpecialItem");
 
         //跳过按钮
@@ -590,6 +596,9 @@ public class GameBoard {
         while(cnt<3){
             Random random = new Random();
             int pos = random.nextInt(specialItems.getItemCategory().size());
+            /**
+             * 同一次内不重复
+             */
             if(pos != itemPos[0] && pos != itemPos[1] && pos != itemPos[2]){
                 itemPos[cnt] = pos;
                 cnt++;
@@ -684,14 +693,19 @@ public class GameBoard {
         JTextArea area = new JTextArea();
         area.setEditable(false);
         area.setBackground(Color.WHITE);
-        area.setBounds(0,0,780,380);
-        area.setFont(new Font("Syria",Font.BOLD,15));
+        area.setPreferredSize(new Dimension(800,800));
+        area.setFont(new Font("Syria",Font.BOLD,16));
         area.setLineWrap(true);        //激活自动换行功能
         area.setWrapStyleWord(true);            // 激活断行不断字功能
 
         StringBuffer sb = new StringBuffer();
-        for(int i=0;i<gameCommonItems.getItemCategory().size();i++){
-            sb.append(""+i +" ");
+        for(int i = 0; i < gameSpecialItems.getItemCategory().size(); i++){
+            sb.append(gameSpecialItems.getItemCategory().elementAt(i).getName());
+            sb.append(":");
+            sb.append(gameSpecialItems.getItemCategory().elementAt(i).getDescription());
+            sb.append("\n");
+        }
+        for(int i = 0; i < gameCommonItems.getItemCategory().size(); i++){
             sb.append(gameCommonItems.getItemCategory().elementAt(i).getName());
             sb.append(": ");
             sb.append(gameCommonItems.getItemCategory().elementAt(i).getDescription());
@@ -701,21 +715,13 @@ public class GameBoard {
         area.setText(sb.toString());
 
         JScrollPane scrollPane = new JScrollPane(area);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
-        /**
-         * JFrame为null时需要使用panel装JScrollPane
-         */
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.WHITE);
-        panel.setBounds(100,60,800,400);
-        panel.add(scrollPane,BorderLayout.CENTER);
-        panel.setBackground(Color.ORANGE);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setBounds(100,60,700,400);
 
         materialFrame.add(label);
         materialFrame.add(returnButton);
-        materialFrame.add(panel);
+        materialFrame.add(scrollPane);
 
         Container container = materialFrame.getContentPane();
         container.setBackground(Color.ORANGE);
