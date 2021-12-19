@@ -227,8 +227,6 @@ public class GameBoard {
         container.setBackground(Color.orange);
 
         JButton[] commonItemsButtons = new JButton[20];
-        int tmpX = 10;
-        int tmpY = 20;
         for(int i=0; i<20; i++){
             commonItemsButtons[i] = new JButton();
             commonItemsButtons[i] =
