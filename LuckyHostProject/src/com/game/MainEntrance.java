@@ -27,8 +27,6 @@ public class MainEntrance extends JFrame{
 
     public static void main(String args[]){
         //默认的字体样式
-
-
         //游戏主界面，设置大小为1024X576，尺寸不可改，颜色为橙色
         mainFrame = new JFrame("幸运房东");
         mainFrame.setSize(1024,576);
