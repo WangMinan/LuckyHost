@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @author WangMinan
+ * @author WuSigan
  * @description To define the main entrance of the game
  * @see GameBoard
  */
