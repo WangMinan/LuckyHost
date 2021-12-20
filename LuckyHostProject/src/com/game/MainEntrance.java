@@ -44,7 +44,6 @@ public class MainEntrance extends JFrame{
         startText.setBounds(300,50,500,150);
         startText.setFont(new Font("Syria",Font.BOLD,100));
 
-
         //主界面的开始新游戏按钮
         JButton startButton = new JButton("开始新游戏");
         startButton.setBounds(430,300,150,40);
