@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.*;
 import java.util.Random;
 
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -33,7 +34,7 @@ public class GameBoard {
     /**
      * 每周老虎机希望达到的目标金币
      */
-    private int targetMoney;
+    private int targetMoney = 25;
 
     /**
      * 玩家当前拥有的金币
@@ -58,7 +59,7 @@ public class GameBoard {
     /**
      * 游戏中的加成物品
      */
-    public ItemCategory panelSpecialItems;
+    //public ItemCategory panelSpecialItems;
 
     /**
      * 游戏中通过选取得到的普通物品
@@ -108,7 +109,7 @@ public class GameBoard {
         this.commonItems = commonItems;
         this.specialItems = specialItems;
         this.panelCommonItems = panelCommonItems;
-        this.panelSpecialItems = panelSpecialItems;
+        //this.panelSpecialItems = panelSpecialItems;
         this.inventory = inventory;
     }
 
@@ -130,7 +131,7 @@ public class GameBoard {
 
         this.panelCommonItems = new ItemCategory();
         this.gameCommonItems = new ItemCategory();
-        this.panelSpecialItems = new ItemCategory();
+        //this.panelSpecialItems = new ItemCategory();
         this.gameSpecialItems = new ItemCategory();
 
         for(int i = 0; i < 20; i++){
@@ -150,7 +151,67 @@ public class GameBoard {
      * 开始储存在本地的游戏
      */
     public void initLoadedGame(){
+
+        initItemCategories();
+        this.panelCommonItems = new ItemCategory();
+        this.gameCommonItems = new ItemCategory();
+        this.gameSpecialItems = new ItemCategory();
+
+        this.gameFrame = new JFrame();
         //读取模块
+        File file = new File("save/save.dat");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            this.targetMoney = Integer.parseInt(br.readLine());
+            this.totalMoney = Integer.parseInt(br.readLine());
+            this.countDays = Integer.parseInt(br.readLine());
+            //读取面板物品
+            br.readLine();
+            for(int i = 0; i < 20; i++){
+                String itemName = br.readLine();
+                for(int j = 0; j < commonItems.getItemCategory().size(); j++){
+                    if(itemName.equals(commonItems.getItemCategory().elementAt(j).getName())){
+                        CommonItem item = (CommonItem) commonItems.getItemCategory().elementAt(j).createNewItem();
+                        item.setPosition(new ItemPosition(i/5,i%5));
+                        panelCommonItems.addItem(item);
+                    }
+                }
+            }
+
+            //读取其他普通物品
+            br.readLine();
+            int numOfGameCommonItems = Integer.parseInt(br.readLine());
+            for(int i = 0; i < numOfGameCommonItems; i++){
+                String itemName = br.readLine();
+                for(int j = 0; j < commonItems.getItemCategory().size(); j++){
+                    if(itemName.equals(commonItems.getItemCategory().elementAt(j).getName())){
+                        CommonItem item = (CommonItem) commonItems.getItemCategory().elementAt(j).createNewItem();
+                        gameCommonItems.addItem(item);
+                    }
+                }
+            }
+
+            //读取特殊物品
+            br.readLine();
+            int numOfGameSpecialItems = Integer.parseInt(br.readLine());
+            for(int i = 0; i < numOfGameSpecialItems; i++){
+                String itemName = br.readLine();
+                for(int j = 0; j < specialItems.getItemCategory().size(); j++){
+                    if(itemName.equals(specialItems.getItemCategory().elementAt(j).getName())){
+                        SpecialItem item = (SpecialItem)specialItems.getItemCategory().elementAt(j).createNewItem();
+                        gameSpecialItems.addItem(item);
+                    }
+                }
+            }
+
+            br.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         play();
     }
 
@@ -175,6 +236,10 @@ public class GameBoard {
         //specialItemPanel.setLayout(null);
         specialItemPanel.setBounds(10,10,200,350);
         specialItemPanel.setBackground(Color.ORANGE);
+
+        for(int i = 0; i < gameSpecialItems.getItemCategory().size(); i++){
+            specialItemPanel.add(gameSpecialItems.getItemCategory().elementAt(i).createNewItem().getIcon());
+        }
 
         /**
          * 旋转按钮
@@ -214,7 +279,6 @@ public class GameBoard {
             @Override
             public void actionPerformed(ActionEvent e) {
                 revise();
-                //gameFrame.setVisible(false);
                 gameFrame.dispose();
                 MainEntrance.mainFrame.setVisible(true);
             }
@@ -242,6 +306,21 @@ public class GameBoard {
         this.gameFrame.setLayout(null);
         this.gameFrame.setSize(1024,576);
         this.gameFrame.setLocationRelativeTo(null);
+        this.gameFrame.addWindowListener(new WindowAdapter(){
+            @Override
+            public void windowClosed(WindowEvent e){
+                //System.out.println("hi");
+                super.windowClosed(e);
+                revise();
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e){
+                //System.out.println("hi");
+                super.windowClosed(e);
+                revise();
+            }
+        });
         this.gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.gameFrame.setVisible(true);
     }
@@ -317,8 +396,8 @@ public class GameBoard {
             }
         }
 
-        for(int i = 0; i<panelSpecialItems.getItemCategory().size();i++){
-            total = total + panelSpecialItems.getItemCategory().elementAt(i).calculateMoney(panelCommonItems);
+        for(int i = 0; i<gameSpecialItems.getItemCategory().size();i++){
+            total = total + gameSpecialItems.getItemCategory().elementAt(i).calculateMoney(panelCommonItems);
         }
 
         return total;
@@ -328,7 +407,6 @@ public class GameBoard {
      * 旋转
      */
     public void rotate(){
-
         //提示框
         showMessageDialog(null,"离下次支付还有" + (7-countDays) + "天，下次需支付"
                 + targetMoney + "枚金币");
@@ -347,9 +425,6 @@ public class GameBoard {
         } else {
             chooseCommonItem();
         }
-
-
-
     }
 
     /**
@@ -545,7 +620,7 @@ public class GameBoard {
         commonSelectFrame.setLayout(null);
         commonSelectFrame.setSize(976,576);
         commonSelectFrame.setLocationRelativeTo(null);
-        commonSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        commonSelectFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         commonSelectFrame.setVisible(true);
     }
 
@@ -662,7 +737,7 @@ public class GameBoard {
         selectFrame.setLayout(null);
         selectFrame.setSize(976,576);
         selectFrame.setLocationRelativeTo(null);
-        selectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        selectFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         //保证选取窗口前置
         selectFrame.setAlwaysOnTop(!selectFrame.isAlwaysOnTop());
         selectFrame.setVisible(true);
@@ -685,6 +760,7 @@ public class GameBoard {
         returnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                materialFrame.removeAll();
                 materialFrame.dispose();
                 commonSelectFrame.setVisible(true);
             }
@@ -693,7 +769,15 @@ public class GameBoard {
         JTextArea area = new JTextArea();
         area.setEditable(false);
         area.setBackground(Color.WHITE);
-        area.setPreferredSize(new Dimension(800,800));
+
+        //调整大小
+        if(gameSpecialItems.getItemCategory().size()+gameCommonItems.getItemCategory().size()<13){
+            area.setPreferredSize(new Dimension(800,420));
+        } else {
+            area.setPreferredSize(new Dimension(800,
+                    (gameSpecialItems.getItemCategory().size()+gameCommonItems.getItemCategory().size())*25));
+        }
+
         area.setFont(new Font("Syria",Font.BOLD,16));
         area.setLineWrap(true);        //激活自动换行功能
         area.setWrapStyleWord(true);            // 激活断行不断字功能
@@ -727,7 +811,7 @@ public class GameBoard {
         container.setBackground(Color.ORANGE);
         materialFrame.setLayout(null);
         materialFrame.setSize(1000,500);
-        materialFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        materialFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         materialFrame.setLocationRelativeTo(null);
         materialFrame.setVisible(true);
     }
@@ -753,20 +837,48 @@ public class GameBoard {
     }
 
     /**
-     * 自动保存模块的监听方法
-     */
-    class MyWindowListener extends WindowAdapter{
-        @Override
-        public void windowClosed(WindowEvent e){
-            super.windowClosed(e);
-            revise();
-        }
-    }
-
-    /**
      * 保存函数
      */
     public void revise(){
+        //System.out.println("hi");
+        try {
+            //替换掉现有的所有文件并记录
+            File file = new File("save/save.dat");
+            FileWriter fw = new FileWriter(file);
+
+            fw.write(this.targetMoney + "\n");
+            fw.write(this.totalMoney + "\n");
+            fw.write(this.countDays + "\n");
+
+            //先commonItems
+            /*  规定存档格式
+                把panelCommonItems里面的东西加入gameCommonItems中
+             */
+            fw.write("panelCommonItems:" + "20" + "\n");
+            for(int i = 0; i < 20; i++){
+                fw.write(panelCommonItems.getItemCategory().elementAt(i).getName()
+                            + "\n");
+            }
+
+            fw.write("gameCommonItems:\n");
+            fw.write(gameCommonItems.getItemCategory().size() + "\n");
+            for(int i = 0; i < gameCommonItems.getItemCategory().size(); i++){
+                fw.write(gameCommonItems.getItemCategory().elementAt(i).getName());
+                fw.write("\n");
+            }
+
+            //再specialItems
+            fw.write("gameSpecialItems:\n");
+            fw.write(gameSpecialItems.getItemCategory().size() + "\n");
+            for(int i = 0; i < gameSpecialItems.getItemCategory().size(); i++){
+                fw.write(gameSpecialItems.getItemCategory().elementAt(i).getName());
+                fw.write("\n");
+            }
+            fw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -775,6 +887,6 @@ public class GameBoard {
      */
     public static void main(String args[]){
         GameBoard gameBoard = new GameBoard();
-        gameBoard.initNewGame();
+        gameBoard.initLoadedGame();
     }
 }

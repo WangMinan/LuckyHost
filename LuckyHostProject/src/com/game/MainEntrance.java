@@ -90,7 +90,9 @@ public class MainEntrance extends JFrame{
 
      @Override
      public void actionPerformed(ActionEvent e) {
-
+        MainEntrance.mainFrame.setVisible(false);
+        GameBoard gameBoard = new GameBoard();
+        gameBoard.initLoadedGame();
      }
  }
 
