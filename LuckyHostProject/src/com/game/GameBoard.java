@@ -174,6 +174,7 @@ public class GameBoard {
                         CommonItem item = (CommonItem) commonItems.getItemCategory().elementAt(j).createNewItem();
                         item.setPosition(new ItemPosition(i/5,i%5));
                         panelCommonItems.addItem(item);
+                        break;
                     }
                 }
             }
@@ -781,6 +782,7 @@ public class GameBoard {
         area.setFont(new Font("Syria",Font.BOLD,16));
         area.setLineWrap(true);        //激活自动换行功能
         area.setWrapStyleWord(true);            // 激活断行不断字功能
+        area.setText("");
 
         StringBuffer sb = new StringBuffer();
         for(int i = 0; i < gameSpecialItems.getItemCategory().size(); i++){
@@ -887,6 +889,6 @@ public class GameBoard {
      */
     public static void main(String args[]){
         GameBoard gameBoard = new GameBoard();
-        gameBoard.initLoadedGame();
+        gameBoard.initNewGame();
     }
 }
