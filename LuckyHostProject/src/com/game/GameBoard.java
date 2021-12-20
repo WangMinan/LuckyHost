@@ -57,11 +57,6 @@ public class GameBoard {
     public ItemCategory panelCommonItems;
 
     /**
-     * 游戏中的加成物品
-     */
-    //public ItemCategory panelSpecialItems;
-
-    /**
      * 游戏中通过选取得到的普通物品
      */
     public ItemCategory gameCommonItems;
