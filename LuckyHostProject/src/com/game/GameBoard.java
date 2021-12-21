@@ -299,35 +299,6 @@ public class GameBoard {
             commonItemsButtons[i] =
                 ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewItem().getIcon();
             slotMachine.add(commonItemsButtons[i]);
-
-            int pos = i;
-
-            /**
-             * 设置移除效果
-             */
-            commonItemsButtons[i].addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if(chancesToRemove > 0){
-                        chancesToRemove--;
-                        panelCommonItems.getItemCategory().setElementAt(new Empty(),pos);
-                        slotMachine.removeAll();
-                        for(int j = 0; j < 20; j++){
-                            JButton[] commonItemsButtons = new JButton[20];
-                            for(int i=0; i<20; i++){
-                                commonItemsButtons[i] = new Empty().getIcon();
-                                if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
-                                    commonItemsButtons[i] =
-                                            ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewItem().getIcon();
-                                }
-                                slotMachine.add(commonItemsButtons[i]);
-                            }
-                        }
-                    } else {
-                        return;
-                    }
-                }
-            });
         }
 
         this.gameFrame.add(slotMachine);
@@ -527,6 +498,35 @@ public class GameBoard {
             if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
                 commonItemsButtons[i] =
                     ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewItem().getIcon();
+
+                int pos = i;
+
+                /**
+                 * 设置移除效果
+                 */
+                commonItemsButtons[i].addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if(chancesToRemove > 0){
+                            chancesToRemove--;
+                            panelCommonItems.getItemCategory().setElementAt(new Empty(),pos);
+                            slotMachine.removeAll();
+                            for(int j = 0; j < 20; j++){
+                                JButton[] commonItemsButtons = new JButton[20];
+                                for(int i=0; i<20; i++){
+                                    commonItemsButtons[i] = new Empty().getIcon();
+                                    if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
+                                        commonItemsButtons[i] =
+                                                ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewItem().getIcon();
+                                    }
+                                    slotMachine.add(commonItemsButtons[i]);
+                                }
+                            }
+                        } else {
+                            return;
+                        }
+                    }
+                });
             }
             slotMachine.add(commonItemsButtons[i]);
         }
