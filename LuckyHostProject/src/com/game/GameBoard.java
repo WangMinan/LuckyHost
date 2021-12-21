@@ -472,7 +472,7 @@ public class GameBoard {
                     panelCommonItems.getItemCategory().setElementAt(
                             ((CommonItem)gameCommonItems.getItemCategory().elementAt(pos)).createNewItem(),
                             pos1);
-                    //gameCommonItems.getItemCategory().removeElementAt(pos);
+                    gameCommonItems.getItemCategory().removeElementAt(pos);
                     cnt++;
                 }
             }
