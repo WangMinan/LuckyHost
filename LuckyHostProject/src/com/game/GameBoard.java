@@ -252,11 +252,11 @@ public class GameBoard {
          * 剩余的删除次数
          */
         removeArea = new JTextArea();
-        removeArea.setBounds(0,410,200,50);
-        removeArea.setFont(new Font("Syria",Font.BOLD,20));
+        removeArea.setBounds(0,420,200,50);
+        removeArea.setFont(new Font("Syria",Font.BOLD,16));
         removeArea.setBackground(Color.ORANGE);
         removeArea.setLineWrap(true);
-        removeArea.setText("剩余的移除次数(按下面板按钮移除):" + chancesToRemove);
+        removeArea.setText("剩余普通物品的移除次数(按面板上的按钮移除):" + chancesToRemove);
         removeArea.setForeground(Color.BLACK);
         removeArea.setEditable(false);
 
@@ -427,7 +427,7 @@ public class GameBoard {
         } else if(countDays == 6 && !judgeLose()){
             showMessageDialog(this.gameFrame,"一周结束了,您获得了删除面板物品次数和选择特殊物品的机会。");
             this.chancesToRemove += 2;
-            this.removeArea.setText("剩余普通物品的移除次数(按下面板上的按钮移除):" + chancesToRemove);
+            this.removeArea.setText("剩余普通物品的移除次数(按面板上的按钮移除):" + chancesToRemove);
             this.totalMoney = this.totalMoney - targetMoney;
             this.targetMoney = this.targetMoney + 50;
             chooseSpecialItem();
