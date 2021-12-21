@@ -427,7 +427,7 @@ public class GameBoard {
         } else if(countDays == 6 && !judgeLose()){
             showMessageDialog(this.gameFrame,"一周结束了,您获得了删除面板物品次数和选择特殊物品的机会。");
             this.chancesToRemove += 2;
-            this.removeArea.setText("剩余的移除次数:" + chancesToRemove);
+            this.removeArea.setText("剩余普通物品的移除次数(按下面板上的按钮移除):" + chancesToRemove);
             this.totalMoney = this.totalMoney - targetMoney;
             this.targetMoney = this.targetMoney + 50;
             chooseSpecialItem();
@@ -509,19 +509,12 @@ public class GameBoard {
                     public void actionPerformed(ActionEvent e) {
                         if(chancesToRemove > 0){
                             chancesToRemove--;
+                            showMessageDialog(slotMachine,
+                                    panelCommonItems.getItemCategory().elementAt(pos).getName()
+                                    + "将在下一次旋转时被移除");
+                            removeArea.setText("剩余的移除次数(按下面板按钮移除):" + chancesToRemove);
                             panelCommonItems.getItemCategory().setElementAt(new Empty(),pos);
-                            slotMachine.removeAll();
-                            for(int j = 0; j < 20; j++){
-                                JButton[] commonItemsButtons = new JButton[20];
-                                for(int i=0; i<20; i++){
-                                    commonItemsButtons[i] = new Empty().getIcon();
-                                    if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
-                                        commonItemsButtons[i] =
-                                                ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewItem().getIcon();
-                                    }
-                                    slotMachine.add(commonItemsButtons[i]);
-                                }
-                            }
+
                         } else {
                             return;
                         }
