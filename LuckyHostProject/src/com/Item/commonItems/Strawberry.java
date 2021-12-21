@@ -23,7 +23,7 @@ public class Strawberry extends CommonItem {
         int price =3;
         for(int i=0;i<20 ;i++){
             if(category.getItemCategory().elementAt(i).getName().equals("strawberry") &&
-                    this.isNear(i,this.getPosition())&&
+                    this.isNear(i,this.getPosition()) &&
                     !category.getItemCategory().elementAt(i).getPosition().equals(this.getPosition())){
                 price+=3;
             }

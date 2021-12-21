@@ -816,6 +816,9 @@ public class GameBoard {
         area.setText("");
 
         StringBuffer sb = new StringBuffer();
+        sb.append("总物品数:"
+                + (gameCommonItems.getItemCategory().size()+gameSpecialItems.getItemCategory().size())
+                + "\n");
         for(int i = 0; i < gameSpecialItems.getItemCategory().size(); i++){
             sb.append(gameSpecialItems.getItemCategory().elementAt(i).getName());
             sb.append(":");
