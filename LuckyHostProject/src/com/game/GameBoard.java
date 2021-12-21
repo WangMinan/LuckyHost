@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
+import java.lang.module.ResolvedModule;
 import java.util.Random;
 
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -30,6 +31,7 @@ public class GameBoard {
     private JPanel specialItemPanel;
     private JTextArea goldArea;
     private JFrame commonSelectFrame;
+    private JTextArea removeArea;
 
     /**
      * 每周老虎机希望达到的目标金币
@@ -44,37 +46,32 @@ public class GameBoard {
     /**
      * 基础物品所在的列表
      */
-    public ItemCategory commonItems;
+    private ItemCategory commonItems;
 
     /**
      * 特殊物品所在的列表
      */
-    public ItemCategory specialItems;
+    private ItemCategory specialItems;
 
     /**
      * 面板上的物品
      */
-    public ItemCategory panelCommonItems;
+    private ItemCategory panelCommonItems;
 
     /**
      * 游戏中通过选取得到的普通物品
      */
-    public ItemCategory gameCommonItems;
+    private ItemCategory gameCommonItems;
 
     /**
      * 游戏中通过选取得到的特殊物品
      */
-    public ItemCategory gameSpecialItems;
-
-    /**
-     * 物品栏里的所有物品
-     */
-    public ItemCategory inventory;
+    private ItemCategory gameSpecialItems;
 
     /**
      * 剩余的移除次数
      */
-    private int chancesToRemove;
+    private int chancesToRemove = 0;
 
     /**
      * 旋转计数器
@@ -87,26 +84,24 @@ public class GameBoard {
     public GameBoard() {
     }
 
-    /**
-     * 注释见上
-     * @param gameFrame
-     * @param targetMoney
-     * @param totalMoney
-     * @param commonItems
-     * @param specialItems
-     */
-    public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney, ItemCategory commonItems,
-                     ItemCategory specialItems, ItemCategory panelCommonItems,
-                     ItemCategory panelSpecialItems, ItemCategory inventory) {
-        this.gameFrame = gameFrame;
-        this.targetMoney = targetMoney;
-        this.totalMoney = totalMoney;
-        this.commonItems = commonItems;
-        this.specialItems = specialItems;
-        this.panelCommonItems = panelCommonItems;
-        //this.panelSpecialItems = panelSpecialItems;
-        this.inventory = inventory;
-    }
+//    /**
+//     * 注释见上
+//     * @param gameFrame
+//     * @param targetMoney
+//     * @param totalMoney
+//     * @param commonItems
+//     * @param specialItems
+//     */
+//    public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney, ItemCategory commonItems,
+//                     ItemCategory specialItems, ItemCategory panelCommonItems,
+//                     ItemCategory panelSpecialItems, ItemCategory inventory) {
+//        this.gameFrame = gameFrame;
+//        this.targetMoney = targetMoney;
+//        this.totalMoney = totalMoney;
+//        this.commonItems = commonItems;
+//        this.specialItems = specialItems;
+//        this.panelCommonItems = panelCommonItems;
+//    }
 
     /**
      * 开始新游戏
@@ -160,6 +155,7 @@ public class GameBoard {
             this.targetMoney = Integer.parseInt(br.readLine());
             this.totalMoney = Integer.parseInt(br.readLine());
             this.countDays = Integer.parseInt(br.readLine());
+            this.chancesToRemove = Integer.parseInt(br.readLine());
             //读取面板物品
             br.readLine();
             for(int i = 0; i < 20; i++){
@@ -253,16 +249,27 @@ public class GameBoard {
         });
 
         /**
+         * 剩余的删除次数
+         */
+        removeArea = new JTextArea();
+        removeArea.setBounds(0,410,200,50);
+        removeArea.setFont(new Font("Syria",Font.BOLD,20));
+        removeArea.setBackground(Color.ORANGE);
+        removeArea.setLineWrap(true);
+        removeArea.setText("剩余的移除次数(按下面板按钮移除):" + chancesToRemove);
+        removeArea.setForeground(Color.BLACK);
+        removeArea.setEditable(false);
+
+        /**
          * 金币数
          */
         goldArea = new JTextArea();
-        goldArea.setBounds(0,480,170,60);
+        goldArea.setBounds(0,480,200,60);
         goldArea.setFont(new Font("Syria",Font.BOLD,20));
         goldArea.setBackground(Color.orange);
         goldArea.setText("金币数：" + totalMoney);
-        goldArea.setForeground(Color.YELLOW);
+        goldArea.setForeground(Color.BLACK);
         goldArea.setEditable(false);
-
 
         /**
          * 返回按钮
@@ -292,11 +299,41 @@ public class GameBoard {
             commonItemsButtons[i] =
                 ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewItem().getIcon();
             slotMachine.add(commonItemsButtons[i]);
+
+            int pos = i;
+
+            /**
+             * 设置移除效果
+             */
+            commonItemsButtons[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(chancesToRemove > 0){
+                        chancesToRemove--;
+                        panelCommonItems.getItemCategory().setElementAt(new Empty(),pos);
+                        slotMachine.removeAll();
+                        for(int j = 0; j < 20; j++){
+                            JButton[] commonItemsButtons = new JButton[20];
+                            for(int i=0; i<20; i++){
+                                commonItemsButtons[i] = new Empty().getIcon();
+                                if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
+                                    commonItemsButtons[i] =
+                                            ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewItem().getIcon();
+                                }
+                                slotMachine.add(commonItemsButtons[i]);
+                            }
+                        }
+                    } else {
+                        return;
+                    }
+                }
+            });
         }
 
         this.gameFrame.add(slotMachine);
         this.gameFrame.add(specialItemPanel);
         this.gameFrame.add(rotateButton);
+        this.gameFrame.add(removeArea);
         this.gameFrame.add(goldArea);
         this.gameFrame.add(returnButton);
         this.gameFrame.setLayout(null);
@@ -404,16 +441,22 @@ public class GameBoard {
      */
     public void rotate(){
         //提示框
-        showMessageDialog(null,"离下次支付还有" + (7-countDays) + "天，下次需支付"
-                + targetMoney + "枚金币");
+        if(countDays != 6){
+            showMessageDialog(null,"离下次支付还有" + (6-countDays) + "天，下次需支付"
+                    + targetMoney + "枚金币");
+        }
 
         //算钱
-        totalMoney = totalMoney + calculateTotalMoney();
-        goldArea.setText("金币数：" + totalMoney);
+        int tmpNum = calculateTotalMoney();
+        totalMoney = totalMoney + tmpNum;
+        goldArea.setText("金币数：" + totalMoney + "\n上一次旋转得到" + tmpNum);
         //如果一周结束，扣除房租，下周房租加50
         if(countDays == 6 && judgeLose()){
             return;
         } else if(countDays == 6 && !judgeLose()){
+            showMessageDialog(this.gameFrame,"一周结束了,您获得了删除面板物品次数和选择特殊物品的机会。");
+            this.chancesToRemove += 2;
+            this.removeArea.setText("剩余的移除次数:" + chancesToRemove);
             this.totalMoney = this.totalMoney - targetMoney;
             this.targetMoney = this.targetMoney + 50;
             chooseSpecialItem();
@@ -846,6 +889,7 @@ public class GameBoard {
             fw.write(this.targetMoney + "\n");
             fw.write(this.totalMoney + "\n");
             fw.write(this.countDays + "\n");
+            fw.write(this.chancesToRemove + "\n");
 
             //先commonItems
             /*  规定存档格式
