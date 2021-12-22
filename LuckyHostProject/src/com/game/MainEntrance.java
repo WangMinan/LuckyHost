@@ -6,8 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * To define the main entrance of the game
  * @author WuSigan
- * @description To define the main entrance of the game
  * @see GameBoard
  */
 public class MainEntrance extends JFrame{
@@ -16,16 +16,12 @@ public class MainEntrance extends JFrame{
      */
     static public JFrame mainFrame;
 
-
-    public MainEntrance() {
-    }
-
     public MainEntrance(JFrame mainFrame) {
-        this.mainFrame = mainFrame;
+        MainEntrance.mainFrame = mainFrame;
 
     }
 
-    public static void main(String args[]){
+    public static void main(String[] args){
         //默认的字体样式
         //游戏主界面，设置大小为1024X576，尺寸不可改，颜色为橙色
         mainFrame = new JFrame("幸运房东");
