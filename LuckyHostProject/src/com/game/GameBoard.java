@@ -6,6 +6,8 @@ import com.Item.specialItems.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +16,7 @@ import java.awt.event.WindowEvent;
 import java.io.*;
 import java.lang.module.ResolvedModule;
 import java.util.Random;
+import java.util.Vector;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -32,6 +35,9 @@ public class GameBoard {
     private JTextArea goldArea;
     private JFrame commonSelectFrame;
     private JTextArea removeArea;
+    private JTextArea cntMoneyNotice;
+    private JPanel cntMoneyPanel;
+    private JTextArea[] cntMoneyAreas;
 
     /**
      * 每周老虎机希望达到的目标金币
@@ -41,6 +47,7 @@ public class GameBoard {
     /**
      * 玩家当前拥有的金币
      */
+
     private int totalMoney = 0;
 
     /**
@@ -83,25 +90,6 @@ public class GameBoard {
      */
     public GameBoard() {
     }
-
-//    /**
-//     * 注释见上
-//     * @param gameFrame
-//     * @param targetMoney
-//     * @param totalMoney
-//     * @param commonItems
-//     * @param specialItems
-//     */
-//    public GameBoard(JFrame gameFrame, int targetMoney, int totalMoney, ItemCategory commonItems,
-//                     ItemCategory specialItems, ItemCategory panelCommonItems,
-//                     ItemCategory panelSpecialItems, ItemCategory inventory) {
-//        this.gameFrame = gameFrame;
-//        this.targetMoney = targetMoney;
-//        this.totalMoney = totalMoney;
-//        this.commonItems = commonItems;
-//        this.specialItems = specialItems;
-//        this.panelCommonItems = panelCommonItems;
-//    }
 
     /**
      * 开始新游戏
@@ -271,6 +259,33 @@ public class GameBoard {
         goldArea.setForeground(Color.BLACK);
         goldArea.setEditable(false);
 
+        cntMoneyNotice = new JTextArea();
+        cntMoneyNotice.setBounds(830,0,200,25);
+        cntMoneyNotice.setFont(new Font("Syria",Font.BOLD,15));
+        cntMoneyNotice.setBackground(Color.ORANGE);
+        cntMoneyNotice.setText("上一次旋转中取得的金币");
+        cntMoneyNotice.setForeground(Color.BLACK);
+        cntMoneyNotice.setEditable(false);
+
+        cntMoneyPanel = new JPanel();
+        cntMoneyPanel.setBounds(840,40,150,120);
+        cntMoneyPanel.setLayout(new GridLayout(4,5));
+        cntMoneyPanel.setBackground(Color.ORANGE);
+        cntMoneyPanel.setBorder(BorderFactory.createEmptyBorder(1,1,1,1));
+        cntMoneyPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+        cntMoneyAreas = new JTextArea[20];
+        for(int i = 0; i < 20; i++){
+            cntMoneyAreas[i] = new JTextArea();
+            cntMoneyAreas[i].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            cntMoneyAreas[i].setBackground(Color.ORANGE);
+            cntMoneyAreas[i].setForeground(Color.BLACK);
+            cntMoneyAreas[i].setFont(new Font("Syria",Font.BOLD,15));
+            cntMoneyAreas[i].setText("0");
+            cntMoneyAreas[i].setEditable(false);
+            cntMoneyPanel.add(cntMoneyAreas[i]);
+        }
+
         /**
          * 返回按钮
          */
@@ -306,6 +321,8 @@ public class GameBoard {
         this.gameFrame.add(rotateButton);
         this.gameFrame.add(removeArea);
         this.gameFrame.add(goldArea);
+        this.gameFrame.add(cntMoneyNotice);
+        this.gameFrame.add(cntMoneyPanel);
         this.gameFrame.add(returnButton);
         this.gameFrame.setLayout(null);
         this.gameFrame.setSize(1024,576);
@@ -392,12 +409,19 @@ public class GameBoard {
 
         int total = 0;
 
+        int[] cntMoney = new int[20];
+
         for(int i=4;i>=0;i--){
             for(int j = 0; j < panelCommonItems.getItemCategory().size();j++){
                 if(((CommonItem)(panelCommonItems.getItemCategory().elementAt(j))).getPriority() == i){
-                    total = total + panelCommonItems.getItemCategory().elementAt(j).calculateMoney(panelCommonItems);
+                    cntMoney[j] = panelCommonItems.getItemCategory().elementAt(j).calculateMoney(panelCommonItems);
+                    total = total + cntMoney[j];
                 }
             }
+        }
+
+        for(int i = 0; i < 20; i++){
+            cntMoneyAreas[i].setText(""+cntMoney[i]);
         }
 
         for(int i = 0; i<gameSpecialItems.getItemCategory().size();i++){
@@ -425,7 +449,7 @@ public class GameBoard {
         if(countDays == 6 && judgeLose()){
             return;
         } else if(countDays == 6 && !judgeLose()){
-            showMessageDialog(this.gameFrame,"一周结束了,您获得了删除面板物品次数和选择特殊物品的机会。");
+            showMessageDialog(this.gameFrame,"一周结束了,您获得了删除面板物品次数和选择特殊物品的机会,本周房租将在下一次旋转后扣除。");
             this.chancesToRemove += 2;
             this.removeArea.setText("剩余普通物品的移除次数(按面板上的按钮移除):" + chancesToRemove);
             this.totalMoney = this.totalMoney - targetMoney;
