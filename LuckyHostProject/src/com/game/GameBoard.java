@@ -6,23 +6,17 @@ import com.Item.specialItems.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
-import java.lang.module.ResolvedModule;
 import java.util.Random;
-import java.util.Vector;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
+ * To define a gameBoard
  * @author WangMinan
- * @description To define a gameBoard
  * @see MainEntrance
  */
 public class GameBoard {
@@ -35,8 +29,6 @@ public class GameBoard {
     private JTextArea goldArea;
     private JFrame commonSelectFrame;
     private JTextArea removeArea;
-    private JTextArea cntMoneyNotice;
-    private JPanel cntMoneyPanel;
     private JTextArea[] cntMoneyAreas;
 
     /**
@@ -186,8 +178,6 @@ public class GameBoard {
 
             br.close();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -200,8 +190,8 @@ public class GameBoard {
      */
     public void play(){
 
-        /**
-         * 老虎机panel
+        /*
+          老虎机panel
          */
         slotMachine = new JPanel();
         slotMachine.setLayout(new GridLayout(4,5));
@@ -209,8 +199,8 @@ public class GameBoard {
         slotMachine.setBounds(210,0,610,460);
         slotMachine.setBackground(Color.white);
 
-        /**
-         * 特殊物品panel
+        /*
+          特殊物品panel
          */
         specialItemPanel = new JPanel();
         //specialItemPanel.setLayout(null);
@@ -221,23 +211,18 @@ public class GameBoard {
             specialItemPanel.add(gameSpecialItems.getItemCategory().elementAt(i).createNewItem().getIcon());
         }
 
-        /**
-         * 旋转按钮
+        /*
+          旋转按钮
          */
         JButton rotateButton = new JButton("旋转");
         rotateButton.setBounds(428,472,170,60);
         rotateButton.setFont(new Font("Syria",Font.BOLD,50));
         rotateButton.setBackground(new Color(17,201,99));
         rotateButton.setFocusPainted(false);
-        rotateButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rotate();
-            }
-        });
+        rotateButton.addActionListener(e -> rotate());
 
-        /**
-         * 剩余的删除次数
+        /*
+          剩余的删除次数
          */
         removeArea = new JTextArea();
         removeArea.setBounds(0,420,200,50);
@@ -248,8 +233,8 @@ public class GameBoard {
         removeArea.setForeground(Color.BLACK);
         removeArea.setEditable(false);
 
-        /**
-         * 金币数
+        /*
+          金币数
          */
         goldArea = new JTextArea();
         goldArea.setBounds(0,480,200,60);
@@ -259,7 +244,7 @@ public class GameBoard {
         goldArea.setForeground(Color.BLACK);
         goldArea.setEditable(false);
 
-        cntMoneyNotice = new JTextArea();
+        JTextArea cntMoneyNotice = new JTextArea();
         cntMoneyNotice.setBounds(830,0,200,25);
         cntMoneyNotice.setFont(new Font("Syria",Font.BOLD,15));
         cntMoneyNotice.setBackground(Color.ORANGE);
@@ -267,7 +252,7 @@ public class GameBoard {
         cntMoneyNotice.setForeground(Color.BLACK);
         cntMoneyNotice.setEditable(false);
 
-        cntMoneyPanel = new JPanel();
+        JPanel cntMoneyPanel = new JPanel();
         cntMoneyPanel.setBounds(840,40,150,120);
         cntMoneyPanel.setLayout(new GridLayout(4,5));
         cntMoneyPanel.setBackground(Color.ORANGE);
@@ -286,24 +271,21 @@ public class GameBoard {
             cntMoneyPanel.add(cntMoneyAreas[i]);
         }
 
-        /**
-         * 返回按钮
+        /*
+          返回按钮
          */
         JButton returnButton = new JButton("返回");
         returnButton.setFocusPainted(false);
         returnButton.setBounds(850,472,170,60);
         returnButton.setFont(new Font("Syria",Font.BOLD,40));
-        returnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                revise();
-                gameFrame.dispose();
-                MainEntrance.mainFrame.setVisible(true);
-            }
+        returnButton.addActionListener(e -> {
+            revise();
+            gameFrame.dispose();
+            MainEntrance.mainFrame.setVisible(true);
         });
 
-        /**
-         * 更改JFrame颜色
+        /*
+          更改JFrame颜色
          */
         Container container = gameFrame.getContentPane();
         container.setBackground(Color.orange);
@@ -481,9 +463,6 @@ public class GameBoard {
         } else {
             //取20个
             int[] a = new int[gameCommonItems.getItemCategory().size()];
-            for(int i=0;i<a.length;i++){
-                a[i] = 0;
-            }
 
             int cnt = 0;
             while(cnt < 20){
@@ -501,8 +480,8 @@ public class GameBoard {
                 }
             }
 
-            /**
-             * 加入老虎机之后设定位置
+            /*
+              加入老虎机之后设定位置
              */
             for(int i=0; i<20; i++){
                 ItemPosition tmpPosition = new ItemPosition();
@@ -512,8 +491,8 @@ public class GameBoard {
             }
         }
 
-        /**
-         * 重新绘图
+        /*
+          重新绘图
          */
         slotMachine.removeAll();
         JButton[] commonItemsButtons = new JButton[20];
@@ -525,23 +504,20 @@ public class GameBoard {
 
                 int pos = i;
 
-                /**
-                 * 设置移除效果
+                /*
+                  设置移除效果
                  */
-                commonItemsButtons[i].addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if(chancesToRemove > 0){
-                            chancesToRemove--;
-                            showMessageDialog(slotMachine,
-                                    panelCommonItems.getItemCategory().elementAt(pos).getName()
-                                    + "将在下一次旋转时被移除");
-                            removeArea.setText("剩余的移除次数(按下面板按钮移除):" + chancesToRemove);
-                            panelCommonItems.getItemCategory().setElementAt(new Empty(),pos);
+                commonItemsButtons[i].addActionListener(e -> {
+                    if(chancesToRemove > 0){
+                        chancesToRemove--;
+                        showMessageDialog(slotMachine,
+                                panelCommonItems.getItemCategory().elementAt(pos).getName()
+                                + "将在下一次旋转时被移除");
+                        removeArea.setText("剩余的移除次数(按下面板按钮移除):" + chancesToRemove);
+                        panelCommonItems.getItemCategory().setElementAt(new Empty(),pos);
 
-                        } else {
-                            return;
-                        }
+                    } else {
+                        return;
                     }
                 });
             }
@@ -572,29 +548,21 @@ public class GameBoard {
         skipButton.setFocusPainted(false);
         skipButton.setBounds(430,0,100,40);
         skipButton.setFont(new Font("Syria",Font.BOLD,20));
-        skipButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                updateSlotMachine();
-                //commonSelectFrame.setVisible(false);
-                commonSelectFrame.dispose();
-                gameFrame.setVisible(true);
-            }
+        skipButton.addActionListener(e -> {
+            updateSlotMachine();
+            //commonSelectFrame.setVisible(false);
+            commonSelectFrame.dispose();
+            gameFrame.setVisible(true);
         });
 
-        /**
-         * 物品栏按钮
+        /*
+          物品栏按钮
          */
         JButton materialButton = new JButton("物品栏");
         materialButton.setFocusPainted(false);
         materialButton.setBounds(850,0,100,40);
         materialButton.setFont(new Font("Syria",Font.BOLD,20));
-        materialButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showMaterialFrame();
-            }
-        });
+        materialButton.addActionListener(e -> showMaterialFrame());
 
         //左中右三个panel
         JPanel[] selectPanels = new JPanel[3];
@@ -631,16 +599,13 @@ public class GameBoard {
             options[i].setBounds(100,0,50,50);
             CommonItem tmpItem =
                     ((CommonItem) commonItems.getItemCategory().elementAt(itemPos[i])).createNewItem();
-            options[i].addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    //更新panelCommonItems
-                    gameCommonItems.getItemCategory().addElement(tmpItem);
-                    updateSlotMachine();
+            options[i].addActionListener(e -> {
+                //更新panelCommonItems
+                gameCommonItems.getItemCategory().addElement(tmpItem);
+                updateSlotMachine();
 
-                    commonSelectFrame.dispose();
-                    gameFrame.setVisible(true);
-                }
+                commonSelectFrame.dispose();
+                gameFrame.setVisible(true);
             });
 
             //描述界面
@@ -685,8 +650,8 @@ public class GameBoard {
      */
     public void chooseSpecialItem(){
 
-        /**
-         * 规定上限
+        /*
+          规定上限
          */
         if(gameSpecialItems.getItemCategory().size() > 2){
             return;
@@ -699,13 +664,10 @@ public class GameBoard {
         skipButton.setBounds(430,0,100,40);
         skipButton.setFont(new Font("Syria",Font.BOLD,20));
         skipButton.setFocusPainted(false);
-        skipButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //selectFrame.setVisible(false);
-                selectFrame.dispose();
-                commonSelectFrame.setVisible(true);
-            }
+        skipButton.addActionListener(e -> {
+            //selectFrame.setVisible(false);
+            selectFrame.dispose();
+            commonSelectFrame.setVisible(true);
         });
 
         //左中右三个panel
@@ -727,8 +689,8 @@ public class GameBoard {
         while(cnt<3){
             Random random = new Random();
             int pos = random.nextInt(specialItems.getItemCategory().size());
-            /**
-             * 同一次内不重复
+            /*
+              同一次内不重复
              */
             if(pos != itemPos[0] && pos != itemPos[1] && pos != itemPos[2]){
                 itemPos[cnt] = pos;
@@ -744,27 +706,24 @@ public class GameBoard {
             options[i] = ((SpecialItem)specialItems.getItemCategory().elementAt(itemPos[i])).createNewItem().getIcon();
             options[i].setBounds(100,0,50,50);
             SpecialItem tmpItem = (SpecialItem) specialItems.getItemCategory().elementAt(itemPos[i]);
-            options[i].addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    gameSpecialItems.addItem(tmpItem);
+            options[i].addActionListener(e -> {
+                gameSpecialItems.addItem(tmpItem);
 
-                    specialItemPanel.removeAll();
-                    int tmpX = 0;
-                    int tmpY = 0;
-                    for(int j = 0;j<gameSpecialItems.getItemCategory().size();j++){
-                        JButton button = ((SpecialItem)gameSpecialItems.getItemCategory().elementAt(j)).createNewItem().getIcon();
-                        button.setBounds(tmpX,tmpY,50,50);
-                        if(j%2 == 1){
-                            tmpX = 0;
-                            tmpY += 50;
-                        }
-                        tmpX+=100;
-                        specialItemPanel.add(button);
+                specialItemPanel.removeAll();
+                int tmpX = 0;
+                int tmpY = 0;
+                for(int j = 0;j<gameSpecialItems.getItemCategory().size();j++){
+                    JButton button = ((SpecialItem)gameSpecialItems.getItemCategory().elementAt(j)).createNewItem().getIcon();
+                    button.setBounds(tmpX,tmpY,50,50);
+                    if(j%2 == 1){
+                        tmpX = 0;
+                        tmpY += 50;
                     }
-
-                    selectFrame.dispose();
+                    tmpX+=100;
+                    specialItemPanel.add(button);
                 }
+
+                selectFrame.dispose();
             });
 
             //描述界面
@@ -813,13 +772,10 @@ public class GameBoard {
         JButton returnButton = new JButton("返回");
         returnButton.setFont(new Font("Syria",Font.BOLD,20));
         returnButton.setBounds(850,0,100,40);
-        returnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                materialFrame.removeAll();
-                materialFrame.dispose();
-                commonSelectFrame.setVisible(true);
-            }
+        returnButton.addActionListener(e -> {
+            materialFrame.removeAll();
+            materialFrame.dispose();
+            commonSelectFrame.setVisible(true);
         });
 
         JTextArea area = new JTextArea();
@@ -840,9 +796,7 @@ public class GameBoard {
         area.setText("");
 
         StringBuffer sb = new StringBuffer();
-        sb.append("总物品数:"
-                + (gameCommonItems.getItemCategory().size()+gameSpecialItems.getItemCategory().size())
-                + "\n");
+        sb.append("总物品数:").append(gameCommonItems.getItemCategory().size() + gameSpecialItems.getItemCategory().size()).append("\n");
         for(int i = 0; i < gameSpecialItems.getItemCategory().size(); i++){
             sb.append(gameSpecialItems.getItemCategory().elementAt(i).getName());
             sb.append(":");
@@ -946,7 +900,7 @@ public class GameBoard {
     /**
      * 临时测试用主函数，不代表最后函数
      */
-    public static void main(String args[]){
+    public static void main(String[] args){
         GameBoard gameBoard = new GameBoard();
         gameBoard.initNewGame();
     }
