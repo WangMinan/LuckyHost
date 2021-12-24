@@ -900,8 +900,8 @@ public class GameBoard {
     /**
      * 临时测试用主函数，不代表最后函数
      */
-    public static void main(String[] args){
-        GameBoard gameBoard = new GameBoard();
-        gameBoard.initNewGame();
-    }
+//    public static void main(String[] args){
+//        GameBoard gameBoard = new GameBoard();
+//        gameBoard.initNewGame();
+//    }
 }
