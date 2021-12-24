@@ -4,6 +4,10 @@ import com.Item.*;
 import com.Item.commonItems.*;
 import com.Item.specialItems.*;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -272,14 +276,31 @@ public class GameBoard {
         }
 
         /*
+            播放按钮
+         */
+        JButton playButton = new JButton("播放音乐");
+        playButton.setFocusPainted(false);
+        playButton.setBounds(850,330,170,60);
+        playButton.setFont(new Font("Syria",Font.BOLD,30));
+        playButton.addActionListener(e -> MainEntrance.clip.start());
+
+        /*
+            静音按钮
+         */
+        JButton silenceButton = new JButton("静音");
+        silenceButton.setFocusPainted(false);
+        silenceButton.setBounds(850,400,170,60);
+        silenceButton.setFont(new Font("Syria",Font.BOLD,40));
+        silenceButton.addActionListener(e -> MainEntrance.clip.stop());
+
+        /*
           返回按钮
          */
         JButton returnButton = new JButton("返回");
         returnButton.setFocusPainted(false);
-        returnButton.setBounds(850,472,170,60);
+        returnButton.setBounds(850,470,170,60);
         returnButton.setFont(new Font("Syria",Font.BOLD,40));
         returnButton.addActionListener(e -> {
-            revise();
             gameFrame.dispose();
             MainEntrance.mainFrame.setVisible(true);
         });
@@ -305,6 +326,8 @@ public class GameBoard {
         this.gameFrame.add(goldArea);
         this.gameFrame.add(cntMoneyNotice);
         this.gameFrame.add(cntMoneyPanel);
+        this.gameFrame.add(playButton);
+        this.gameFrame.add(silenceButton);
         this.gameFrame.add(returnButton);
         this.gameFrame.setLayout(null);
         this.gameFrame.setSize(1024,576);
@@ -314,13 +337,39 @@ public class GameBoard {
             public void windowClosed(WindowEvent e){
                 //System.out.println("hi");
                 super.windowClosed(e);
+
+                //更换背景音乐
+                File file = new File("music/mainEntranceBGM.wav");
+                try {
+                    MainEntrance.clip.stop();
+                    MainEntrance.audioInputStream = AudioSystem.getAudioInputStream(file);
+                    MainEntrance.clip = AudioSystem.getClip();
+                    MainEntrance.clip.open(MainEntrance.audioInputStream);
+                    MainEntrance.clip.start();
+                    MainEntrance.clip.loop(Clip.LOOP_CONTINUOUSLY);
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+                    e1.printStackTrace();
+                }
+
                 revise();
             }
 
             @Override
             public void windowClosing(WindowEvent e){
-                //System.out.println("hi");
                 super.windowClosed(e);
+
+                //更换背景音乐
+                File file = new File("music/mainEntranceBGM.wav");
+                try {
+                    MainEntrance.clip.stop();
+                    MainEntrance.audioInputStream = AudioSystem.getAudioInputStream(file);
+                    MainEntrance.clip = AudioSystem.getClip();
+                    MainEntrance.clip.open(MainEntrance.audioInputStream);
+                    MainEntrance.clip.start();
+                    MainEntrance.clip.loop(Clip.LOOP_CONTINUOUSLY);
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+                    e1.printStackTrace();
+                }
                 revise();
             }
         });
@@ -896,12 +945,4 @@ public class GameBoard {
         }
 
     }
-
-    /**
-     * 临时测试用主函数，不代表最后函数
-     */
-//    public static void main(String[] args){
-//        GameBoard gameBoard = new GameBoard();
-//        gameBoard.initNewGame();
-//    }
 }

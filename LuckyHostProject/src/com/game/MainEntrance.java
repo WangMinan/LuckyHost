@@ -1,9 +1,14 @@
 package com.game;
 
+import com.sun.tools.javac.Main;
+
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * To define the main entrance of the game
@@ -15,13 +20,29 @@ public class MainEntrance extends JFrame{
      * 游戏欢迎界面，有新游戏、继续、退出三个按钮
      */
     static public JFrame mainFrame;
+    static public AudioInputStream audioInputStream;
+    static public Clip clip;
 
     public MainEntrance(JFrame mainFrame) {
         MainEntrance.mainFrame = mainFrame;
-
     }
 
+
+
     public static void main(String[] args){
+
+        File file = new File("music/mainEntranceBGM.wav");
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+
+
         //默认的字体样式
         //游戏主界面，设置大小为1024X576，尺寸不可改，颜色为橙色
         mainFrame = new JFrame("幸运房东");
@@ -61,18 +82,49 @@ public class MainEntrance extends JFrame{
         exitButton.addActionListener(new ExitListener());
         exitButton.setFocusPainted(false);
 
+        //开启声音的按钮
+        JButton playButton = new JButton("播放声音");
+        playButton.setBounds(790,10,100,40);
+        playButton.setFont(new Font("Syria",Font.BOLD,15));
+        playButton.addActionListener(new PlayButtonListener());
+        playButton.setFocusPainted(false);
+
+        //关闭声音的按钮
+        JButton silenceButton = new JButton("静音");
+        silenceButton.setBounds(900,10,100,40);
+        silenceButton.setFont(new Font("Syria",Font.BOLD,15));
+        silenceButton.addActionListener(new SilenceButtonListener());
+        silenceButton.setFocusPainted(false);
+
         mainFrame.add(startText);
         mainFrame.add(startButton);
         mainFrame.add(continueButton);
         mainFrame.add(exitButton);
+        mainFrame.add(playButton);
+        mainFrame.add(silenceButton);
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setVisible(true);
     }
 }
 
  class StartActionListener implements ActionListener {
      @Override
      public void actionPerformed(ActionEvent e) {
+
+         //更换背景音乐
+         File file = new File("music/gameBoardBGM.wav");
+         try {
+             MainEntrance.clip.stop();
+             MainEntrance.audioInputStream = AudioSystem.getAudioInputStream(file);
+             MainEntrance.clip = AudioSystem.getClip();
+             MainEntrance.clip.open(MainEntrance.audioInputStream);
+             MainEntrance.clip.start();
+             MainEntrance.clip.loop(Clip.LOOP_CONTINUOUSLY);
+         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+             e1.printStackTrace();
+         }
+
          MainEntrance.mainFrame.setVisible(false);
          GameBoard gameBoard = new GameBoard();
          gameBoard.initNewGame();
@@ -83,7 +135,20 @@ public class MainEntrance extends JFrame{
 
      @Override
      public void actionPerformed(ActionEvent e) {
-        MainEntrance.mainFrame.setVisible(false);
+         //更换背景音乐
+         File file = new File("music/gameBoardBGM.wav");
+         try {
+             MainEntrance.clip.stop();
+             MainEntrance.audioInputStream = AudioSystem.getAudioInputStream(file);
+             MainEntrance.clip = AudioSystem.getClip();
+             MainEntrance.clip.open(MainEntrance.audioInputStream);
+             MainEntrance.clip.start();
+             MainEntrance.clip.loop(Clip.LOOP_CONTINUOUSLY);
+         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+             e1.printStackTrace();
+         }
+
+         MainEntrance.mainFrame.setVisible(false);
         GameBoard gameBoard = new GameBoard();
         gameBoard.initLoadedGame();
      }
@@ -96,3 +161,21 @@ public class MainEntrance extends JFrame{
          System.exit(0);
      }
  }
+
+ class PlayButtonListener implements ActionListener{
+
+     @Override
+     public void actionPerformed(ActionEvent e) {
+         MainEntrance.clip.start();
+         MainEntrance.clip.loop(Clip.LOOP_CONTINUOUSLY);
+     }
+ }
+
+ class SilenceButtonListener implements ActionListener{
+
+     @Override
+     public void actionPerformed(ActionEvent e) {
+         MainEntrance.clip.stop();
+     }
+ }
+
