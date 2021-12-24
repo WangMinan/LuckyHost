@@ -290,7 +290,7 @@ public class GameBoard {
         JButton silenceButton = new JButton("静音");
         silenceButton.setFocusPainted(false);
         silenceButton.setBounds(850,400,170,60);
-        silenceButton.setFont(new Font("Syria",Font.BOLD,40));
+        silenceButton.setFont(new Font("Syria",Font.BOLD,30));
         silenceButton.addActionListener(e -> MainEntrance.clip.stop());
 
         /*
