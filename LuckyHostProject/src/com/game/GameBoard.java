@@ -845,7 +845,15 @@ public class GameBoard {
         area.setText("");
 
         StringBuffer sb = new StringBuffer();
-        sb.append("总物品数:").append(gameCommonItems.getItemCategory().size() + gameSpecialItems.getItemCategory().size()).append("\n");
+        int tmpCnt;
+        //排除移除后出现的总数不减bug
+        tmpCnt = gameSpecialItems.getItemCategory().size();
+        for(int i = 0; i < gameCommonItems.getItemCategory().size(); i++){
+            if(!gameCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
+                tmpCnt++;
+            }
+        }
+        sb.append("总物品数:").append(""+tmpCnt).append("\n");
         for(int i = 0; i < gameSpecialItems.getItemCategory().size(); i++){
             sb.append(gameSpecialItems.getItemCategory().elementAt(i).getName());
             sb.append(":");
@@ -853,10 +861,12 @@ public class GameBoard {
             sb.append("\n");
         }
         for(int i = 0; i < gameCommonItems.getItemCategory().size(); i++){
-            sb.append(gameCommonItems.getItemCategory().elementAt(i).getName());
-            sb.append(": ");
-            sb.append(gameCommonItems.getItemCategory().elementAt(i).getDescription());
-            sb.append("\n");
+            if(!gameCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
+                sb.append(gameCommonItems.getItemCategory().elementAt(i).getName());
+                sb.append(": ");
+                sb.append(gameCommonItems.getItemCategory().elementAt(i).getDescription());
+                sb.append("\n");
+            }
         }
 
         area.setText(sb.toString());
