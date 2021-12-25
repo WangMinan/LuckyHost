@@ -10,7 +10,7 @@ import javax.swing.*;
  */
 public class CommonItem extends Item{
     /**
-     * @param priority
+     * priority
      * 1：基础物品，可被消除，可被加成
      * 2：加成物品，可为其他物品提供加成
      * 3：消除物品，可消除其他物品
