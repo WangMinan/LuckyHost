@@ -8,7 +8,6 @@ import javax.swing.*;
  * @version 0.0.1
  */
 public class Item {
-    protected final int PANEL_SIZE = 20;
 
     private String name = "empty";
     private JButton icon = new JButton();
