@@ -29,6 +29,7 @@ public class MainEntrance extends JFrame{
 
     public static void main(String[] args){
 
+        //更换背景音乐
         File file = new File("music/mainEntranceBGM.wav");
         try {
             audioInputStream = AudioSystem.getAudioInputStream(file);
@@ -39,7 +40,6 @@ public class MainEntrance extends JFrame{
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
-
 
         //默认的字体样式
         //游戏主界面，设置大小为1024X576，尺寸不可改，颜色为橙色

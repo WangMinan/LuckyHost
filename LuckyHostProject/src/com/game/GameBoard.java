@@ -88,6 +88,44 @@ public class GameBoard {
     }
 
     /**
+     * 基础化所有物品
+     */
+    public void initItemCategories(){
+
+        this.commonItems = new ItemCategory();
+        this.specialItems = new ItemCategory();
+
+        commonItems.addItem(new Bee());
+        commonItems.addItem(new Bubble());
+        commonItems.addItem(new Cat());
+        commonItems.addItem(new Coconut());
+        commonItems.addItem(new Coin());
+        commonItems.addItem(new Cow());
+        commonItems.addItem(new Empty());
+        commonItems.addItem(new Fish());
+        commonItems.addItem(new Flower());
+        commonItems.addItem(new GoldEgg());
+        commonItems.addItem(new Goose());
+        commonItems.addItem(new HalfCoconut());
+        commonItems.addItem(new HollowFruit());
+        commonItems.addItem(new Key());
+        commonItems.addItem(new Milk());
+        commonItems.addItem(new Monkey());
+        commonItems.addItem(new Pearl());
+        commonItems.addItem(new Rain());
+        commonItems.addItem(new Strawberry());
+        commonItems.addItem(new Sun());
+        commonItems.addItem(new TreasureCase());
+
+        specialItems.addItem(new BlackPepper());
+        specialItems.addItem(new GreyPepper());
+        specialItems.addItem(new LockRemover());
+        specialItems.addItem(new MonkeyOlivander());
+        specialItems.addItem(new RainCloud());
+
+    }
+
+    /**
      * 开始新游戏
      */
     public void initNewGame(){
@@ -378,41 +416,33 @@ public class GameBoard {
     }
 
     /**
-     * 基础化所有物品
+     * 旋转
      */
-    public void initItemCategories(){
+    public void rotate(){
+        //提示框
+        if(countDays != 6){
+            showMessageDialog(null,"离下次支付还有" + (6-countDays) + "天，下次需支付"
+                    + targetMoney + "枚金币");
+        }
 
-        this.commonItems = new ItemCategory();
-        this.specialItems = new ItemCategory();
-
-        commonItems.addItem(new Bee());
-        commonItems.addItem(new Bubble());
-        commonItems.addItem(new Cat());
-        commonItems.addItem(new Coconut());
-        commonItems.addItem(new Coin());
-        commonItems.addItem(new Cow());
-        commonItems.addItem(new Empty());
-        commonItems.addItem(new Fish());
-        commonItems.addItem(new Flower());
-        commonItems.addItem(new GoldEgg());
-        commonItems.addItem(new Goose());
-        commonItems.addItem(new HalfCoconut());
-        commonItems.addItem(new HollowFruit());
-        commonItems.addItem(new Key());
-        commonItems.addItem(new Milk());
-        commonItems.addItem(new Monkey());
-        commonItems.addItem(new Pearl());
-        commonItems.addItem(new Rain());
-        commonItems.addItem(new Strawberry());
-        commonItems.addItem(new Sun());
-        commonItems.addItem(new TreasureCase());
-
-        specialItems.addItem(new BlackPepper());
-        specialItems.addItem(new GreyPepper());
-        specialItems.addItem(new LockRemover());
-        specialItems.addItem(new MonkeyOlivander());
-        specialItems.addItem(new RainCloud());
-
+        //算钱
+        int tmpNum = calculateTotalMoney();
+        totalMoney = totalMoney + tmpNum;
+        goldArea.setText("金币数：" + totalMoney + "\n上一次旋转得到" + tmpNum);
+        //如果一周结束，扣除房租，下周房租加50
+        if(countDays == 6 && judgeLose()){
+            return;
+        } else if(countDays == 6 && !judgeLose()){
+            showMessageDialog(this.gameFrame,"一周结束了,您获得了删除面板物品次数和选择特殊物品的机会,本周房租将在下一次旋转后扣除。");
+            this.chancesToRemove += 2;
+            this.removeArea.setText("剩余普通物品的移除次数(按面板上的按钮移除):" + chancesToRemove);
+            this.totalMoney = this.totalMoney - targetMoney;
+            this.targetMoney = this.targetMoney + 50;
+            chooseSpecialItem();
+            chooseCommonItem();
+        } else {
+            chooseCommonItem();
+        }
     }
 
     /**
@@ -460,119 +490,6 @@ public class GameBoard {
         }
 
         return total;
-    }
-
-    /**
-     * 旋转
-     */
-    public void rotate(){
-        //提示框
-        if(countDays != 6){
-            showMessageDialog(null,"离下次支付还有" + (6-countDays) + "天，下次需支付"
-                    + targetMoney + "枚金币");
-        }
-
-        //算钱
-        int tmpNum = calculateTotalMoney();
-        totalMoney = totalMoney + tmpNum;
-        goldArea.setText("金币数：" + totalMoney + "\n上一次旋转得到" + tmpNum);
-        //如果一周结束，扣除房租，下周房租加50
-        if(countDays == 6 && judgeLose()){
-            return;
-        } else if(countDays == 6 && !judgeLose()){
-            showMessageDialog(this.gameFrame,"一周结束了,您获得了删除面板物品次数和选择特殊物品的机会,本周房租将在下一次旋转后扣除。");
-            this.chancesToRemove += 2;
-            this.removeArea.setText("剩余普通物品的移除次数(按面板上的按钮移除):" + chancesToRemove);
-            this.totalMoney = this.totalMoney - targetMoney;
-            this.targetMoney = this.targetMoney + 50;
-            chooseSpecialItem();
-            chooseCommonItem();
-        } else {
-            chooseCommonItem();
-        }
-    }
-
-    /**
-     * 更新老虎机界面
-     */
-    public void updateSlotMachine(){
-
-        //将panelCommonItems中的物品全部变成空
-        for(int i = 0;i<20;i++){
-            panelCommonItems.getItemCategory().addElement(new Empty());
-        }
-
-        if(gameCommonItems.getItemCategory().size()<=20){
-            //全部取
-            for(int i = 0; i <gameCommonItems.getItemCategory().size(); i++){
-                givePosition(((CommonItem) gameCommonItems.getItemCategory().elementAt(i)).createNewItem());
-            }
-            //从gameItem里面删去加入老虎机的部分
-            gameCommonItems.getItemCategory().clear();
-        } else {
-            //取20个
-            int[] a = new int[gameCommonItems.getItemCategory().size()];
-
-            int cnt = 0;
-            while(cnt < 20){
-                int totalNum = gameCommonItems.getItemCategory().size();
-                Random rnd = new Random();
-                int pos = rnd.nextInt(totalNum);
-                int pos1 = rnd.nextInt(20);
-                if(a[pos1] == 0){
-                    a[pos1] = 1;
-                    panelCommonItems.getItemCategory().setElementAt(
-                            ((CommonItem)gameCommonItems.getItemCategory().elementAt(pos)).createNewItem(),
-                            pos1);
-                    gameCommonItems.getItemCategory().removeElementAt(pos);
-                    cnt++;
-                }
-            }
-
-            /*
-              加入老虎机之后设定位置
-             */
-            for(int i=0; i<20; i++){
-                ItemPosition tmpPosition = new ItemPosition();
-                tmpPosition.setRow(i/5);
-                tmpPosition.setColum(i%5);
-                panelCommonItems.getItemCategory().elementAt(i).setPosition(tmpPosition);
-            }
-        }
-
-        /*
-          重新绘图
-         */
-        slotMachine.removeAll();
-        JButton[] commonItemsButtons = new JButton[20];
-        for(int i=0; i<20; i++){
-            commonItemsButtons[i] = new Empty().getIcon();
-            if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
-                commonItemsButtons[i] =
-                    ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewItem().getIcon();
-
-                int pos = i;
-
-                /*
-                  设置移除效果
-                 */
-                commonItemsButtons[i].addActionListener(e -> {
-                    if(chancesToRemove > 0){
-                        chancesToRemove--;
-                        showMessageDialog(slotMachine,
-                                panelCommonItems.getItemCategory().elementAt(pos).getName()
-                                + "将在下一次旋转时被移除");
-                        removeArea.setText("剩余的移除次数(按下面板按钮移除):" + chancesToRemove);
-                        panelCommonItems.getItemCategory().setElementAt(new Empty(),pos);
-
-                    } else {
-                        return;
-                    }
-                });
-            }
-            slotMachine.add(commonItemsButtons[i]);
-        }
-
     }
 
     /**
@@ -805,6 +722,88 @@ public class GameBoard {
         //保证选取窗口前置
         selectFrame.setAlwaysOnTop(!selectFrame.isAlwaysOnTop());
         selectFrame.setVisible(true);
+    }
+    /**
+     * 更新老虎机界面
+     */
+    public void updateSlotMachine(){
+
+        //将panelCommonItems中的物品全部变成空
+        for(int i = 0;i<20;i++){
+            panelCommonItems.getItemCategory().addElement(new Empty());
+        }
+
+        if(gameCommonItems.getItemCategory().size()<=20){
+            //全部取
+            for(int i = 0; i <gameCommonItems.getItemCategory().size(); i++){
+                givePosition(((CommonItem) gameCommonItems.getItemCategory().elementAt(i)).createNewItem());
+            }
+            //从gameItem里面删去加入老虎机的部分
+            gameCommonItems.getItemCategory().clear();
+        } else {
+            //取20个
+            int[] a = new int[gameCommonItems.getItemCategory().size()];
+
+            int cnt = 0;
+            while(cnt < 20){
+                int totalNum = gameCommonItems.getItemCategory().size();
+                Random rnd = new Random();
+                int pos = rnd.nextInt(totalNum);
+                int pos1 = rnd.nextInt(20);
+                if(a[pos1] == 0){
+                    a[pos1] = 1;
+                    panelCommonItems.getItemCategory().setElementAt(
+                            ((CommonItem)gameCommonItems.getItemCategory().elementAt(pos)).createNewItem(),
+                            pos1);
+                    gameCommonItems.getItemCategory().removeElementAt(pos);
+                    cnt++;
+                }
+            }
+
+            /*
+              加入老虎机之后设定位置
+             */
+            for(int i=0; i<20; i++){
+                ItemPosition tmpPosition = new ItemPosition();
+                tmpPosition.setRow(i/5);
+                tmpPosition.setColum(i%5);
+                panelCommonItems.getItemCategory().elementAt(i).setPosition(tmpPosition);
+            }
+        }
+
+        /*
+          重新绘图
+         */
+        slotMachine.removeAll();
+        JButton[] commonItemsButtons = new JButton[20];
+        for(int i=0; i<20; i++){
+            commonItemsButtons[i] = new Empty().getIcon();
+            if(!panelCommonItems.getItemCategory().elementAt(i).getName().equals("empty")){
+                commonItemsButtons[i] =
+                        ((CommonItem)panelCommonItems.getItemCategory().elementAt(i)).createNewItem().getIcon();
+
+                int pos = i;
+
+                /*
+                  设置移除效果
+                 */
+                commonItemsButtons[i].addActionListener(e -> {
+                    if(chancesToRemove > 0){
+                        chancesToRemove--;
+                        showMessageDialog(slotMachine,
+                                panelCommonItems.getItemCategory().elementAt(pos).getName()
+                                        + "将在下一次旋转时被移除");
+                        removeArea.setText("剩余的移除次数(按下面板按钮移除):" + chancesToRemove);
+                        panelCommonItems.getItemCategory().setElementAt(new Empty(),pos);
+
+                    } else {
+                        return;
+                    }
+                });
+            }
+            slotMachine.add(commonItemsButtons[i]);
+        }
+
     }
 
     /**
