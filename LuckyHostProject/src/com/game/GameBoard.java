@@ -34,7 +34,6 @@ public class GameBoard {
     private JFrame commonSelectFrame;
     private JTextArea removeArea;
     private JTextArea[] cntMoneyAreas;
-
     /**
      * 每周老虎机希望达到的目标金币
      */
